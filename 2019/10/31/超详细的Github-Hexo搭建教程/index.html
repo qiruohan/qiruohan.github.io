@@ -20,11 +20,14 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;articles&#x2F;i_3.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;articles&#x2F;i_4.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;articles&#x2F;i_5.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;articles&#x2F;i_10.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;articles&#x2F;i_11.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;articles&#x2F;i_6.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;articles&#x2F;i_7.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;articles&#x2F;i_8.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;articles&#x2F;i_9.png">
-<meta property="og:updated_time" content="2020-01-03T11:43:49.086Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;articles&#x2F;i_12.png">
+<meta property="og:updated_time" content="2020-01-03T12:12:35.673Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;articles&#x2F;i_1.jpg">
   
@@ -206,7 +209,7 @@
 <p>检测 npm 是否安装成功，在命令行中输入：<strong>npm -v</strong><br><img src="/images/articles/i_4.png" alt="image"></p>
 <p>显示版本号，那么就说明 node.js 安装成功了。</p>
 <h3 id="3-安装-Git"><a href="#3-安装-Git" class="headerlink" title="3.安装 Git"></a>3.安装 Git</h3><p><a href="https://git-scm.com/" target="_blank" rel="noopener">Git</a> 是一个开源的分布式版本控制系统，旨在快速高效地处理从小型到大型项目的所有内容。具有便捷的创建本地分支，创建暂存区域，处理多个工作流等功能。简单来说，使用 Git 可以把本地文件同步到 Github 上，完成多人多空间的便捷式管理。</p>
-<p><strong>Windows 下</strong>安装下载地址：<a href="https://git-scm.com/download/" target="_blank" rel="noopener">Git | Downloads</a>，安装选项还是全部默认，安装完成后在命令行中输入 <strong>git –version</strong> 验证是否安装成功。<br><img src="/images/articles/i_5.png" alt="image"><br>显示版本号，那么就说明 git 安装成功了。</p>
+<p><strong>Windows 下</strong>安装下载地址：<a href="https://git-scm.com/download/" target="_blank" rel="noopener">Git | Downloads</a>，安装选项还是全部默认，安装完成后在命令行中输入 <strong>git –version</strong> 验证是否安装成功。<br><img src="/images/articles/i_5.png" alt="image"><br>显示版本号，那么就说明 git 安装成功了。安装成功后，将你的Git与GitHub帐号绑定，鼠标右击打开Git Bash，设置user.name和user.email配置信息。<br>之后移步到 mac 下安装流程的<strong>第三步：设置github的 username 和 email</strong>，做接来下的操作。</p>
 <p><strong>Mac 下安装</strong>：</p>
 <ul>
 <li><p>如果未安 homebrew，需要先安装 homebrew</p>
@@ -219,14 +222,21 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>安装成功后，先设置github的 username 和 email（github 在每次提交的时候都会记录他们）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;qiruohan&quot;</span><br><span class="line">git config --global user.email &quot;591149889@qq.com&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;你的GitHub用户名&quot;</span><br><span class="line">git config --global user.email &quot;你的GitHub注册邮箱&quot;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>使用终端命令创建 ssh key</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;591149889@qq.com&quot;</span><br></pre></td></tr></table></figure>
-
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;你的GitHub注册邮箱&quot;</span><br></pre></td></tr></table></figure>
+<p>然后直接三个回车即可，默认不需要设置密码<br>然后找到生成的.ssh的文件夹中的id_rsa.pub密钥，将内容全部复制</p>
+</li>
+<li><p>打开 <a href="https://github.com/settings/keys" target="_blank" rel="noopener">GitHub_Settings_keys</a> 页面，新建new SSH Key<br><img src="/images/articles/i_10.png" alt="image"></p>
 </li>
 </ul>
+<p>Title为标题，任意填即可，将刚刚复制的id_rsa.pub内容粘贴进去，最后点击Add SSH key。</p>
+<ul>
+<li>在终端检测GitHub公钥设置是否成功，输入 ssh <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>。<br><img src="/images/articles/i_11.png" alt="image"></li>
+</ul>
+<p>如上则说明成功。</p>
+<p>注意：这里之所以设置GitHub密钥原因是，通过非对称加密的公钥与私钥来完成加密，公钥放置在GitHub上，私钥放置在自己的电脑里。GitHub要求每次推送代码都是合法用户，所以每次推送都需要输入账号密码验证推送用户是否是合法用户，为了省去每次输入密码的步骤，采用了ssh，当你推送的时候，git就会匹配你的私钥跟GitHub上面的公钥是否是配对的，若是匹配就认为你是合法用户，则允许推送。这样可以保证每次的推送都是正确合法的。</p>
 <h3 id="4-安装-Hexo"><a href="#4-安装-Hexo" class="headerlink" title="4.安装 Hexo"></a>4.安装 Hexo</h3><p>Hexo 就是我们搭建个人博客所使用的框架，我们需要在合适的地方先创建一个文件夹，用来存放自己的博客文件，例如我命名为blog2。</p>
 <p>使用命令行进入到该目录下，输入 <code>npm i hexo-cli -g</code> 安装 Hexo，安装成功后，会显示安装所使用的总时长。<br><img src="/images/articles/i_6.png" alt="image"></p>
 <p>安装完成后，初始化我们的博客，输入 <code>hexo init blog</code>。<br>注意：这里的命令都作用在刚刚创建的 blog2 文件夹下。<br><img src="/images/articles/i_7.png" alt="image"></p>
@@ -235,7 +245,18 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hexo new test</span><br><span class="line"></span><br><span class="line">hexo g</span><br><span class="line"></span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
 
 <p>到这里，我们的个人博客就搭建完成啦，并且已经写出了我们的第一篇文章～<br><img src="/images/articles/i_9.png" alt="image"></p>
-<h3 id="5-推送博客站点"><a href="#5-推送博客站点" class="headerlink" title="5.推送博客站点"></a>5.推送博客站点</h3><h3 id="6-绑定域名"><a href="#6-绑定域名" class="headerlink" title="6.绑定域名"></a>6.绑定域名</h3><h3 id="7-MarkDown-语法"><a href="#7-MarkDown-语法" class="headerlink" title="7.MarkDown 语法"></a>7.MarkDown 语法</h3><h3 id="8-发布文章"><a href="#8-发布文章" class="headerlink" title="8.发布文章"></a>8.发布文章</h3><h3 id="9-寻找图床"><a href="#9-寻找图床" class="headerlink" title="9.寻找图床"></a>9.寻找图床</h3><h3 id="10-个性化配置"><a href="#10-个性化配置" class="headerlink" title="10.个性化配置"></a>10.个性化配置</h3>
+<h3 id="5-推送博客站点"><a href="#5-推送博客站点" class="headerlink" title="5.推送博客站点"></a>5.推送博客站点</h3><p>上图只是本地的预览，如果想让大家都看到你的博客，就得把项目放在公网上被大家访问。打开博客根目录下的_config.yml文件，这是博客的配置文件，在这里你可以修改与博客相关的各种信息。这个文件称之为<strong>站点配置文件</strong>。<br><img src="/images/articles/i_12.png" alt="image"></p>
+<p>修改最后一行的配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https://github.com/qiruohan/qiruohan.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<p>repository修改为你自己的github项目地址。</p>
+<p>其实就是给hexo d 这个命令做相应的配置，让hexo知道要把你的blog部署在哪个位置，我们需要把项目部署到我们自己的GitHub的仓库里。</p>
+<p>安装Git部署插件，输入命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<p>这时，我们分别输入三条命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean </span><br><span class="line">hexo g </span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<p>打开浏览器，在地址栏输入你的放置个人网站的仓库路径，即 <a href="http://xxxx.github.io" target="_blank" rel="noopener">http://xxxx.github.io</a>, 比如我的：qiruohan.github.io， 你就会发现你的博客已经上线了，可以在网络上被访问了。</p>
+<h3 id="6-绑定域名"><a href="#6-绑定域名" class="headerlink" title="6.绑定域名"></a>6.绑定域名</h3><h3 id="7-MarkDown-语法"><a href="#7-MarkDown-语法" class="headerlink" title="7.MarkDown 语法"></a>7.MarkDown 语法</h3><h3 id="8-发布文章"><a href="#8-发布文章" class="headerlink" title="8.发布文章"></a>8.发布文章</h3><h3 id="9-寻找图床"><a href="#9-寻找图床" class="headerlink" title="9.寻找图床"></a>9.寻找图床</h3><h3 id="10-个性化配置"><a href="#10-个性化配置" class="headerlink" title="10.个性化配置"></a>10.个性化配置</h3>
       
 
       
