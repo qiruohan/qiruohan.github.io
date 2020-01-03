@@ -27,7 +27,7 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;articles&#x2F;i_8.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;articles&#x2F;i_9.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;articles&#x2F;i_12.png">
-<meta property="og:updated_time" content="2020-01-03T12:12:35.673Z">
+<meta property="og:updated_time" content="2020-01-03T12:23:31.224Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;articles&#x2F;i_1.jpg">
   
@@ -243,20 +243,21 @@
 <p>初始化时间可能会比较长，耐心等待…<br><img src="/images/articles/i_8.png" alt="image"></p>
 <p>初始化完成后，会发现 blog2 下又新增了一个文件夹，名为 blog，与 <code>hexo init</code> 后面输入的文件名同名。我们进入新创建的文件夹 blog 下，输入以下三条命名来检测一下我们的网站雏形</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hexo new test</span><br><span class="line"></span><br><span class="line">hexo g</span><br><span class="line"></span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-
-<p>到这里，我们的个人博客就搭建完成啦，并且已经写出了我们的第一篇文章～<br><img src="/images/articles/i_9.png" alt="image"></p>
-<h3 id="5-推送博客站点"><a href="#5-推送博客站点" class="headerlink" title="5.推送博客站点"></a>5.推送博客站点</h3><p>上图只是本地的预览，如果想让大家都看到你的博客，就得把项目放在公网上被大家访问。打开博客根目录下的_config.yml文件，这是博客的配置文件，在这里你可以修改与博客相关的各种信息。这个文件称之为<strong>站点配置文件</strong>。<br><img src="/images/articles/i_12.png" alt="image"></p>
+<p><img src="/images/articles/i_9.png" alt="image"></p>
+<p>到这里，我们的个人博客就搭建完成啦！并且已经写出了我们的第一篇文章～</p>
+<h3 id="5-hexo-常用命令的含义"><a href="#5-hexo-常用命令的含义" class="headerlink" title="5.hexo 常用命令的含义"></a>5.hexo 常用命令的含义</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">1.安装 Hexo</span><br><span class="line">  npm install hexo -g</span><br><span class="line">2.升级 Hexo</span><br><span class="line">  npm update hexo -g</span><br><span class="line">3.初始化博客</span><br><span class="line">  hexo init &quot;博客站点&quot;</span><br><span class="line">4.新建文章</span><br><span class="line">  hexo n &quot;我的博客&quot;  或  hexo new &quot;我的博客&quot; </span><br><span class="line">5.生成博客</span><br><span class="line">  hexo g  或 hexo generate</span><br><span class="line">6.启动服务</span><br><span class="line">  hexo s  或  hexo server</span><br><span class="line">7.部署博客</span><br><span class="line">  hexo d  或  hexo deploy</span><br><span class="line">8.更改端口</span><br><span class="line">  hexo server -p 5000</span><br><span class="line">9.自定义 IP</span><br><span class="line">  hexo server -i 192.168.1.1</span><br><span class="line">10.清除缓存，若是网页正常情况下可以忽略这条命令</span><br><span class="line">  hexo clean</span><br></pre></td></tr></table></figure>
+<h3 id="6-推送博客站点"><a href="#6-推送博客站点" class="headerlink" title="6.推送博客站点"></a>6.推送博客站点</h3><p>上图只是本地的预览，如果想让大家都看到你的博客，就得把项目放在公网上被大家访问。打开博客根目录下的_config.yml文件，这是博客的配置文件，在这里你可以修改与博客相关的各种信息。这个文件称之为<strong>站点配置文件</strong>。<br><img src="/images/articles/i_12.png" alt="image"></p>
 <p>修改最后一行的配置：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https://github.com/qiruohan/qiruohan.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
 <p>repository修改为你自己的github项目地址。</p>
-<p>其实就是给hexo d 这个命令做相应的配置，让hexo知道要把你的blog部署在哪个位置，我们需要把项目部署到我们自己的GitHub的仓库里。</p>
+<p>这里其实就是给 hexo d 命令做相应的配置，让 hexo 知道要把你的博客部署在哪个位置，我们需要把项目部署到我们自己的GitHub的仓库里。</p>
 <p>安装Git部署插件，输入命令：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
 
 <p>这时，我们分别输入三条命令：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean </span><br><span class="line">hexo g </span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-<p>打开浏览器，在地址栏输入你的放置个人网站的仓库路径，即 <a href="http://xxxx.github.io" target="_blank" rel="noopener">http://xxxx.github.io</a>, 比如我的：qiruohan.github.io， 你就会发现你的博客已经上线了，可以在网络上被访问了。</p>
-<h3 id="6-绑定域名"><a href="#6-绑定域名" class="headerlink" title="6.绑定域名"></a>6.绑定域名</h3><h3 id="7-MarkDown-语法"><a href="#7-MarkDown-语法" class="headerlink" title="7.MarkDown 语法"></a>7.MarkDown 语法</h3><h3 id="8-发布文章"><a href="#8-发布文章" class="headerlink" title="8.发布文章"></a>8.发布文章</h3><h3 id="9-寻找图床"><a href="#9-寻找图床" class="headerlink" title="9.寻找图床"></a>9.寻找图床</h3><h3 id="10-个性化配置"><a href="#10-个性化配置" class="headerlink" title="10.个性化配置"></a>10.个性化配置</h3>
+<p>打开浏览器，在地址栏输入你的放置个人网站的仓库路径，即 xxxx.github.io, 比如我的：qiruohan.github.io， 你就会发现你的博客已经上线了，可以在网络上被访问了。</p>
+<h3 id="7-MarkDown-语法"><a href="#7-MarkDown-语法" class="headerlink" title="7.MarkDown 语法"></a>7.MarkDown 语法</h3><h3 id="8-发布文章"><a href="#8-发布文章" class="headerlink" title="8.发布文章"></a>8.发布文章</h3><h3 id="9-绑定域名"><a href="#9-绑定域名" class="headerlink" title="9.绑定域名"></a>9.绑定域名</h3><h3 id="10-寻找图床"><a href="#10-寻找图床" class="headerlink" title="10.寻找图床"></a>10.寻找图床</h3><h3 id="11-个性化配置"><a href="#11-个性化配置" class="headerlink" title="11.个性化配置"></a>11.个性化配置</h3>
       
 
       
