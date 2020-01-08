@@ -5,9 +5,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="http://litgod.net/"/>
   <updated>2020-01-07T12:03:23.108Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>http://litgod.net/</id>
   
   <author>
     <name>齐小神</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>超详细的Github+Hexo搭建教程</title>
-    <link href="http://yoursite.com/2019/10/31/%E8%B6%85%E8%AF%A6%E7%BB%86%E7%9A%84Github-Hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/"/>
-    <id>http://yoursite.com/2019/10/31/%E8%B6%85%E8%AF%A6%E7%BB%86%E7%9A%84Github-Hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/</id>
+    <link href="http://litgod.net/2019/10/31/%E8%B6%85%E8%AF%A6%E7%BB%86%E7%9A%84Github-Hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/"/>
+    <id>http://litgod.net/2019/10/31/%E8%B6%85%E8%AF%A6%E7%BB%86%E7%9A%84Github-Hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/</id>
     <published>2019-10-31T12:45:02.000Z</published>
     <updated>2020-01-07T12:03:23.108Z</updated>
     
@@ -36,7 +36,7 @@
     
     
     
-      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
+      <category term="Hexo" scheme="http://litgod.net/tags/Hexo/"/>
     
   </entry>
   
