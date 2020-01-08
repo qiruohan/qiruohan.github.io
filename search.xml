@@ -3,7 +3,10 @@
   <entry>
     <title>超详细的Github+Hexo搭建教程</title>
     <url>/2019/10/31/%E8%B6%85%E8%AF%A6%E7%BB%86%E7%9A%84Github-Hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>不管你是程序猿（媛），产品经理，设计师，运维工程师…还是从事其他职业，应该都想拥有一个属于自己的个人博客网站吧。如果你是，那么请跟随目录，搭建属于你的个人博客吧!一起来技术分享，记录生活…</p>
+    <content><![CDATA[<p><img src="/uploads/hexo.jpg" alt="image"></p>
+<a id="more"></a>
+
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>不管你是程序猿（媛），产品经理，设计师，运维工程师…还是从事其他职业，应该都想拥有一个属于自己的个人博客网站吧。如果你是，那么请跟随目录，搭建属于你的个人博客吧!一起来技术分享，记录生活…</p>
 <h2 id="Hexo-是什么"><a href="#Hexo-是什么" class="headerlink" title="Hexo 是什么"></a>Hexo 是什么</h2><p><a href="https://hexo.io" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a> 是一个基于 <a href="https://nodejs.org/en" target="_blank" rel="external nofollow noopener noreferrer">Node.js</a>的快速，简单月功能强大的博客框架。可以使用简单的命令生成静态网页，并托管到 Github 上。<br>#TODO</p>
 <h2 id="来搭建属于你的个人博客吧～"><a href="#来搭建属于你的个人博客吧～" class="headerlink" title="来搭建属于你的个人博客吧～"></a>来搭建属于你的个人博客吧～</h2><h3 id="1-Gihub-创建个人仓库"><a href="#1-Gihub-创建个人仓库" class="headerlink" title="1.Gihub 创建个人仓库"></a>1.Gihub 创建个人仓库</h3><ul>
 <li><p>首先先登录到 <a href="https://github.com" target="_blank" rel="external nofollow noopener noreferrer">Github</a>。如果没有个人账号，先进行注册，注册完成后，点击登录进入 Github。</p>
