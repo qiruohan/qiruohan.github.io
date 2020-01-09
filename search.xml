@@ -96,10 +96,12 @@
 <li>添加解析</li>
 </ul>
 <p><img src="/uploads/i_15.png" alt="image"></p>
-<p>一共包括三条解析记录，<code>192.30.252.153</code>是GitHub的地址，第三个记录类型是CNAME，CNAME的记录值是：你的用户名.<a href="http://github.io" target="_blank" rel="external nofollow noopener noreferrer">http://github.io</a> 这里千万别弄错了。</p>
+<p>一共包括两条解析记录，记录类型都是CNAME，CNAME的记录值是：你的用户名.github.io，这里千万别弄错了。</p>
 <ul>
-<li><p>登录GitHub，进入之前创建的仓库，点击settings，设置Custom domain，输入你的域名，点击保存。<br><img src="/uploads/i_16.png" alt="image"></p>
-</li>
+<li>登录GitHub，进入之前创建的仓库，点击settings，设置Custom domain，输入你的域名，点击保存。<br><img src="/uploads/i_16.png" alt="image"></li>
+</ul>
+<p>注意：如果你把 Enforce HTTPS 钩上，github 会自动帮你升级为 https 的哦～</p>
+<ul>
 <li><p>这时候你的项目根目录应该会出现一个名为CNAME的文件了。如果没有的话，打开你本地博客/source目录，手动创建一个CNAME文件，注意没有后缀。写上你的域名。<br>注意，只要写进你自己的域名即可。如果带有www，那么以后访问的时候必须带有www完整的域名才可以访问，但如果不带有www，以后访问的时候带不带www都可以访问。所以建议，不要带有www。<br><img src="/uploads/i_17.png" alt="image"></p>
 </li>
 <li><p>点击保存。保存成功后运行hexo g、hexo d传到github上。这时候打开浏览器在地址栏输入你的个性化域名将会直接进入你自己搭建的网站。</p>
