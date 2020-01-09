@@ -72,7 +72,7 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;litgod.net&#x2F;uploads&#x2F;i_15.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;litgod.net&#x2F;uploads&#x2F;i_16.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;litgod.net&#x2F;uploads&#x2F;i_17.png">
-<meta property="og:updated_time" content="2020-01-09T05:03:56.046Z">
+<meta property="og:updated_time" content="2020-01-09T07:29:36.577Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;litgod.net&#x2F;uploads&#x2F;hexo.jpg">
 
@@ -162,6 +162,11 @@
     <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">1</span></a>
 
   </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">1</span></a>
+
+  </li>
         <li class="menu-item menu-item-archives">
 
     <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">1</span></a>
@@ -170,6 +175,11 @@
         <li class="menu-item menu-item-about">
 
     <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-leetcode">
+
+    <a href="/leetcode/" rel="section"><i class="fa fa-fw fa-code"></i>刷题</a>
 
   </li>
         <li class="menu-item menu-item-movies">
@@ -258,6 +268,17 @@
 
               <time title="创建时间：2019-10-31 20:45:02" itemprop="dateCreated datePublished" datetime="2019-10-31T20:45:02+08:00">2019-10-31</time>
             </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+            </span>
 
           
             <span id="/2019/10/31/%E8%B6%85%E8%AF%A6%E7%BB%86%E7%9A%84Github-Hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/" class="post-meta-item leancloud_visitors" data-flag-title="超详细的Github+Hexo搭建教程" title="阅读次数">
@@ -293,7 +314,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>4.2k</span>
+              <span>4.3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -367,7 +388,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hexo new test</span><br><span class="line"></span><br><span class="line">hexo g</span><br><span class="line"></span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
 <p><img src="/uploads/i_9.png" alt="image"></p>
 <p>到这里，我们的个人博客就搭建完成啦！并且已经写出了我们的第一篇文章～</p>
-<h3 id="hexo-常用命令"><a href="#hexo-常用命令" class="headerlink" title="hexo 常用命令"></a>hexo 常用命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">1.安装 Hexo</span><br><span class="line">  npm install hexo -g</span><br><span class="line">2.升级 Hexo</span><br><span class="line">  npm update hexo -g</span><br><span class="line">3.初始化博客</span><br><span class="line">  hexo init &quot;博客站点&quot;</span><br><span class="line">4.新建文章</span><br><span class="line">  hexo n &quot;我的博客&quot;  或  hexo new &quot;我的博客&quot; </span><br><span class="line">5.生成博客</span><br><span class="line">  hexo g  或 hexo generate</span><br><span class="line">6.启动服务</span><br><span class="line">  hexo s  或  hexo server</span><br><span class="line">7.部署博客</span><br><span class="line">  hexo d  或  hexo deploy</span><br><span class="line">8.更改端口</span><br><span class="line">  hexo server -p 5000</span><br><span class="line">9.自定义 IP</span><br><span class="line">  hexo server -i 192.168.1.1</span><br><span class="line">10.清除缓存，若是网页正常情况下可以忽略这条命令</span><br><span class="line">  hexo clean</span><br></pre></td></tr></table></figure>
+<h3 id="hexo-常用命令"><a href="#hexo-常用命令" class="headerlink" title="hexo 常用命令"></a>hexo 常用命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">1.安装 Hexo</span><br><span class="line">  npm install hexo -g</span><br><span class="line">2.升级 Hexo</span><br><span class="line">  npm update hexo -g</span><br><span class="line">3.初始化博客</span><br><span class="line">  hexo init &quot;博客站点&quot;</span><br><span class="line">4.新建文章</span><br><span class="line">  hexo n &quot;我的博客&quot;  或  hexo new &quot;我的博客&quot; </span><br><span class="line">5.生成博客</span><br><span class="line">  hexo g  或 hexo generate</span><br><span class="line">6.启动服务</span><br><span class="line">  hexo s  或  hexo server</span><br><span class="line">7.部署博客</span><br><span class="line">  hexo d  或  hexo deploy</span><br><span class="line">8.更改端口</span><br><span class="line">  hexo server -p 5000</span><br><span class="line">9.自定义 IP</span><br><span class="line">  hexo server -i 192.168.1.1</span><br><span class="line">10.清除缓存，若是网页正常情况下可以忽略这条命令</span><br><span class="line">  hexo clean</span><br><span class="line">11.新建页面</span><br><span class="line">  hexo new page xxx</span><br></pre></td></tr></table></figure>
 <h3 id="推送博客站点"><a href="#推送博客站点" class="headerlink" title="推送博客站点"></a>推送博客站点</h3><p>上图只是本地的预览，如果想让大家都看到你的博客，就得把项目放在公网上被大家访问。打开博客根目录下的_config.yml文件，这是博客的配置文件，在这里你可以修改与博客相关的各种信息。这个文件称之为<strong>站点配置文件</strong>。<br><img src="/uploads/i_12.png" alt="image"></p>
 <p>修改最后一行的配置：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https://github.com/qiruohan/qiruohan.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
@@ -544,6 +565,12 @@
           <span class="site-state-item-count">1</span>
           <span class="site-state-item-name">日志</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
