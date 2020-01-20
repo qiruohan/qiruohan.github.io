@@ -1,6 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>浅谈 this、call、apply 和 bind</title>
+    <url>/2020/01/19/%E5%85%B3%E4%BA%8E-this%E3%80%81call%E3%80%81apply-%E5%92%8C-bind-%E7%9A%84%E4%B8%80%E4%BA%9B%E7%90%86%E8%A7%A3/</url>
+    <content><![CDATA[<p><img src="/uploads/i2_1.jpg" alt="image"></p>
+<a id="more"></a>
+
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>这是一个前端面试特别容易考的考点，很多初学者在这个问题上都容易踩坑，包括我也是经常性蒙圈。所以这次我决定将他们梳理下来，加深自己的理解。如果有出错的地方，欢迎指正。</p>
+<h1 id="this"><a href="#this" class="headerlink" title="this"></a>this</h1><p>this 关键字是 JavaScrip t中最复杂的机制之一。<a href="http://es6.ruanyifeng.com/#README" target="_blank" rel="external nofollow noopener noreferrer">ES6</a> 中新增的箭头函数，很大程度上避免了使用 this 所产生的错误。但是在 ES5 中，有时候我们会失去 this 的引用。其实 this 的指向，始终坚持一个原理：<strong>this 永远指向最后调用它的那个对象</strong>，重要的事情说三遍：<strong>this 永远指向最后调用它的那个对象，this 永远指向最后调用它的那个对象，this 永远指向最后调用它的那个对象。</strong>记住了这句话，this 的指向你已经了解一半了。</p>
+<h1 id="this-的四种绑定方式"><a href="#this-的四种绑定方式" class="headerlink" title="this 的四种绑定方式"></a>this 的四种绑定方式</h1><p>想要了解 this 的指向，我们首先要了解 this 的四种绑定方式：<strong>隐式绑定、显示绑定、new 绑定、window 绑定</strong>。</p>
+<h2 id="隐式绑定"><a href="#隐式绑定" class="headerlink" title="隐式绑定"></a>隐式绑定</h2><p>执行绑定的第一个也是最常见的规则为 <strong>隐式绑定</strong>，它80% 的情况下它会告诉你 this 指向的对象是什么。</p>
+<p>我们先来看一个简单的例子：<br>例1:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const user = &#123;</span><br><span class="line">  name: &apos;Cherry&apos;,</span><br><span class="line">  age: 27,</span><br><span class="line">  getName() &#123;</span><br><span class="line">    alert(`Hello, my name is $&#123;this.name&#125;`)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">user.getName()</span><br></pre></td></tr></table></figure>
+
+<p>如果你要调用 <strong>user</strong> 对象上的  <strong>getName</strong> 方法，你会用到点<strong>.</strong></p>
+<p>这就是所谓隐式绑定，<strong>函数被调用时先看一看点号左侧</strong>。如果有“点”就差看“点”左侧的对象，这个对象就是 <strong>this</strong>的引用。</p>
+<p>在上面的例子中，<strong>user</strong> 在“点号左侧”意味着 <strong>this</strong> 引用了 <strong>user</strong> 对象。所以就好像 在 <strong>getName</strong> 方法的内部 JavaScript 解释器把 this 变成了 user。</p>
+<p>例2:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const user = &#123;</span><br><span class="line">  name: &apos;Cherry&apos;,</span><br><span class="line">  age: 27,</span><br><span class="line">  getName() &#123;</span><br><span class="line">    alert(`Hello, my name is $&#123;this.name&#125;`)</span><br><span class="line">  &#125;,</span><br><span class="line">  mother: &#123;</span><br><span class="line">    name: &apos;Susan&apos;,</span><br><span class="line">    getName() &#123;</span><br><span class="line">      alert(`Hello, my name is $&#123;this.name&#125;`)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">user.getName()  // Cherry</span><br><span class="line">user.mother.getName()    // Susan</span><br></pre></td></tr></table></figure>
+
+<p>如前所述，大约有 80% 的情况下在“点的左侧”都会有一个对象。这就是为什么在判断 this 指向时“查看点的左侧”是你要做的第一件事。但是，如果没有点呢？这就为我们引出了下一条规则：</p>
+<h2 id="显示绑定"><a href="#显示绑定" class="headerlink" title="显示绑定"></a>显示绑定</h2><p>例3:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function getName () &#123;</span><br><span class="line">  alert(`Hello, my name is $&#123;this.name&#125;`)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const user = &#123;</span><br><span class="line">  name: &apos;Tyler&apos;,</span><br><span class="line">  age: 27,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>现在引出了一个问题，我们怎样能让 getName 方法调用的时候将 this 指向 user 对象？我们不能再像之前那样简单的使用 user.greet()，因为 user 并没有 greet 方法。在 JavaScript 中，每个函数都包含了一个能让你恰好解决这个问题的方法，这个方法的名字叫做 call、apply、bind。</p>
+<p>用下面的代码可以在调用 getName 时用 user 做上下文。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">greet.call(user)</span><br></pre></td></tr></table></figure>
+
+<p>这就是第 2 条规则的基础（显示绑定），因为我们明确地（使用 .call）指定了 this 的引用。后面的内容有对 call、apply、bind 详细的介绍，这里就不过多赘述了。</p>
+<h2 id="new-绑定"><a href="#new-绑定" class="headerlink" title="new 绑定"></a>new 绑定</h2><p>第三条判断 <strong>this</strong> 引用的规则是 <strong>new</strong> 绑定。每当用 <strong>new</strong> 调用函数时，<strong>JavaScript</strong> 解释器都会在底层创建一个全新的对象并把这个对象当做 <strong>this</strong>。</p>
+<p>例4:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function User (name, age) &#123;</span><br><span class="line">  /*</span><br><span class="line">    JavaScript 会在底层创建一个新对象 `this`，它会代理不在 User 原型链上的属性。</span><br><span class="line">    如果一个函数用 new 关键字调用，this 就会指向解释器创建的新对象。</span><br><span class="line">  */</span><br><span class="line"></span><br><span class="line">  this.name = name</span><br><span class="line">  this.age = age</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const me = new User(&apos;Cherry&apos;, 27)</span><br></pre></td></tr></table></figure>
+
+<h2 id="window-绑定"><a href="#window-绑定" class="headerlink" title="window 绑定"></a>window 绑定</h2><p>我们先来看下面这个例子：<br>例5:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function sayAge () &#123;</span><br><span class="line">  console.log(`My age is $&#123;this.age&#125;`)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const user = &#123;</span><br><span class="line">  name: &apos;Cherry&apos;,</span><br><span class="line">  age: 27</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>相信大家都知道为什么打印出来的是 <strong>My name is undefined</strong>，因为正如前面所说的，如果你想用 <strong>user</strong> 做上下文调用 <strong>sayAge</strong>，你可以使用 <strong>.call</strong>、<strong>.apply</strong> 或 <strong>.bind</strong>。但如果我们没有用这些方法，而是直接和平时一样直接调用，JavaScript 会默认 <strong>this</strong> 指向 <strong>window</strong> 对象。但是 <strong>window</strong> 对象中并没有 <strong>name</strong> 属性，所以会打印 “My age is undefined“。</p>
+<p>如果我们改成：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">window.age = 27</span><br><span class="line"></span><br><span class="line">function sayAge () &#123;</span><br><span class="line">  console.log(`My age is $&#123;this.age&#125;`)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这就是第 4 条规则为什么是 <strong>window</strong> 绑定 的原因。如果其它规则都没满足，JavaScript就会默认 <strong>this</strong> 指向 <strong>window</strong> 对象。</p>
+<blockquote>
+<p>在 ES5 添加的 严格模式 中，JavaScript 不会默认 this 指向 window 对象，而会正确地把 this 保持为 undefined。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&apos;use strict&apos;</span><br><span class="line"></span><br><span class="line">window.age = 27</span><br><span class="line"></span><br><span class="line">function sayAge () &#123;</span><br><span class="line">  console.log(`My age is $&#123;this.age&#125;`)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sayAge() // TypeError: Cannot read property &apos;age&apos; of undefined</span><br></pre></td></tr></table></figure>
+
+<p>因此，将所有规则付诸实践，每当我在函数内部看到 this 关键字时，这些就是我为了判断它的引用而采取的步骤。</p>
+<p>1.查看函数在哪被调用。<br>2.点左侧有没有对象？如果有，它就是 “this” 的引用。如果没有，继续第 3 步。<br>3.该函数是不是用 “call”、“apply” 或者 “bind” 调用的？如果是，它会显式地指明 “this” 的引用。如果不是，继续第 4 步。<br>4.该函数是不是用 “new” 调用的？如果是，“this” 指向的就是 JavaScript 解释器新创建的对象。如果不是，继续第 5 步。<br>5.是否在“严格模式”下？如果是，“this” 就是 undefined，如果不是，继续第 6 步。<br>6.JavaScript 很奇怪，“this” 会指向 “window” 对象。</p>
+<h1 id="如何改变-this-的指向"><a href="#如何改变-this-的指向" class="headerlink" title="如何改变 this 的指向"></a>如何改变 this 的指向</h1><h2 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h2><h2 id="在函数内部使用-this-this"><a href="#在函数内部使用-this-this" class="headerlink" title="在函数内部使用 _this = this"></a>在函数内部使用 _this = this</h2><h2 id="call"><a href="#call" class="headerlink" title="call()"></a>call()</h2><h2 id="apply"><a href="#apply" class="headerlink" title="apply()"></a>apply()</h2><h2 id="bind"><a href="#bind" class="headerlink" title="bind()"></a>bind()</h2><h1 id="apply、call、bind-的区别"><a href="#apply、call、bind-的区别" class="headerlink" title="apply、call、bind 的区别"></a>apply、call、bind 的区别</h1><h1 id="函数的调用方式"><a href="#函数的调用方式" class="headerlink" title="函数的调用方式"></a>函数的调用方式</h1><blockquote>
+<p>作为一个函数调用<br>函数作为方法调用<br>使用构造函数调用函数<br>作为函数方法调用函数（call、apply）</p>
+</blockquote>
+<h1 id="this-的四种绑定方式-1"><a href="#this-的四种绑定方式-1" class="headerlink" title="this 的四种绑定方式"></a>this 的四种绑定方式</h1><blockquote>
+<p>隐式绑定<br>显示绑定<br>new 绑定<br>window绑定</p>
+</blockquote>
+]]></content>
+  </entry>
+  <entry>
     <title>超详细的Github+Hexo搭建教程</title>
     <url>/2019/10/31/%E8%B6%85%E8%AF%A6%E7%BB%86%E7%9A%84Github-Hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/</url>
     <content><![CDATA[<p><img src="/uploads/hexo.jpg" alt="image"></p>
