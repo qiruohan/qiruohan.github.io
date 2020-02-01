@@ -48,19 +48,17 @@
   };
 </script>
 
-  <meta name="description" content="我的观影         .hexo-douban-tabs {     margin-bottom: 15px;     margin-top: 15px; }  .hexo-douban-tab {     padding: 5px; }  .hexo-douban-active {     background: #657b83;     colo">
-<meta property="og:type" content="website">
-<meta property="og:title" content="观影">
-<meta property="og:url" content="https:&#x2F;&#x2F;litgod.net&#x2F;movies&#x2F;index.html">
+  <meta name="description" content="重绘和重排什么是重绘重排(reflow)：对性能的影响提升性能的几个技巧总结参考文档网页性能管理详解 - 阮一峰">
+<meta property="og:type" content="article">
+<meta property="og:title" content="重绘和重排">
+<meta property="og:url" content="https:&#x2F;&#x2F;litgod.net&#x2F;2020&#x2F;01&#x2F;30&#x2F;%E9%87%8D%E7%BB%98%E5%92%8C%E9%87%8D%E6%8E%92&#x2F;index.html">
 <meta property="og:site_name" content="Litgod&#39;s Blog">
-<meta property="og:description" content="我的观影         .hexo-douban-tabs {     margin-bottom: 15px;     margin-top: 15px; }  .hexo-douban-tab {     padding: 5px; }  .hexo-douban-active {     background: #657b83;     colo">
+<meta property="og:description" content="重绘和重排什么是重绘重排(reflow)：对性能的影响提升性能的几个技巧总结参考文档网页性能管理详解 - 阮一峰">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;img3.doubanio.com&#x2F;view&#x2F;photo&#x2F;s_ratio_poster&#x2F;public&#x2F;p2325129230.jpg">
-<meta property="og:image" content="https:&#x2F;&#x2F;img1.doubanio.com&#x2F;view&#x2F;photo&#x2F;s_ratio_poster&#x2F;public&#x2F;p2580338609.jpg">
+<meta property="og:updated_time" content="2020-02-01T12:14:46.462Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;img3.doubanio.com&#x2F;view&#x2F;photo&#x2F;s_ratio_poster&#x2F;public&#x2F;p2325129230.jpg">
 
-<link rel="canonical" href="https://litgod.net/movies/">
+<link rel="canonical" href="https://litgod.net/2020/01/30/%E9%87%8D%E7%BB%98%E5%92%8C%E9%87%8D%E6%8E%92/">
 
 
 <script id="page-configurations">
@@ -68,12 +66,11 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false
+    isPost: true
   };
 </script>
 
-  <title>观影 | Litgod's Blog
-  </title>
+  <title>重绘和重排 | Litgod's Blog</title>
   
 
 
@@ -224,307 +221,168 @@
             
 
   <div class="posts-expand">
-    
-    
-    
-    <div class="post-block" lang="zh-CN">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://litgod.net/2020/01/30/%E9%87%8D%E7%BB%98%E5%92%8C%E9%87%8D%E6%8E%92/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+      <meta itemprop="name" content="齐小神">
+      <meta itemprop="description" content="善良。独立。保持可爱。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Litgod's Blog">
+    </span>
       <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          重绘和重排
+        </h1>
 
-<h1 class="post-title" itemprop="name headline">观影
-</h1>
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
 
-<div class="post-meta">
+              <time title="创建时间：2020-01-30 22:48:22" itemprop="dateCreated datePublished" datetime="2020-01-30T22:48:22+08:00">2020-01-30</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/01/30/%E9%87%8D%E7%BB%98%E5%92%8C%E9%87%8D%E6%8E%92/" class="post-meta-item leancloud_visitors" data-flag-title="重绘和重排" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/01/30/%E9%87%8D%E7%BB%98%E5%92%8C%E9%87%8D%E6%8E%92/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/01/30/%E9%87%8D%E7%BB%98%E5%92%8C%E9%87%8D%E6%8E%92/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>54</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="重绘和重排"><a href="#重绘和重排" class="headerlink" title="重绘和重排"></a>重绘和重排</h1><h2 id="什么是重绘"><a href="#什么是重绘" class="headerlink" title="什么是重绘"></a>什么是重绘</h2><h2 id="重排-reflow-："><a href="#重排-reflow-：" class="headerlink" title="重排(reflow)："></a>重排(reflow)：</h2><h2 id="对性能的影响"><a href="#对性能的影响" class="headerlink" title="对性能的影响"></a>对性能的影响</h2><h2 id="提升性能的几个技巧"><a href="#提升性能的几个技巧" class="headerlink" title="提升性能的几个技巧"></a>提升性能的几个技巧</h2><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><h1 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h1><p><a href="https://www.ruanyifeng.com/blog/2015/09/web-page-performance-in-depth.html" target="_blank" rel="external nofollow noopener noreferrer">网页性能管理详解 - 阮一峰</a></p>
+
+    </div>
+
+    
+    
+    
+      
+
+        <div class="reward-container">
+  <div>请我吃糖吧。</div>
+  <button disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/uploads/wechatpay.png" alt="齐小神 微信支付">
+        <p>微信支付</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>齐小神
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://litgod.net/2020/01/30/%E9%87%8D%E7%BB%98%E5%92%8C%E9%87%8D%E6%8E%92/" title="重绘和重排">https://litgod.net/2020/01/30/重绘和重排/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/01/19/%E5%85%B3%E4%BA%8E-this%E3%80%81call%E3%80%81apply-%E5%92%8C-bind-%E7%9A%84%E4%B8%80%E4%BA%9B%E7%90%86%E8%A7%A3/" rel="prev" title="浅谈 this、call、apply 和 bind">
+      <i class="fa fa-chevron-left"></i> 浅谈 this、call、apply 和 bind
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
-          <blockquote>
-    <p>我的观影</p>
-</blockquote>
-
-<style>
-    
-.hexo-douban-tabs {
-    margin-bottom: 15px;
-    margin-top: 15px;
-}
-
-.hexo-douban-tab {
-    padding: 5px;
-}
-
-.hexo-douban-active {
-    background: #657b83;
-    color: #fff;
-}
-
-.hexo-douban-item {
-    padding-bottom: 10px;
-    position: relative;
-    clear: both;
-    min-height: 170px;
-    padding: 10px 0;
-    border-bottom: 1px #ddd solid;
-}
-
-@media screen and (max-width: 600px) {
-    .hexo-douban-item {
-        width: 100%;
-    }
-}
-
-.hexo-douban-picture {
-    position: absolute;
-    left: 0;
-    top: 10px;
-    width: 100px;
-}
-
-.hexo-douban-info {
-    padding-left: 120px;
-}
-
-.hexo-douban-meta {
-    font-size: 12px;
-    padding-right: 10px;
-}
-
-.hexo-douban-comments {
-    font-size: 12px;
-}
-
-.hexo-douban-pagination {
-    margin-top: 15px;
-    text-align: center;
-    margin-bottom: 10px;
-}
-
-.hexo-douban-button {
-    padding: 5px;
-}
-
-.hexo-douban-button:hover {
-    background: #657b83;
-    color: #fff;
-}
-
-.hexo-douban-hide {
-    display: none;
-}
-
-.hexo-douban-show {
-    display: block;
-}
-
-
-</style>
-
-<div class="hexo-douban-tabs">
-    <a class="hexo-douban-tab" id="hexo-douban-tab1" href="javascript:;" rel="external">
-        在看
-        (0)</a>
-    <a class="hexo-douban-tab" id="hexo-douban-tab2" href="javascript:;" rel="external">
-        想看
-        (0)</a>
-    <a class="hexo-douban-tab" id="hexo-douban-tab3" href="javascript:;" rel="external">
-        已看
-        (2)</a>
-</div>
-<div>
-    <div id="hexo-douban-item1">
-        
-        <div class="hexo-douban-pagination">
-    <a class="hexo-douban-button hexo-douban-firstpage" href="javascript:;"> 首页</a>
-    <a class="hexo-douban-button hexo-douban-previouspage" href="javascript:;">上一页</a>
-    <span class="hexo-douban-pagenum">2 / 3</span>
-    <a class="hexo-douban-button hexo-douban-nextpage" href="javascript:;">下一页</a>
-    <a class="hexo-douban-button hexo-douban-lastpage" href="javascript:;">尾页</a>
-</div>
-    </div>
-    <div id="hexo-douban-item2">
-        
-        <div class="hexo-douban-pagination">
-    <a class="hexo-douban-button hexo-douban-firstpage" href="javascript:;"> 首页</a>
-    <a class="hexo-douban-button hexo-douban-previouspage" href="javascript:;">上一页</a>
-    <span class="hexo-douban-pagenum">2 / 3</span>
-    <a class="hexo-douban-button hexo-douban-nextpage" href="javascript:;">下一页</a>
-    <a class="hexo-douban-button hexo-douban-lastpage" href="javascript:;">尾页</a>
-</div>
-    </div>
-    <div id="hexo-douban-item3">
-        
-        <div class="hexo-douban-item">
-    <div class="hexo-douban-picture"><img src="/assets/douban-loading.gif" data-src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2325129230.jpg" referrerpolicy="no-referrer"></div>
-    <div class="hexo-douban-info">
-        <div class="hexo-douban-title">
-            <a target="_blank" href="https://movie.douban.com/subject/3926132/" rel="external nofollow noopener noreferrer">爱情公寓</a>
-        </div>
-        <div class="hexo-douban-meta">2020-01-17 /  /  </div>
-        <div class="hexo-douban-comments"> </div>
-    </div>
-</div>
-
-
-        
-        <div class="hexo-douban-item">
-    <div class="hexo-douban-picture"><img src="/assets/douban-loading.gif" data-src="https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2580338609.jpg" referrerpolicy="no-referrer"></div>
-    <div class="hexo-douban-info">
-        <div class="hexo-douban-title">
-            <a target="_blank" href="https://movie.douban.com/subject/25931446/" rel="external nofollow noopener noreferrer">爱情公寓5</a>
-        </div>
-        <div class="hexo-douban-meta">2020-01-17 /  / ★★★★★ 力荐 </div>
-        <div class="hexo-douban-comments"> 看出导演真的用心了～虽然它不是那么完美，但是我想跟他好好的告别，再见了，爱情公寓……</div>
-    </div>
-</div>
-
-
-        
-        <div class="hexo-douban-pagination">
-    <a class="hexo-douban-button hexo-douban-firstpage" href="javascript:;"> 首页</a>
-    <a class="hexo-douban-button hexo-douban-previouspage" href="javascript:;">上一页</a>
-    <span class="hexo-douban-pagenum">2 / 3</span>
-    <a class="hexo-douban-button hexo-douban-nextpage" href="javascript:;">下一页</a>
-    <a class="hexo-douban-button hexo-douban-lastpage" href="javascript:;">尾页</a>
-</div>
-    </div>
-</div>
-
-<script>
-    /**
- * Created by myths on 18-2-8.
- */
-
-Element.prototype.siblings = function () {
-    var siblingElement = [];
-    var sibs = this.parentNode.children;
-    for (var i = 0; i < sibs.length; i++) {
-        if (sibs[i] !== this) {
-            siblingElement.push(sibs[i]);
-        }
-    }
-    return siblingElement;
-};
-function tabClick() {
-    //修改标签样式
-    this.classList.add('hexo-douban-active');
-    var sibs = this.siblings();
-    for (var j = 0; j < sibs.length; j++) {
-        sibs[j].classList.remove('hexo-douban-active');
-    }
-    //显示对应板块
-    var itemId = this.id.replace('tab', 'item');
-    var target = document.getElementById(itemId);
-    target.classList.remove('hexo-douban-hide');
-    target.classList.add('hexo-douban-show');
-    sibs = document.getElementById(itemId).siblings();
-    for (var k = 0; k < sibs.length; k++) {
-        sibs[k].classList.remove('hexo-douban-show');
-        sibs[k].classList.add('hexo-douban-hide');
-    }
-}
-var tabs = document.getElementsByClassName("hexo-douban-tab");
-for (var i = 0; i < tabs.length; i++) {
-    tabs[i].onclick = tabClick;
-    tabs[i].onclick.apply(tabs[i]);
-}
-tabs[2].click();
-
-    var firstpages = document.getElementsByClassName("hexo-douban-firstpage");
-var previouspages = document.getElementsByClassName("hexo-douban-previouspage");
-var nextpages = document.getElementsByClassName("hexo-douban-nextpage");
-var lastpages = document.getElementsByClassName("hexo-douban-lastpage");
-var pagenums = document.getElementsByClassName("hexo-douban-pagenum");
-
-function makePageNum(num, arr) {
-    return (num + 1) + ' / ' + (Math.ceil(arr.length / 10 === 0 ? 1 : Math.ceil(arr.length / 10)));
-}
-
-function firstBtn() {
-    var sibs = this.parentNode.siblings();
-    displayPage(sibs, 0);
-    this.parentNode.getElementsByClassName('hexo-douban-pagenum')[0].innerText = makePageNum(0, sibs);
-}
-
-function previousBtn() {
-    var sibs = this.parentNode.siblings();
-    var currNum = this.parentNode.getElementsByClassName('hexo-douban-pagenum')[0].innerText;
-    currNum = currNum.substr(0, currNum.indexOf('/') - 1);
-    currNum = parseInt(currNum, 10) - 1;
-    if (currNum > 0) {
-        currNum--;
-    }
-    displayPage(sibs, currNum);
-    this.parentNode.getElementsByClassName('hexo-douban-pagenum')[0].innerText = makePageNum(currNum, sibs);
-}
-
-function nextBtn() {
-    var sibs = this.parentNode.siblings();
-    var currNum = this.parentNode.getElementsByClassName('hexo-douban-pagenum')[0].innerText;
-    currNum = currNum.substr(0, currNum.indexOf('/') - 1);
-    currNum = parseInt(currNum, 10) - 1;
-    if (currNum < Math.ceil(sibs.length / 10) - 1) {
-        currNum++;
-    }
-    displayPage(sibs, currNum);
-    this.parentNode.getElementsByClassName('hexo-douban-pagenum')[0].innerText = makePageNum(currNum, sibs);
-}
-
-function lastBtn() {
-    var sibs = this.parentNode.siblings();
-    displayPage(sibs, Math.ceil(sibs.length / 10) - 1);
-    this.parentNode.getElementsByClassName('hexo-douban-pagenum')[0].innerText = makePageNum(Math.ceil(sibs.length / 10) - 1 === -1 ? 0 : Math.ceil(sibs.length / 10) - 1, sibs);
-}
-
-function displayPage(arr, num) {
-    for (var i = 0; i < arr.length; i++) {
-        if (Math.floor(i / 10) === num) {
-            arr[i].classList.remove('hexo-douban-hide');
-            var img = arr[i].getElementsByTagName('img')[0];
-            img.src = img.getAttribute('data-src');
-        } else {
-            arr[i].classList.add('hexo-douban-hide');
-        }
-    }
-}
-
-for (var i = 0; i < firstpages.length; i++) {
-
-    //add listener
-    firstpages[i].onclick = firstBtn;
-    previouspages[i].onclick = previousBtn;
-    nextpages[i].onclick = nextBtn;
-    lastpages[i].onclick = lastBtn;
-
-    //set page num
-    var size = pagenums[i].parentNode.siblings().length;
-    pagenums[i].innerText = '1 / ' + (Math.ceil(size / 10) === 0 ? 1 : Math.ceil(size / 10));
-    firstpages[i].click();
-}
-
-</script>
-
-
-      </div>
-      
-      
-      
-    </div>
-    
-
-    
-    
-    
   </div>
 
 
           </div>
           
+    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -571,6 +429,7 @@ for (var i = 0; i < firstpages.length; i++) {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#重绘和重排"><span class="nav-number">1.</span> <span class="nav-text">重绘和重排</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是重绘"><span class="nav-number">1.1.</span> <span class="nav-text">什么是重绘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重排-reflow-："><span class="nav-number">1.2.</span> <span class="nav-text">重排(reflow)：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对性能的影响"><span class="nav-number">1.3.</span> <span class="nav-text">对性能的影响</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#提升性能的几个技巧"><span class="nav-number">1.4.</span> <span class="nav-text">提升性能的几个技巧</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">2.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考文档"><span class="nav-number">3.</span> <span class="nav-text">参考文档</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

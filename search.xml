@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>重绘和重排</title>
+    <url>/2020/01/30/%E9%87%8D%E7%BB%98%E5%92%8C%E9%87%8D%E6%8E%92/</url>
+    <content><![CDATA[<h1 id="重绘和重排"><a href="#重绘和重排" class="headerlink" title="重绘和重排"></a>重绘和重排</h1><h2 id="什么是重绘"><a href="#什么是重绘" class="headerlink" title="什么是重绘"></a>什么是重绘</h2><h2 id="重排-reflow-："><a href="#重排-reflow-：" class="headerlink" title="重排(reflow)："></a>重排(reflow)：</h2><h2 id="对性能的影响"><a href="#对性能的影响" class="headerlink" title="对性能的影响"></a>对性能的影响</h2><h2 id="提升性能的几个技巧"><a href="#提升性能的几个技巧" class="headerlink" title="提升性能的几个技巧"></a>提升性能的几个技巧</h2><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><h1 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h1><p><a href="https://www.ruanyifeng.com/blog/2015/09/web-page-performance-in-depth.html" target="_blank" rel="external nofollow noopener noreferrer">网页性能管理详解 - 阮一峰</a></p>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+  </entry>
+  <entry>
     <title>浅谈 this、call、apply 和 bind</title>
     <url>/2020/01/19/%E5%85%B3%E4%BA%8E-this%E3%80%81call%E3%80%81apply-%E5%92%8C-bind-%E7%9A%84%E4%B8%80%E4%BA%9B%E7%90%86%E8%A7%A3/</url>
     <content><![CDATA[<p><img src="/uploads/i2_1.jpg" alt="image"></p>
@@ -149,6 +158,9 @@
 <p>1.查看函数在哪被调用。<br>2.点左侧有没有对象？如果有，它就是 “this” 的引用。如果没有，继续第 3 步。<br>3.该函数是不是用 “call”、“apply” 或者 “bind” 调用的？如果是，它会显式地指明 “this” 的引用。如果不是，继续第 4 步。<br>4.该函数是不是用 “new” 调用的？如果是，“this” 指向的就是 JavaScript 解释器新创建的对象。如果不是，继续第 5 步。<br>5.是否在“严格模式”下？如果是，“this” 就是 undefined，如果不是，继续第 6 步。<br>6.JavaScript 很奇怪，“this” 会指向 “window” 对象。</p>
 <p>另外切记：this<strong>永远</strong>指向最后调用它的那个对象。this永远指向<strong>最后调用</strong>它的那个对象。this永远指向最后调用它的<strong>那个对象</strong>。</p>
 ]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
   </entry>
   <entry>
     <title>超详细的Github+Hexo搭建教程</title>
