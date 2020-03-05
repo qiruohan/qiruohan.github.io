@@ -57,7 +57,8 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;litgod.net&#x2F;uploads&#x2F;i3_1.jpg">
 <meta property="og:image" content="https:&#x2F;&#x2F;litgod.net&#x2F;uploads&#x2F;i3_2.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;litgod.net&#x2F;uploads&#x2F;i3_3.png">
-<meta property="og:updated_time" content="2020-03-05T06:19:25.808Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;litgod.net&#x2F;uploads&#x2F;i3_4.png">
+<meta property="og:updated_time" content="2020-03-05T08:40:38.054Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;litgod.net&#x2F;uploads&#x2F;i3_1.jpg">
 
@@ -299,7 +300,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>4.5k</span>
+              <span>4.9k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -491,9 +492,18 @@
 
 </li>
 </ul>
-<h2 id="如何在浏览器中查看页面渲染时间"><a href="#如何在浏览器中查看页面渲染时间" class="headerlink" title="如何在浏览器中查看页面渲染时间"></a>如何在浏览器中查看页面渲染时间</h2><p>1.打开开发者工具：</p>
+<h2 id="如何在浏览器中查看页面渲染时间"><a href="#如何在浏览器中查看页面渲染时间" class="headerlink" title="如何在浏览器中查看页面渲染时间"></a>如何在浏览器中查看页面渲染时间</h2><p>1.打开开发者工具：点击 Performance 左侧有个小圆点 点击刷新页面会录制整个页面加载出来 时间的分配情况。如下图</p>
 <p><img src="/uploads/i3_3.png" alt="image"></p>
-<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><h1 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h1><p><a href="https://www.ruanyifeng.com/blog/2015/09/web-page-performance-in-depth.html" target="_blank" rel="external nofollow noopener noreferrer">网页性能管理详解 - 阮一峰</a><br><a href="https://segmentfault.com/a/1190000017491520" target="_blank" rel="external nofollow noopener noreferrer">掌握浏览器重绘(repaint)重排(reflow))-前端进阶</a><br><a href="https://juejin.im/entry/582f16fca22b9d006b7afd89" target="_blank" rel="external nofollow noopener noreferrer">重排重绘，看这一篇就够了</a></p>
+<p>2.点击 Event Log：单独勾选 Loading 项会显示 html 和 css 加载时间。如下图：</p>
+<p><img src="/uploads/i3_4.png" alt="image"></p>
+<p>3.解析完 DOM+CSSOM 之后会生成一个渲染树 Render Tree，就是 DOM 和 CSSOM 的一一对应关系。</p>
+<p>4.通过渲染树中在屏幕上“画”出的所有节点，称为渲染。</p>
+<h3 id="小结："><a href="#小结：" class="headerlink" title="小结："></a>小结：</h3><ul>
+<li>渲染的三个阶段 Layout，Paint，Composite Layers。<br>Layout：重排，又叫回流。<br>Paint:重绘，重排重绘这些步骤都是在 CPU 中发生的。<br>Compostite Layers：CPU 把生成的 BitMap（位图）传输到 GPU，渲染到屏幕。 </li>
+<li>CSS3 就是在 GPU 发生的：Transform  Opacity。在 GPU 发生的属性比较高效。所以 CSS3 性能比较高。</li>
+</ul>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>非常感谢你看完了这篇很长的文章，也希望大家能重视重排的这些问题，在我们平时的开发中，也需要有意识的规避这些问题，才能让我们写出来的代码更规范！</p>
+<h1 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h1><p><a href="https://segmentfault.com/a/1190000017491520" target="_blank" rel="external nofollow noopener noreferrer">掌握浏览器重绘(repaint)重排(reflow))-前端进阶</a><br><a href="https://www.ruanyifeng.com/blog/2015/09/web-page-performance-in-depth.html" target="_blank" rel="external nofollow noopener noreferrer">网页性能管理详解 - 阮一峰</a><br><a href="https://csstriggers.com" target="_blank" rel="external nofollow noopener noreferrer">csstriggers</a></p>
 
     </div>
 
@@ -612,7 +622,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#页面生成的过程："><span class="nav-number">1.</span> <span class="nav-text">页面生成的过程：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#渲染："><span class="nav-number">2.</span> <span class="nav-text">渲染：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重排比重绘大："><span class="nav-number">3.</span> <span class="nav-text">重排比重绘大：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重排-reflow-："><span class="nav-number">4.</span> <span class="nav-text">重排(reflow)：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概念："><span class="nav-number">4.1.</span> <span class="nav-text">概念：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下面情况会发生重排："><span class="nav-number">4.2.</span> <span class="nav-text">下面情况会发生重排：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重排影响的范围："><span class="nav-number">4.3.</span> <span class="nav-text">重排影响的范围：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重绘-Repaints"><span class="nav-number">5.</span> <span class="nav-text">重绘(Repaints):</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概念：-1"><span class="nav-number">5.1.</span> <span class="nav-text">概念：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见的引起重绘的属性："><span class="nav-number">5.2.</span> <span class="nav-text">常见的引起重绘的属性：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重排优化建议："><span class="nav-number">6.</span> <span class="nav-text">重排优化建议：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#减少重排范围"><span class="nav-number">6.1.</span> <span class="nav-text">减少重排范围</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#减少重排次数"><span class="nav-number">6.2.</span> <span class="nav-text">减少重排次数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-样式集中改变"><span class="nav-number">6.2.1.</span> <span class="nav-text">1.样式集中改变</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-分离读写操作"><span class="nav-number">6.2.2.</span> <span class="nav-text">2.分离读写操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-将-DOM-离线"><span class="nav-number">6.2.3.</span> <span class="nav-text">3.将 DOM 离线</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-使用-absolute-或-fixed-脱离文档流"><span class="nav-number">6.2.4.</span> <span class="nav-text">4.使用 absolute 或 fixed 脱离文档流</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-优化动画"><span class="nav-number">6.2.5.</span> <span class="nav-text">5.优化动画</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何在浏览器中查看页面渲染时间"><span class="nav-number">7.</span> <span class="nav-text">如何在浏览器中查看页面渲染时间</span></a></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#结语"><span class="nav-number"></span> <span class="nav-text">结语</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考文档"><span class="nav-number"></span> <span class="nav-text">参考文档</span></a></li></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#页面生成的过程："><span class="nav-number">1.</span> <span class="nav-text">页面生成的过程：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#渲染："><span class="nav-number">2.</span> <span class="nav-text">渲染：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重排比重绘大："><span class="nav-number">3.</span> <span class="nav-text">重排比重绘大：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重排-reflow-："><span class="nav-number">4.</span> <span class="nav-text">重排(reflow)：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概念："><span class="nav-number">4.1.</span> <span class="nav-text">概念：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下面情况会发生重排："><span class="nav-number">4.2.</span> <span class="nav-text">下面情况会发生重排：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重排影响的范围："><span class="nav-number">4.3.</span> <span class="nav-text">重排影响的范围：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重绘-Repaints"><span class="nav-number">5.</span> <span class="nav-text">重绘(Repaints):</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概念：-1"><span class="nav-number">5.1.</span> <span class="nav-text">概念：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见的引起重绘的属性："><span class="nav-number">5.2.</span> <span class="nav-text">常见的引起重绘的属性：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重排优化建议："><span class="nav-number">6.</span> <span class="nav-text">重排优化建议：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#减少重排范围"><span class="nav-number">6.1.</span> <span class="nav-text">减少重排范围</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#减少重排次数"><span class="nav-number">6.2.</span> <span class="nav-text">减少重排次数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-样式集中改变"><span class="nav-number">6.2.1.</span> <span class="nav-text">1.样式集中改变</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-分离读写操作"><span class="nav-number">6.2.2.</span> <span class="nav-text">2.分离读写操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-将-DOM-离线"><span class="nav-number">6.2.3.</span> <span class="nav-text">3.将 DOM 离线</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-使用-absolute-或-fixed-脱离文档流"><span class="nav-number">6.2.4.</span> <span class="nav-text">4.使用 absolute 或 fixed 脱离文档流</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-优化动画"><span class="nav-number">6.2.5.</span> <span class="nav-text">5.优化动画</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何在浏览器中查看页面渲染时间"><span class="nav-number">7.</span> <span class="nav-text">如何在浏览器中查看页面渲染时间</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#小结："><span class="nav-number">7.1.</span> <span class="nav-text">小结：</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#结语"><span class="nav-number"></span> <span class="nav-text">结语</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考文档"><span class="nav-number"></span> <span class="nav-text">参考文档</span></a></li></div>
       </div>
       <!--/noindex-->
 
@@ -692,7 +702,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">16 分钟</span>
+    <span title="站点阅读时长">17 分钟</span>
 </div>
 
         
