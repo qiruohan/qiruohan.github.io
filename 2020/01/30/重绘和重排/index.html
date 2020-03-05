@@ -50,7 +50,7 @@
 
   <meta name="keywords" content="CSS,HTML">
 <meta property="og:type" content="article">
-<meta property="og:title" content="重排（reflow）和重绘（repaint）">
+<meta property="og:title" content="重排(reflow)和重绘(repaint)">
 <meta property="og:url" content="https:&#x2F;&#x2F;litgod.net&#x2F;2020&#x2F;01&#x2F;30&#x2F;%E9%87%8D%E7%BB%98%E5%92%8C%E9%87%8D%E6%8E%92&#x2F;index.html">
 <meta property="og:site_name" content="Litgod&#39;s Blog">
 <meta property="og:locale" content="zh-CN">
@@ -58,7 +58,7 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;litgod.net&#x2F;uploads&#x2F;i3_2.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;litgod.net&#x2F;uploads&#x2F;i3_3.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;litgod.net&#x2F;uploads&#x2F;i3_4.png">
-<meta property="og:updated_time" content="2020-03-05T08:47:01.858Z">
+<meta property="og:updated_time" content="2020-03-05T09:46:04.749Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;litgod.net&#x2F;uploads&#x2F;i3_1.jpg">
 
@@ -74,7 +74,7 @@
   };
 </script>
 
-  <title>重排（reflow）和重绘（repaint） | Litgod's Blog</title>
+  <title>重排(reflow)和重绘(repaint) | Litgod's Blog</title>
   
 
 
@@ -242,7 +242,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          重排（reflow）和重绘（repaint）
+          重排(reflow)和重绘(repaint)
         </h1>
 
         <div class="post-meta">
@@ -267,7 +267,7 @@
             </span>
 
           
-            <span id="/2020/01/30/%E9%87%8D%E7%BB%98%E5%92%8C%E9%87%8D%E6%8E%92/" class="post-meta-item leancloud_visitors" data-flag-title="重排（reflow）和重绘（repaint）" title="阅读次数">
+            <span id="/2020/01/30/%E9%87%8D%E7%BB%98%E5%92%8C%E9%87%8D%E6%8E%92/" class="post-meta-item leancloud_visitors" data-flag-title="重排(reflow)和重绘(repaint)" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -323,10 +323,10 @@
 <a id="more"></a>
 
 <p>之前面试的大佬问我关于重排重绘的原理和具体操作，一下子把我问蒙了。回家便默默地把问题记下来，仔细总结……在阅读了一些文章后，自己也有了一定的理解，所以分享给大家。希望大家也能耐心把这篇文章看完，认真思考，彻底掌握这个知识点！</p>
-<h2 id="页面生成的过程："><a href="#页面生成的过程：" class="headerlink" title="页面生成的过程："></a>页面生成的过程：</h2><p>1.HTML 被 HTML 解析器解析成 DOM 树；<br>2.CSS  被 CSS 解析器解析成 CSSOM 树；<br>3.结合 DOM 树和 CSSOM 树，生成一棵渲染树(Render Tree)，这一过程称为 Attachment；<br>4.生成布局（flow），浏览器在屏幕上“画”出渲染树中的所有节点；<br>5.将布局绘制（paint）在屏幕上，显示出整个页面。</p>
+<h2 id="页面生成的过程："><a href="#页面生成的过程：" class="headerlink" title="页面生成的过程："></a>页面生成的过程：</h2><p>1.HTML 被 HTML 解析器解析成 DOM 树；<br>2.CSS  被 CSS 解析器解析成 CSSOM 树；<br>3.结合 DOM 树和 CSSOM 树，生成一棵渲染树(Render Tree)，这一过程称为 Attachment；<br>4.生成布局(flow)，浏览器在屏幕上“画”出渲染树中的所有节点；<br>5.将布局绘制(paint)在屏幕上，显示出整个页面。</p>
 <p>第四步和第五步是最耗时的部分，这两步合起来，就是我们通常所说的渲染。</p>
 <p><img src="/uploads/i3_2.png" alt="image"></p>
-<h2 id="渲染："><a href="#渲染：" class="headerlink" title="渲染："></a>渲染：</h2><p>在页面的生命周期中，<strong>网页生成的时候，至少会渲染一次</strong>。<strong>在用户访问的过程中，还会不断触发重排（reflow）和重绘（repaint）</strong>，不管页面发生了重绘还是重排，都会影响性能，<strong>最可怕的是重排，会使我们付出高额的性能代价，所以我们应尽量避免</strong>。</p>
+<h2 id="渲染："><a href="#渲染：" class="headerlink" title="渲染："></a>渲染：</h2><p>在页面的生命周期中，<strong>网页生成的时候，至少会渲染一次</strong>。<strong>在用户访问的过程中，还会不断触发重排(reflow)和重绘(repaint)</strong>，不管页面发生了重绘还是重排，都会影响性能，<strong>最可怕的是重排，会使我们付出高额的性能代价，所以我们应尽量避免</strong>。</p>
 <h2 id="重排比重绘大："><a href="#重排比重绘大：" class="headerlink" title="重排比重绘大："></a>重排比重绘大：</h2><p>大，在这个语境里的意思是：谁能影响谁？</p>
 <ul>
 <li>重绘：某些元素的外观被改变，例如：元素的填充颜色</li>
@@ -345,7 +345,7 @@
 <li>改变元素字体大小</li>
 <li>改变浏览器窗口尺寸，比如resize事件发生时</li>
 <li>激活CSS伪类（例如：<code>:hover</code>）</li>
-<li>设置 style 属性的值</li>
+<li>设置 style 属性的值，因为通过设置style属性改变结点样式的话，每一次设置都会触发一次reflow</li>
 <li>查询某些属性或调用某些计算方法：offsetWidth、offsetHeight等，除此之外，当我们调用 <code>getComputedStyle</code>方法，或者IE里的 <code>currentStyle</code> 时，也会触发重排，原理是一样的，都为求一个“即时性”和“准确性”。</li>
 </ul>
 <table>
@@ -487,7 +487,6 @@
 </li>
 <li><p>启用GPU加速<br><code>GPU</code> 硬件加速是指应用 <code>GPU</code> 的图形性能对浏览器中的一些图形操作交给 <code>GPU</code> 来完成，因为 <code>GPU</code> 是专门为处理图形而设计，所以它在速度和能耗上更有效率。</p>
 <p><code>GPU</code> 加速通常包括以下几个部分：Canvas2D，布局合成, CSS3转换（transitions），CSS3 3D变换（transforms），WebGL和视频(video)。</p>
-<p>因为重排重绘这些步骤都是在 <code>CPU</code> 中发生的, 最后到 <code>compostite Layers</code> 阶段，<code>CPU</code> 把生成的 <code>BitMap</code>（位图）传输到 <code>GPU</code>，渲染到屏幕。 <code>CSS3</code> 就是在 <code>GPU</code>发生的。在 <code>GPU</code> 发生的属性比较高效。所以 <code>CSS3</code>性能比较高。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">* 根据上面的结论</span></span><br><span class="line"><span class="comment">* 将 2d transform 换成 3d</span></span><br><span class="line"><span class="comment">* 就可以强制开启 GPU 加速</span></span><br><span class="line"><span class="comment">* 提高动画性能</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">div &#123;</span><br><span class="line">  transform: translate3d(<span class="number">10</span>px, <span class="number">10</span>px, <span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 </li>
@@ -536,7 +535,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://litgod.net/2020/01/30/%E9%87%8D%E7%BB%98%E5%92%8C%E9%87%8D%E6%8E%92/" title="重排（reflow）和重绘（repaint）">https://litgod.net/2020/01/30/重绘和重排/</a>
+    <a href="https://litgod.net/2020/01/30/%E9%87%8D%E7%BB%98%E5%92%8C%E9%87%8D%E6%8E%92/" title="重排(reflow)和重绘(repaint)">https://litgod.net/2020/01/30/重绘和重排/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
