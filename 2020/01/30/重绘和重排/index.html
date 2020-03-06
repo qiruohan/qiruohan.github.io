@@ -58,7 +58,7 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;litgod.net&#x2F;uploads&#x2F;i3_2.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;litgod.net&#x2F;uploads&#x2F;i3_3.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;litgod.net&#x2F;uploads&#x2F;i3_4.png">
-<meta property="og:updated_time" content="2020-03-05T09:46:04.749Z">
+<meta property="og:updated_time" content="2020-03-05T10:58:35.290Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;litgod.net&#x2F;uploads&#x2F;i3_1.jpg">
 
@@ -493,6 +493,13 @@
 </ul>
 <h2 id="如何在浏览器中查看页面渲染时间"><a href="#如何在浏览器中查看页面渲染时间" class="headerlink" title="如何在浏览器中查看页面渲染时间"></a>如何在浏览器中查看页面渲染时间</h2><p>1.打开开发者工具：点击 Performance 左侧有个小圆点 点击刷新页面会录制整个页面加载出来 时间的分配情况。如下图</p>
 <p><img src="/uploads/i3_3.png" alt="image"></p>
+<ul>
+<li>蓝色: 网络通信和HTML解析</li>
+<li>黄色: JavaScript执行</li>
+<li>紫色: 样式计算和布局，即重排</li>
+<li>绿色: 重绘</li>
+</ul>
+<p>哪种色块比较多，就说明性能耗费在那里。色块越长，问题越大。</p>
 <p>2.点击 Event Log：单独勾选 Loading 项会显示 html 和 css 加载时间。如下图：</p>
 <p><img src="/uploads/i3_4.png" alt="image"></p>
 <p>3.解析完 DOM+CSSOM 之后会生成一个渲染树 Render Tree，就是 DOM 和 CSSOM 的一一对应关系。</p>
