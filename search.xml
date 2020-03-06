@@ -193,7 +193,7 @@
 <li>CSS3 就是在 GPU 发生的：Transform  Opacity。在 GPU 发生的属性比较高效。所以 CSS3 性能比较高。</li>
 </ul>
 <h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>非常感谢你看完了这篇很长的文章，也希望大家能重视重排的这些问题，在我们平时的开发中，也需要有意识的规避这些问题，才能让我们写出来的代码更规范！</p>
-<h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><p><a href="https://segmentfault.com/a/1190000017491520" target="_blank" rel="external nofollow noopener noreferrer">掌握浏览器重绘(repaint)重排(reflow))-前端进阶</a><br><a href="https://www.ruanyifeng.com/blog/2015/09/web-page-performance-in-depth.html" target="_blank" rel="external nofollow noopener noreferrer">网页性能管理详解 - 阮一峰</a><br><a href="https://csstriggers.com" target="_blank" rel="external nofollow noopener noreferrer">csstriggers</a></p>
+<h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><p><a href="https://segmentfault.com/a/1190000017491520" target="_blank" rel="external nofollow noopener noreferrer">掌握浏览器重绘(repaint)重排(reflow))-前端进阶</a><br><a href="https://csstriggers.com" target="_blank" rel="external nofollow noopener noreferrer">csstriggers</a><br><a href="https://efe.baidu.com/blog/hardware-accelerated-css-the-nice-vs-the-naughty/" target="_blank" rel="external nofollow noopener noreferrer">CSS硬件加速的好与坏</a></p>
 ]]></content>
       <categories>
         <category>前端</category>
