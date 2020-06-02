@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Webpack的前世今生</title>
+    <url>/2020/06/01/Webpack%E7%9A%84%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F/</url>
+    <content><![CDATA[<p><img src="/uploads/i3_1.jpg" alt="image"></p>
+<a id="more"></a>]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>Webpack</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>重排(reflow)和重绘(repaint)</title>
     <url>/2020/01/30/%E9%87%8D%E7%BB%98%E5%92%8C%E9%87%8D%E6%8E%92/</url>
     <content><![CDATA[<p><img src="/uploads/i3_1.jpg" alt="image"></p>
