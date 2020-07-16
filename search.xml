@@ -152,7 +152,7 @@
 
 
 <h3 id="Promise-all"><a href="#Promise-all" class="headerlink" title="Promise.all"></a>Promise.all</h3><p>promise.all 是解决并发问题的，多个异步并发获取最终的结果（如果有一个失败则失败）。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Promise</span>.all = <span class="function"><span class="keyword">function</span>(<span class="params">values</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> resultArr = [];</span><br><span class="line">    <span class="keyword">let</span> orderIndex = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">const</span> processResultByKey = <span class="function">(<span class="params">value, index</span>) =&gt;</span> &#123;</span><br><span class="line">      resultArr[index] = value;</span><br><span class="line">      <span class="keyword">if</span> (++orderIndex === values.length) &#123;</span><br><span class="line">          resolve(resultArr)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; values.length; i++) &#123;</span><br><span class="line">      <span class="keyword">let</span> value = values[i];</span><br><span class="line">      <span class="keyword">if</span> (value &amp;&amp; <span class="keyword">typeof</span> value.then === <span class="string">'function'</span>) &#123;</span><br><span class="line">        value.then(<span class="function">(<span class="params">value</span>) =&gt;</span> &#123;</span><br><span class="line">          processResultByKey(value, i);</span><br><span class="line">        &#125;, reject);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        processResultByKey(value, i);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Promise</span>.all = <span class="function"><span class="keyword">function</span>(<span class="params">values</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!<span class="built_in">Array</span>.isArray(values)) &#123;</span><br><span class="line">    <span class="keyword">const</span> type = <span class="keyword">typeof</span> values;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">`TypeError: <span class="subst">$&#123;type&#125;</span> <span class="subst">$&#123;values&#125;</span> is not iterable`</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> resultArr = [];</span><br><span class="line">    <span class="keyword">let</span> orderIndex = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">const</span> processResultByKey = <span class="function">(<span class="params">value, index</span>) =&gt;</span> &#123;</span><br><span class="line">      resultArr[index] = value;</span><br><span class="line">      <span class="keyword">if</span> (++orderIndex === values.length) &#123;</span><br><span class="line">          resolve(resultArr)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; values.length; i++) &#123;</span><br><span class="line">      <span class="keyword">let</span> value = values[i];</span><br><span class="line">      <span class="keyword">if</span> (value &amp;&amp; <span class="keyword">typeof</span> value.then === <span class="string">'function'</span>) &#123;</span><br><span class="line">        value.then(<span class="function">(<span class="params">value</span>) =&gt;</span> &#123;</span><br><span class="line">          processResultByKey(value, i);</span><br><span class="line">        &#125;, reject);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        processResultByKey(value, i);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>测试一下：</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> p1 = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">  setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    resolve(<span class="string">'ok1'</span>);</span><br><span class="line">  &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> p2 = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">  setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    reject(<span class="string">'ok2'</span>);</span><br><span class="line">  &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">Promise</span>.all([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,p1,p2]).then(<span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'resolve'</span>, data);</span><br><span class="line">&#125;, err =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'reject'</span>, err);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
@@ -186,6 +186,12 @@
 <p>如果你对我的文章感兴趣，欢迎关注我噢！如果你对文章有任何的疑问，也欢迎给我留言～</p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://juejin.im/post/5e3b9ae26fb9a07ca714a5cc" target="_blank" rel="external nofollow noopener noreferrer">9k字 | Promise/async/Generator实现原理解析</a><br><a href="https://juejin.im/post/5b32f552f265da59991155f0" target="_blank" rel="external nofollow noopener noreferrer">Promise之你看得懂的Promise</a><br><a href="https://juejin.im/post/5c88e427f265da2d8d6a1c84" target="_blank" rel="external nofollow noopener noreferrer">Promise的源码实现（完美符合Promise/A+规范）</a></p>
 ]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>Promise</tag>
+      </tags>
   </entry>
   <entry>
     <title>深拷贝与浅拷贝</title>
@@ -357,6 +363,12 @@
 <p>不过，完善但不是完美，还有更高维度的问题需要优化，比如：1.没有考虑 es6 中 Map 和 Set 的拷贝，2.递归消耗大量的内存会导致的爆栈等等等等，想要实现一个完美的深拷贝，还是有很多内容需要我们深度学习～</p>
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>如果你还对深拷贝有兴趣或者想研究，可以阅读lodash 深拷贝相关代码，相信你会对深拷贝有进一步的理解～</p>
 ]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
   </entry>
   <entry>
     <title>Webpack 究竟解决了什么问题？</title>
@@ -793,6 +805,9 @@
       <categories>
         <category>前端</category>
       </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
   </entry>
   <entry>
     <title>超详细的Github+Hexo搭建教程</title>
