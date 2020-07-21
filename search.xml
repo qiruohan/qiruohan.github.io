@@ -3,17 +3,31 @@
   <entry>
     <title>中高级前端工程师必会的手写API（上）</title>
     <url>/2020/07/21/%E4%B8%AD%E9%AB%98%E7%BA%A7%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%88%E5%BF%85%E4%BC%9A%E7%9A%84%E6%89%8B%E5%86%99API%EF%BC%88%E4%B8%8A%EF%BC%89/</url>
-    <content><![CDATA[<!-- ![image](https://cdn.jsdelivr.net/gh/qiruohan/qiruohan.github.io/uploads/375538043.jpg =800x571) -->
-<img src="https://cdn.jsdelivr.net/gh/qiruohan/qiruohan.github.io/uploads/375538043.jpg" width="800" height="571">
+    <content><![CDATA[<img src="https://cdn.jsdelivr.net/gh/qiruohan/qiruohan.github.io/uploads/375538043.jpg" width="800" height="571">
 <a id="more"></a>
 
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在面试中，<br>之所以要学习 js api 的实现方式，我总结有3个好处：</p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在面试中，常常会问到一些“手写XXX”的面试题，如果我们只是停留在熟练使用这些 API 时，问到这种问题想必是束手无策的。其实想要写出 API 的实现也并不难，我的思路是<strong>根据使用方式来推倒实现逻辑</strong>，千万不要死记硬背。就算暂时掌握不了需要背一背迎接面试，也只需要背核心逻辑的部分，<strong>凡是对我们理解 API 没有帮助的边界判断都不用管</strong>，把核心逻辑牢牢掌握就OK了！</p>
+<p>我总结了 API 的实现方式的好处：</p>
 <ol>
-<li>更有益于你阅读和理解源码</li>
-<li>更有益于你调试代码</li>
+<li>更有益于阅读和理解源码</li>
+<li>更有益于调试代码</li>
 <li>更利于技术选型</li>
 </ol>
-<p>new、call、apply、bind、map、filter、some、every、forEach、✅reduce、instanceof、Object.create、proxy、模版字符串</p>
+<p>下面是我总结了常考的一些 API 实现：</p>
+<p>一、实现new关键字</p>
+<p>二、实现call/apply</p>
+<p>三、实现bind方法</p>
+<p>四、用ES5实现数组的map方法</p>
+<p>五、用ES5实现数组的filter方法</p>
+<p>六、用ES5实现数组的some方法</p>
+<p>七、用ES5实现数组的every方法</p>
+<p>八、用ES5实现数组的forEach方法</p>
+<p>九、用ES5实现数组的reduce方法</p>
+<p>十、实现instanceof的作用</p>
+<p>十一、实现Object.create方法(经常考)</p>
+<p>十二、实现proxy方法(经常考)</p>
+<p>十三、实现模版字符串</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>计划输出：<br>中高级前端工程师必会的手写API（下）</p>
 ]]></content>
       <categories>
         <category>前端</category>
@@ -90,8 +104,39 @@
 <li>自适用两列布局（float + overflow）</li>
 <li>可以阻止元素被浮动元素覆盖</li>
 </ul>
-<h3 id="4-如何实现居中"><a href="#4-如何实现居中" class="headerlink" title="4.如何实现居中"></a>4.如何实现居中</h3><h3 id="5-盒模型"><a href="#5-盒模型" class="headerlink" title="5.盒模型"></a>5.盒模型</h3><p>包括<code>内容区域</code>、<code>内边距区域</code>、<code>边框区域</code>和<code>外边距区域</code>。</p>
-<h3 id="6-绝对定位、固定定位和-z-index"><a href="#6-绝对定位、固定定位和-z-index" class="headerlink" title="6.绝对定位、固定定位和 z-index"></a>6.绝对定位、固定定位和 z-index</h3>]]></content>
+<h3 id="4-如何实现居中"><a href="#4-如何实现居中" class="headerlink" title="4.如何实现居中"></a>4.如何实现居中</h3><ol>
+<li><p>绝对定位 + margin<br>优缺点：需要父级有具体宽高，且要知道宽高的具体值</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">.parent &#123;</span><br><span class="line">  position: relative;</span><br><span class="line">  height: <span class="number">400</span>px;</span><br><span class="line">  width: <span class="number">100</span>%;</span><br><span class="line">  border: 1px solid #000;</span><br><span class="line">&#125;</span><br><span class="line">.child &#123;</span><br><span class="line">  position: absolute;</span><br><span class="line">  top: <span class="number">50</span>%;</span><br><span class="line">  left: <span class="number">50</span>%;</span><br><span class="line">  width: <span class="number">100</span>px;</span><br><span class="line">  height: <span class="number">100</span>px;</span><br><span class="line">  margin-left: <span class="number">-50</span>px;</span><br><span class="line">  margin-top: <span class="number">-50</span>px;</span><br><span class="line">  background-color: aquamarine;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>transform<br>优缺点：不需要父级有具体宽高，但是兼容性不是特别好</p>
+</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">.parent &#123;</span><br><span class="line">  position: relative;</span><br><span class="line">  height: <span class="number">400</span>px;</span><br><span class="line">  width: <span class="number">100</span>%;</span><br><span class="line">  border: 1px solid #000;</span><br><span class="line">&#125;</span><br><span class="line">.child &#123;</span><br><span class="line">  position: absolute;</span><br><span class="line">  top: <span class="number">50</span>%;</span><br><span class="line">  left: <span class="number">50</span>%;</span><br><span class="line">  width: <span class="number">100</span>px;</span><br><span class="line">  height: <span class="number">100</span>px;</span><br><span class="line">  transform: translate(<span class="number">-50</span>%, <span class="number">-50</span>%);</span><br><span class="line">  background-color: aquamarine;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>绝对定位<br>优缺点：需要父级有具体宽高，但是不需要知道宽高的具体值</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">.parent &#123;</span><br><span class="line">  position: relative;</span><br><span class="line">  height: <span class="number">400</span>px;</span><br><span class="line">  width: <span class="number">100</span>%;</span><br><span class="line">  border: 1px solid #000;</span><br><span class="line">&#125;</span><br><span class="line">.child &#123;</span><br><span class="line">  position: absolute;</span><br><span class="line">  top: <span class="number">0</span>;</span><br><span class="line">  left: <span class="number">0</span>;</span><br><span class="line">  bottom: <span class="number">0</span>;</span><br><span class="line">  right: <span class="number">0</span>;</span><br><span class="line">  margin: auto;</span><br><span class="line">  width: <span class="number">100</span>px;</span><br><span class="line">  height: <span class="number">100</span>px;</span><br><span class="line">  background-color: aquamarine;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>4.flex<br>优缺点：更简单了，但是也是兼容性不是特别好</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">.parent &#123;</span><br><span class="line">  display: flex;</span><br><span class="line">  justify-content: center;</span><br><span class="line">  align-items: center;</span><br><span class="line">  height: <span class="number">400</span>px;</span><br><span class="line">  width: <span class="number">100</span>%;</span><br><span class="line">  border: 1px solid #000;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.child &#123;</span><br><span class="line">  width: <span class="number">100</span>px;</span><br><span class="line">  height: <span class="number">100</span>px;</span><br><span class="line">  background-color: aquamarine;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>5.table-cell<br>优缺点：要求父级有固定宽高，且不能使用百分比</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">.parent &#123;</span><br><span class="line">  display: table-cell;</span><br><span class="line">  vertical-align: middle;</span><br><span class="line">  text-align: center;</span><br><span class="line">  height: <span class="number">400</span>px;</span><br><span class="line">  width: <span class="number">400</span>px;</span><br><span class="line">  border: 1px solid #000;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.child &#123;</span><br><span class="line">  display: inline-block;</span><br><span class="line">  width: <span class="number">100</span>px;</span><br><span class="line">  height: <span class="number">100</span>px;</span><br><span class="line">  background-color: aquamarine;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>6.javascript</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">  <span class="keyword">let</span> html = <span class="built_in">document</span>.documentElement</span><br><span class="line">  winW = html.clientWidth</span><br><span class="line">  winH = html.clientHeight</span><br><span class="line">  boxW = box.offsetWidth</span><br><span class="line">  boxH = box.offsetHeight</span><br><span class="line">  box.style.position = <span class="string">'absolute'</span></span><br><span class="line">  box.style.left = (winW - boxW) / <span class="number">2</span> + <span class="string">'px'</span></span><br><span class="line">  box.style.top = (winH - boxH) / <span class="number">2</span> + <span class="string">'px'</span></span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="5-盒模型"><a href="#5-盒模型" class="headerlink" title="5.盒模型"></a>5.盒模型</h3><p>页面渲染时，dom 元素所采用的 布局模型。可通过<code>box-sizing</code>进行设置。根据计算宽高的区域可分为：</p>
+<ul>
+<li><code>content-box</code> (W3C 标准盒模型)</li>
+<li><code>border-box</code> (IE 盒模型)</li>
+<li><code>padding-box</code> (FireFox 曾经支持)</li>
+<li><code>margin-box</code> (浏览器未实现)</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/qiruohan/qiruohan.github.io/uploads/450.jpg" alt="image"></p>
+<p>注：理论上是有上面 4 种盒子，但现在 w3c 与 mdn 规范中均只支持 content-box 与 border-box；</p>
+<h3 id="6-绝对定位、固定定位和-z-index"><a href="#6-绝对定位、固定定位和-z-index" class="headerlink" title="6.绝对定位、固定定位和 z-index"></a>6.绝对定位、固定定位和 z-index</h3><h3 id="7-如何实现左侧宽度固定，右侧宽度自适应的布局"><a href="#7-如何实现左侧宽度固定，右侧宽度自适应的布局" class="headerlink" title="7.如何实现左侧宽度固定，右侧宽度自适应的布局"></a>7.如何实现左侧宽度固定，右侧宽度自适应的布局</h3><h3 id="8-层叠上下文"><a href="#8-层叠上下文" class="headerlink" title="8.层叠上下文"></a>8.层叠上下文</h3><h3 id="9"><a href="#9" class="headerlink" title="9."></a>9.</h3><p>密集通常，CSS 并不是重点的考察领域，但这其实是由于现在国内业界对 CSS 的专注不够导致的，真正精通并专注于 CSS 的团队和人才并不多。因此如果能在 CSS 领域有自己的见解和经验，反而会为相当的加分和脱颖而出。</p>
+]]></content>
       <categories>
         <category>前端</category>
       </categories>
