@@ -3,7 +3,11 @@
   <entry>
     <title>中高级前端工程师必会的手写API（上）</title>
     <url>/2020/07/21/%E4%B8%AD%E9%AB%98%E7%BA%A7%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%88%E5%BF%85%E4%BC%9A%E7%9A%84%E6%89%8B%E5%86%99API%EF%BC%88%E4%B8%8A%EF%BC%89/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在面试中，<br>之所以要学习 js api 的实现方式，我总结有3个好处：</p>
+    <content><![CDATA[<!-- ![image](https://cdn.jsdelivr.net/gh/qiruohan/qiruohan.github.io/uploads/375538043.jpg =800x571) -->
+<img src="https://cdn.jsdelivr.net/gh/qiruohan/qiruohan.github.io/uploads/375538043.jpg" width="800" height="571">
+<a id="more"></a>
+
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在面试中，<br>之所以要学习 js api 的实现方式，我总结有3个好处：</p>
 <ol>
 <li>更有益于你阅读和理解源码</li>
 <li>更有益于你调试代码</li>
@@ -11,11 +15,17 @@
 </ol>
 <p>new、call、apply、bind、map、filter、some、every、forEach、✅reduce、instanceof、Object.create、proxy、模版字符串</p>
 ]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
   </entry>
   <entry>
     <title>面试题目汇总</title>
     <url>/2020/07/20/questions/</url>
-    <content><![CDATA[<p><img src="https://cdn.jsdelivr.net/gh/qiruohan/qiruohan.github.io/uploads/375538043.jpg" alt="image"></p>
+    <content><![CDATA[<img src="https://cdn.jsdelivr.net/gh/qiruohan/qiruohan.github.io/uploads/353632561.jpg" width="800" height="571">
 <a id="more"></a>
 
 <h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h2><h3 id="1-说说CSS选择器以及这些选择器的优先级"><a href="#1-说说CSS选择器以及这些选择器的优先级" class="headerlink" title="1.说说CSS选择器以及这些选择器的优先级"></a>1.说说CSS选择器以及这些选择器的优先级</h3><blockquote>
@@ -92,7 +102,7 @@
   <entry>
     <title>面试官：“你能手写一个 Promise 吗”（完美符合Promise/A+规范）</title>
     <url>/2020/06/28/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%EF%BC%8C%E6%89%8B%E5%86%99Promise%E6%BA%90%E7%A0%81%EF%BC%88%E5%AE%8C%E7%BE%8E%E7%AC%A6%E5%90%88Promise-A-%E8%A7%84%E8%8C%83%EF%BC%89/</url>
-    <content><![CDATA[<p><img src="https://cdn.jsdelivr.net/gh/qiruohan/qiruohan.github.io/uploads/375274245.jpg" alt="image"></p>
+    <content><![CDATA[<img src="https://cdn.jsdelivr.net/gh/qiruohan/qiruohan.github.io/uploads/375274245.jpg" width="800" height="571">
 <a id="more"></a>
 
 <p>关于手写 Promise，想必大家都十分熟悉。基本上现在不管是大厂还是小厂，手写 promise 已经成为了面试必考知识点。听说你还不太会？那么走着，带你从零开始解锁 Promise！</p>
