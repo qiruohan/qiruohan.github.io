@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>(未完成)中高级前端工程师必会的手写API</title>
-    <url>litgod.net/2020/07/21/api-1/</url>
+    <url>/2020/07/21/api-1/</url>
     <content><![CDATA[<img src="https://cdn.jsdelivr.net/gh/qiruohan/qiruohan.github.io/uploads/375538043.jpg" width="800" height="100%">
 <a id="more"></a>
 
@@ -81,7 +81,7 @@
   </entry>
   <entry>
     <title>(未完成)面试题目汇总</title>
-    <url>litgod.net/2020/07/20/questions/</url>
+    <url>/2020/07/20/questions/</url>
     <content><![CDATA[<img src="https://cdn.jsdelivr.net/gh/qiruohan/qiruohan.github.io/uploads/353632561.jpg" width="800" height="100%">
 <a id="more"></a>
 
@@ -279,7 +279,7 @@
   </entry>
   <entry>
     <title>面试官：“你能手写一个 Promise 吗”（完美符合Promise/A+规范）</title>
-    <url>litgod.net/2020/06/28/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%EF%BC%8C%E6%89%8B%E5%86%99Promise%E6%BA%90%E7%A0%81%EF%BC%88%E5%AE%8C%E7%BE%8E%E7%AC%A6%E5%90%88Promise-A-%E8%A7%84%E8%8C%83%EF%BC%89/</url>
+    <url>/2020/06/28/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%EF%BC%8C%E6%89%8B%E5%86%99Promise%E6%BA%90%E7%A0%81%EF%BC%88%E5%AE%8C%E7%BE%8E%E7%AC%A6%E5%90%88Promise-A-%E8%A7%84%E8%8C%83%EF%BC%89/</url>
     <content><![CDATA[<img src="https://cdn.jsdelivr.net/gh/qiruohan/qiruohan.github.io/uploads/375274245.jpg" width="800" height="100%">
 <a id="more"></a>
 
@@ -472,7 +472,7 @@
   </entry>
   <entry>
     <title>深拷贝与浅拷贝</title>
-    <url>litgod.net/2020/06/18/%E6%B7%B1%E6%8B%B7%E8%B4%9D%E4%B8%8E%E6%B5%85%E6%8B%B7%E8%B4%9D/</url>
+    <url>/2020/06/18/%E6%B7%B1%E6%8B%B7%E8%B4%9D%E4%B8%8E%E6%B5%85%E6%8B%B7%E8%B4%9D/</url>
     <content><![CDATA[<p><img src="https://cdn.jsdelivr.net/gh/qiruohan/qiruohan.github.io/uploads/veer-333382587.jpg" alt="image"></p>
 <a id="more"></a>
 
@@ -649,7 +649,7 @@
   </entry>
   <entry>
     <title>(未完成)Webpack 究竟解决了什么问题？</title>
-    <url>litgod.net/2020/06/01/Webpack%E7%9A%84%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F/</url>
+    <url>/2020/06/01/Webpack%E7%9A%84%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F/</url>
     <content><![CDATA[<p><img src="https://cdn.jsdelivr.net/gh/qiruohan/qiruohan.github.io/uploads/i4_1.jpg" alt="image"></p>
 <a id="more"></a>
 
@@ -728,7 +728,7 @@
   </entry>
   <entry>
     <title>重排(reflow)和重绘(repaint)</title>
-    <url>litgod.net/2020/01/30/%E9%87%8D%E7%BB%98%E5%92%8C%E9%87%8D%E6%8E%92/</url>
+    <url>/2020/01/30/%E9%87%8D%E7%BB%98%E5%92%8C%E9%87%8D%E6%8E%92/</url>
     <content><![CDATA[<p><img src="https://cdn.jsdelivr.net/gh/qiruohan/qiruohan.github.io/uploads/i3_1.jpg" alt="image"></p>
 <a id="more"></a>
 
@@ -931,7 +931,7 @@
   </entry>
   <entry>
     <title>浅谈 this、call、apply 和 bind</title>
-    <url>litgod.net/2020/01/19/%E5%85%B3%E4%BA%8E-this%E3%80%81call%E3%80%81apply-%E5%92%8C-bind-%E7%9A%84%E4%B8%80%E4%BA%9B%E7%90%86%E8%A7%A3/</url>
+    <url>/2020/01/19/%E5%85%B3%E4%BA%8E-this%E3%80%81call%E3%80%81apply-%E5%92%8C-bind-%E7%9A%84%E4%B8%80%E4%BA%9B%E7%90%86%E8%A7%A3/</url>
     <content><![CDATA[<p><img src="https://cdn.jsdelivr.net/gh/qiruohan/qiruohan.github.io/uploads/i2_1.jpg" alt="image"></p>
 <a id="more"></a>
 
@@ -1099,7 +1099,7 @@
   </entry>
   <entry>
     <title>超详细的Github+Hexo搭建教程</title>
-    <url>litgod.net/2019/10/31/%E8%B6%85%E8%AF%A6%E7%BB%86%E7%9A%84Github-Hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/</url>
+    <url>/2019/10/31/%E8%B6%85%E8%AF%A6%E7%BB%86%E7%9A%84Github-Hexo%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/</url>
     <content><![CDATA[<p><img src="https://cdn.jsdelivr.net/gh/qiruohan/qiruohan.github.io/uploads/hexo.jpg" alt="image"></p>
 <a id="more"></a>
 
