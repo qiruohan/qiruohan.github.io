@@ -337,7 +337,7 @@
 
 <p>臃肿的嵌套变得线性多了有木有？没错，他就是我们的异步神器 Promise！</p>
 <p>让我们再次回归刚才的问题，<strong>Promise 为我们解决了什么问题？</strong>在传统的异步编程中，如果异步之间存在依赖关系，就需要通过层层嵌套回调的方式满足这种依赖，如果嵌套层数过多，可读性和可以维护性都会变得很差，产生所谓的“回调地狱”，而 Promise 将嵌套调用改为链式调用，增加了可阅读性和可维护性。也就是说，Promise 解决的是异步编码风格的问题。<strong>那 Promise 的业界实现都有哪些呢？</strong>业界比较著名的实现 Promise 的类库有 bluebird、Q、ES6-Promise。</p>
-<h2 id="从零开始，手写-Promise"><a href="#从零开始，手写-Promise" class="headerlink" title="从零开始，手写 Promise"></a>从零开始，手写 Promise</h2><h3 id="Promise-A"><a href="#Promise-A" class="headerlink" title="Promise/A+"></a>Promise/A+</h3><p>我们想要手写一个 Promise，就要遵循 <a href="https://promisesaplus.com/" target="_blank" rel="external nofollow noopener noreferrer">Promise/A+</a> 规范，业界所有 Promise 的类库都遵循这个规范。</p>
+<h2 id="从零开始，手写-Promise"><a href="#从零开始，手写-Promise" class="headerlink" title="从零开始，手写 Promise"></a>从零开始，手写 Promise</h2><h3 id="Promise-A"><a href="#Promise-A" class="headerlink" title="Promise/A+"></a>Promise/A+</h3><p>我们想要手写一个 Promise，就要遵循 <a href="https://promisesaplus.com/" rel="external nofollow noopener noreferrer" target="_blank">Promise/A+</a> 规范，业界所有 Promise 的类库都遵循这个规范。</p>
 <p>其实 Promise/A+ 规范对如何实现一个符合标准的 Promise 类库已经阐述的很详细了。每一行代码在 Promise/A+ 规范中都有迹可循，所以在下面的实现的过程中，我会尽可能的将代码和 Promise/A+ 规范一一对应起来。</p>
 <p>下面开始步入正题啦～</p>
 <h3 id="基础版-Promise"><a href="#基础版-Promise" class="headerlink" title="基础版 Promise"></a>基础版 Promise</h3><p>我们先来回顾下最简单的 Promise 使用方式：</p>
@@ -352,7 +352,7 @@
 <li>如果运行在 excutor 函数中的业务执行成功了，会调用 resolve 函数；如果执行失败了，则调用 reject 函数。</li>
 <li>Promise 的状态不可逆，同时调用 resolve 函数和 reject 函数，默认会采取第一次调用的结果。</li>
 </ul>
-<p>以上简单介绍了 Promise 的一些主要的使用方法，结合 <a href="https://promisesaplus.com/" target="_blank" rel="external nofollow noopener noreferrer">Promise/A+</a> 规范，我们可以分析出 Promise 的基本特征：</p>
+<p>以上简单介绍了 Promise 的一些主要的使用方法，结合 <a href="https://promisesaplus.com/" rel="external nofollow noopener noreferrer" target="_blank">Promise/A+</a> 规范，我们可以分析出 Promise 的基本特征：</p>
 <ol>
 <li>promise 有三个状态：<code>pending</code>，<code>fulfilled</code>，or <code>rejected</code>；「规范 Promise/A+ 2.1」</li>
 <li><code>new promise</code>时， 需要传递一个<code>executor()</code>执行器，执行器立即执行；</li>
@@ -391,7 +391,7 @@
 <p>ok！大功告成，异步问题已经解决了！</p>
 <p>熟悉设计模式的同学，应该意识到了这其实是一个<strong>发布订阅模式</strong>，这种<code>收集依赖 -&gt; 触发通知 -&gt; 取出依赖执行</code>的方式，被广泛运用于发布订阅模式的实现。</p>
 <h3 id="then-的链式调用-amp-值穿透特性"><a href="#then-的链式调用-amp-值穿透特性" class="headerlink" title="then 的链式调用&amp;值穿透特性"></a>then 的链式调用&amp;值穿透特性</h3><p>我们都知道，promise 的优势在于可以链式调用。在我们使用 Promise 的时候，当 then 函数中 return 了一个值，不管是什么值，我们都能在下一个 then 中获取到，这就是所谓的<strong>then 的链式调用</strong>。而且，当我们不在 then 中放入参数，例：<code>promise.then().then()</code>，那么其后面的 then 依旧可以得到之前 then 返回的值，这就是所谓的<strong>值的穿透</strong>。那具体如何实现呢？简单思考一下，如果每次调用 then 的时候，我们都重新创建一个 promise 对象，并把上一个 then 的返回结果传给这个新的 promise 的 then 方法，不就可以一直 then 下去了么？那我们来试着实现一下。这也是手写 Promise 源码的重中之重，所以，打起精神来，重头戏来咯！</p>
-<p>有了上面的想法，我们再结合 <a href="https://promisesaplus.com/" target="_blank" rel="external nofollow noopener noreferrer">Promise/A+</a> 规范梳理一下思路：</p>
+<p>有了上面的想法，我们再结合 <a href="https://promisesaplus.com/" rel="external nofollow noopener noreferrer" target="_blank">Promise/A+</a> 规范梳理一下思路：</p>
 <ol>
 <li>then 的参数 <code>onFulfilled</code> 和 <code>onRejected</code> 可以缺省，如果 <code>onFulfilled</code> 或者 <code>onRejected</code>不是函数，将其忽略，且依旧可以在下面的 then 中获取到之前返回的值；「规范 Promise/A+ 2.2.1、2.2.1.1、2.2.1.2」</li>
 <li>promise 可以 then 多次，每次执行完 promise.then 方法后返回的都是一个“新的promise”；「规范 Promise/A+ 2.2.7」</li>
@@ -492,7 +492,7 @@
 <li>Generator/async+await 的实现。</li>
 </ol>
 <p>如果你对我的文章感兴趣，欢迎关注我噢！如果你对文章有任何的疑问，也欢迎给我留言～</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://juejin.im/post/5e3b9ae26fb9a07ca714a5cc" target="_blank" rel="external nofollow noopener noreferrer">9k字 | Promise/async/Generator实现原理解析</a><br><a href="https://juejin.im/post/5b32f552f265da59991155f0" target="_blank" rel="external nofollow noopener noreferrer">Promise之你看得懂的Promise</a><br><a href="https://juejin.im/post/5c88e427f265da2d8d6a1c84" target="_blank" rel="external nofollow noopener noreferrer">Promise的源码实现（完美符合Promise/A+规范）</a></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://juejin.im/post/5e3b9ae26fb9a07ca714a5cc" rel="external nofollow noopener noreferrer" target="_blank">9k字 | Promise/async/Generator实现原理解析</a><br><a href="https://juejin.im/post/5b32f552f265da59991155f0" rel="external nofollow noopener noreferrer" target="_blank">Promise之你看得懂的Promise</a><br><a href="https://juejin.im/post/5c88e427f265da2d8d6a1c84" rel="external nofollow noopener noreferrer" target="_blank">Promise的源码实现（完美符合Promise/A+规范）</a></p>
 
     </div>
 

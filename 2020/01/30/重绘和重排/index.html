@@ -470,7 +470,7 @@
 <li><p>使用 display:none</p>
 <p>一旦我们给元素设置 <code>display:none</code> 时（只有一次重排重绘），元素便不会再存在在渲染树中，相当于将其从页面上“拿掉”，我们之后的操作将不会触发重排和重绘，添加足够多的变更后，通过 <code>display</code>属性显示（另一次重排重绘）。通过这种方式即使大量变更也只触发两次重排。另外，<code>visibility : hidden</code> 的元素只对重绘有影响，不影响重排。</p>
 </li>
-<li><p>通过 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/DocumentFragment" target="_blank" rel="external nofollow noopener noreferrer">documentFragment</a> 创建一个 <code>dom</code> 碎片,在它上面批量操作 <code>dom</code>，操作完成之后，再添加到文档中，这样只会触发一次重排。</p>
+<li><p>通过 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/DocumentFragment" rel="external nofollow noopener noreferrer" target="_blank">documentFragment</a> 创建一个 <code>dom</code> 碎片,在它上面批量操作 <code>dom</code>，操作完成之后，再添加到文档中，这样只会触发一次重排。</p>
 </li>
 <li><p>复制节点，在副本上工作，然后替换它！</p>
 </li>
@@ -504,7 +504,7 @@
 <li>CSS3 就是在 GPU 发生的：Transform  Opacity。在 GPU 发生的属性比较高效。所以 CSS3 性能比较高。</li>
 </ul>
 <h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>非常感谢你看完了这篇很长的文章，也希望大家能重视重排的这些问题，在我们平时的开发中，也需要有意识的规避这些问题，才能让我们写出来的代码更规范！</p>
-<h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><p><a href="https://segmentfault.com/a/1190000017491520" target="_blank" rel="external nofollow noopener noreferrer">掌握浏览器重绘(repaint)重排(reflow))-前端进阶</a><br><a href="https://csstriggers.com" target="_blank" rel="external nofollow noopener noreferrer">csstriggers</a><br><a href="https://efe.baidu.com/blog/hardware-accelerated-css-the-nice-vs-the-naughty/" target="_blank" rel="external nofollow noopener noreferrer">CSS硬件加速的好与坏</a></p>
+<h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><p><a href="https://segmentfault.com/a/1190000017491520" rel="external nofollow noopener noreferrer" target="_blank">掌握浏览器重绘(repaint)重排(reflow))-前端进阶</a><br><a href="https://csstriggers.com" rel="external nofollow noopener noreferrer" target="_blank">csstriggers</a><br><a href="https://efe.baidu.com/blog/hardware-accelerated-css-the-nice-vs-the-naughty/" rel="external nofollow noopener noreferrer" target="_blank">CSS硬件加速的好与坏</a></p>
 
     </div>
 

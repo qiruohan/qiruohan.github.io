@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>(未完成)中高级前端工程师必会的手写API</title>
-    <url>/2020/07/21/api-1/</url>
+    <title>(未完成)中高级前端工程师必会的手写API(一)</title>
+    <url>/2020/08/04/api-2/</url>
     <content><![CDATA[<img src="https://cdn.jsdelivr.net/gh/qiruohan/qiruohan.github.io/uploads/375538043.jpg" width="800" height="100%">
 <a id="more"></a>
 
@@ -72,12 +72,6 @@
 <p>十三、实现模版字符串</p>
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>计划输出：<br>中高级前端工程师必会的手写API（二）</p>
 ]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-      </tags>
   </entry>
   <entry>
     <title>(未完成)面试题目汇总</title>
@@ -114,7 +108,7 @@
 <li>ID选择器总共出现了1次， <code>B = 1</code>;<br>类选择器出现了1次， 属性选择器出现了0次，伪类选择器出现0次，所以 <code>C = (1 + 0 + 0) = 1</code>；<br>标签选择器出现了3次， 伪元素出现了0次，所以 <code>D = (3 + 0) = 3</code>;</li>
 </ol>
 <p>上面算出的<code>A</code>、 <code>B</code>、<code>C</code>、<code>D</code> 可以简记作：<code>(0, 1, 1, 3)</code>。</p>
-<p>访问<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Specificity" target="_blank" rel="external nofollow noopener noreferrer">MDN</a>来了解更多关于优先级的详细信息。</p>
+<p>访问<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Specificity" rel="external nofollow noopener noreferrer" target="_blank">MDN</a>来了解更多关于优先级的详细信息。</p>
 <h3 id="2-伪类和伪元素的区别"><a href="#2-伪类和伪元素的区别" class="headerlink" title="2. 伪类和伪元素的区别"></a>2. 伪类和伪元素的区别</h3><p><strong>伪元素</strong>：主要是用来创建一些不存在原有dom结构树种的元素，例如：用::before和::after在一些存在的元素前后添加文字样式等，这些被添加的内容会以具体的UI显示出来，被用户所看到的，这些内容不会改变文档的内容，不会出现在DOM中，不可复制，仅仅是在CSS渲染层加入。CSS3中建议使用::表示伪元素，如：div::before。</p>
 <p><strong>::before和::after这两个伪类下有特有的属性content，必须有这个属性。</strong></p>
 <p><strong>伪类</strong>：表示已存在的某个元素处于某种状态，但是通过dom树又无法表示这种状态，就可以通过伪类来为其添加样式。例如a元素的:hover, :active等。CSS3中建议使用:表示伪元素，如：a:hover。</p>
@@ -306,7 +300,7 @@
 
 <p>臃肿的嵌套变得线性多了有木有？没错，他就是我们的异步神器 Promise！</p>
 <p>让我们再次回归刚才的问题，<strong>Promise 为我们解决了什么问题？</strong>在传统的异步编程中，如果异步之间存在依赖关系，就需要通过层层嵌套回调的方式满足这种依赖，如果嵌套层数过多，可读性和可以维护性都会变得很差，产生所谓的“回调地狱”，而 Promise 将嵌套调用改为链式调用，增加了可阅读性和可维护性。也就是说，Promise 解决的是异步编码风格的问题。<strong>那 Promise 的业界实现都有哪些呢？</strong>业界比较著名的实现 Promise 的类库有 bluebird、Q、ES6-Promise。</p>
-<h2 id="从零开始，手写-Promise"><a href="#从零开始，手写-Promise" class="headerlink" title="从零开始，手写 Promise"></a>从零开始，手写 Promise</h2><h3 id="Promise-A"><a href="#Promise-A" class="headerlink" title="Promise/A+"></a>Promise/A+</h3><p>我们想要手写一个 Promise，就要遵循 <a href="https://promisesaplus.com/" target="_blank" rel="external nofollow noopener noreferrer">Promise/A+</a> 规范，业界所有 Promise 的类库都遵循这个规范。</p>
+<h2 id="从零开始，手写-Promise"><a href="#从零开始，手写-Promise" class="headerlink" title="从零开始，手写 Promise"></a>从零开始，手写 Promise</h2><h3 id="Promise-A"><a href="#Promise-A" class="headerlink" title="Promise/A+"></a>Promise/A+</h3><p>我们想要手写一个 Promise，就要遵循 <a href="https://promisesaplus.com/" rel="external nofollow noopener noreferrer" target="_blank">Promise/A+</a> 规范，业界所有 Promise 的类库都遵循这个规范。</p>
 <p>其实 Promise/A+ 规范对如何实现一个符合标准的 Promise 类库已经阐述的很详细了。每一行代码在 Promise/A+ 规范中都有迹可循，所以在下面的实现的过程中，我会尽可能的将代码和 Promise/A+ 规范一一对应起来。</p>
 <p>下面开始步入正题啦～</p>
 <h3 id="基础版-Promise"><a href="#基础版-Promise" class="headerlink" title="基础版 Promise"></a>基础版 Promise</h3><p>我们先来回顾下最简单的 Promise 使用方式：</p>
@@ -321,7 +315,7 @@
 <li>如果运行在 excutor 函数中的业务执行成功了，会调用 resolve 函数；如果执行失败了，则调用 reject 函数。</li>
 <li>Promise 的状态不可逆，同时调用 resolve 函数和 reject 函数，默认会采取第一次调用的结果。</li>
 </ul>
-<p>以上简单介绍了 Promise 的一些主要的使用方法，结合 <a href="https://promisesaplus.com/" target="_blank" rel="external nofollow noopener noreferrer">Promise/A+</a> 规范，我们可以分析出 Promise 的基本特征：</p>
+<p>以上简单介绍了 Promise 的一些主要的使用方法，结合 <a href="https://promisesaplus.com/" rel="external nofollow noopener noreferrer" target="_blank">Promise/A+</a> 规范，我们可以分析出 Promise 的基本特征：</p>
 <ol>
 <li>promise 有三个状态：<code>pending</code>，<code>fulfilled</code>，or <code>rejected</code>；「规范 Promise/A+ 2.1」</li>
 <li><code>new promise</code>时， 需要传递一个<code>executor()</code>执行器，执行器立即执行；</li>
@@ -360,7 +354,7 @@
 <p>ok！大功告成，异步问题已经解决了！</p>
 <p>熟悉设计模式的同学，应该意识到了这其实是一个<strong>发布订阅模式</strong>，这种<code>收集依赖 -&gt; 触发通知 -&gt; 取出依赖执行</code>的方式，被广泛运用于发布订阅模式的实现。</p>
 <h3 id="then-的链式调用-amp-值穿透特性"><a href="#then-的链式调用-amp-值穿透特性" class="headerlink" title="then 的链式调用&amp;值穿透特性"></a>then 的链式调用&amp;值穿透特性</h3><p>我们都知道，promise 的优势在于可以链式调用。在我们使用 Promise 的时候，当 then 函数中 return 了一个值，不管是什么值，我们都能在下一个 then 中获取到，这就是所谓的<strong>then 的链式调用</strong>。而且，当我们不在 then 中放入参数，例：<code>promise.then().then()</code>，那么其后面的 then 依旧可以得到之前 then 返回的值，这就是所谓的<strong>值的穿透</strong>。那具体如何实现呢？简单思考一下，如果每次调用 then 的时候，我们都重新创建一个 promise 对象，并把上一个 then 的返回结果传给这个新的 promise 的 then 方法，不就可以一直 then 下去了么？那我们来试着实现一下。这也是手写 Promise 源码的重中之重，所以，打起精神来，重头戏来咯！</p>
-<p>有了上面的想法，我们再结合 <a href="https://promisesaplus.com/" target="_blank" rel="external nofollow noopener noreferrer">Promise/A+</a> 规范梳理一下思路：</p>
+<p>有了上面的想法，我们再结合 <a href="https://promisesaplus.com/" rel="external nofollow noopener noreferrer" target="_blank">Promise/A+</a> 规范梳理一下思路：</p>
 <ol>
 <li>then 的参数 <code>onFulfilled</code> 和 <code>onRejected</code> 可以缺省，如果 <code>onFulfilled</code> 或者 <code>onRejected</code>不是函数，将其忽略，且依旧可以在下面的 then 中获取到之前返回的值；「规范 Promise/A+ 2.2.1、2.2.1.1、2.2.1.2」</li>
 <li>promise 可以 then 多次，每次执行完 promise.then 方法后返回的都是一个“新的promise”；「规范 Promise/A+ 2.2.7」</li>
@@ -461,7 +455,7 @@
 <li>Generator/async+await 的实现。</li>
 </ol>
 <p>如果你对我的文章感兴趣，欢迎关注我噢！如果你对文章有任何的疑问，也欢迎给我留言～</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://juejin.im/post/5e3b9ae26fb9a07ca714a5cc" target="_blank" rel="external nofollow noopener noreferrer">9k字 | Promise/async/Generator实现原理解析</a><br><a href="https://juejin.im/post/5b32f552f265da59991155f0" target="_blank" rel="external nofollow noopener noreferrer">Promise之你看得懂的Promise</a><br><a href="https://juejin.im/post/5c88e427f265da2d8d6a1c84" target="_blank" rel="external nofollow noopener noreferrer">Promise的源码实现（完美符合Promise/A+规范）</a></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://juejin.im/post/5e3b9ae26fb9a07ca714a5cc" rel="external nofollow noopener noreferrer" target="_blank">9k字 | Promise/async/Generator实现原理解析</a><br><a href="https://juejin.im/post/5b32f552f265da59991155f0" rel="external nofollow noopener noreferrer" target="_blank">Promise之你看得懂的Promise</a><br><a href="https://juejin.im/post/5c88e427f265da2d8d6a1c84" rel="external nofollow noopener noreferrer" target="_blank">Promise的源码实现（完美符合Promise/A+规范）</a></p>
 ]]></content>
       <categories>
         <category>前端</category>
@@ -574,7 +568,7 @@
 <h3 id="方法三：使用循环"><a href="#方法三：使用循环" class="headerlink" title="方法三：使用循环"></a>方法三：使用循环</h3><p>对象循环我们使用 <strong>for in</strong> 循环，但<strong>for in</strong> 循环会遍历到对象的继承属性，我们只需要它的私有属性，所以可以加一个判断方法：<strong>hasOwnProperty</strong> 保留对象私有属性。</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> obj2 = &#123;&#125;;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i <span class="keyword">in</span> obj) &#123;</span><br><span class="line">    <span class="keyword">if</span>(!obj.hasOwnProperty(i)) <span class="keyword">break</span>; <span class="comment">// 这里使用 continue 也可以</span></span><br><span class="line">    obj2[i] = obj[i];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="方法四：Object-assign-target-source"><a href="#方法四：Object-assign-target-source" class="headerlink" title="方法四：Object.assign(target,source)"></a>方法四：Object.assign(target,source)</h3><p>这是ES6中新增的对象方法，对它不了解的见<a href="https://es6.ruanyifeng.com/" target="_blank" rel="external nofollow noopener noreferrer">ES6</a>对象新增方法。</p>
+<h3 id="方法四：Object-assign-target-source"><a href="#方法四：Object-assign-target-source" class="headerlink" title="方法四：Object.assign(target,source)"></a>方法四：Object.assign(target,source)</h3><p>这是ES6中新增的对象方法，对它不了解的见<a href="https://es6.ruanyifeng.com/" rel="external nofollow noopener noreferrer" target="_blank">ES6</a>对象新增方法。</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> obj2 = &#123;&#125;;</span><br><span class="line"><span class="built_in">Object</span>.assign(obj2,obj); <span class="comment">//将 obj 拷贝到 obj2</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="浅拷贝总结："><a href="#浅拷贝总结：" class="headerlink" title="浅拷贝总结："></a>浅拷贝总结：</h2><p>方法一：就是纯粹的浅拷贝，obj2 的任何变化都会反映在 obj 上。<br>方法二、三、四：都可以实现<strong>第一层的“深拷贝”</strong>，但无法实现多层的深拷贝。比如我们修改下 obj2 的值：</p>
@@ -619,7 +613,7 @@
 </blockquote>
 <p>关于<strong>如何去 JSON.stringify 序列化</strong>也是一个比较有意思的问题，大家可以学习一下，毕竟面试官总是喜欢问到你不会为止。。。</p>
 <h3 id="方法二：手写-deepClone"><a href="#方法二：手写-deepClone" class="headerlink" title="方法二：手写 deepClone"></a>方法二：手写 deepClone</h3><p>既然第一种方法有它的弊端，那最终极的方法，就是手写一个 deepClone 了。</p>
-<p>用过<code>lodash</code>的小伙伴都知道<code>lodash</code>提供了<code>_.cloneDeep</code> 方法深克隆，想看 lodash 实现源码的可以点击<a href="https://github.com/lodash/lodash/blob/master/cloneDeep.js" target="_blank" rel="external nofollow noopener noreferrer">这里</a>，它的源码里实现的比较复杂，考虑的情况比较多，我们写一个简单版的深拷贝可以在自己项目中使用即可。</p>
+<p>用过<code>lodash</code>的小伙伴都知道<code>lodash</code>提供了<code>_.cloneDeep</code> 方法深克隆，想看 lodash 实现源码的可以点击<a href="https://github.com/lodash/lodash/blob/master/cloneDeep.js" rel="external nofollow noopener noreferrer" target="_blank">这里</a>，它的源码里实现的比较复杂，考虑的情况比较多，我们写一个简单版的深拷贝可以在自己项目中使用即可。</p>
 <p>简单的实现思路：<br>1.遍历带拷贝的对象，判断是不是原始值，若是，使用浅拷贝的方式进行赋值<br>2.若是引用值，将特殊类型逐一进行过滤，并且兼容引用值是数组的情况<br>3.待拷贝的对象里面的若是原始值，则浅拷贝即可实现，若还有引用值，则还需要重复进行上述一系列的判断。（递归赋值）</p>
 <p>上述思路用代码如何实现呢？</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">    a: <span class="string">'100'</span>,</span><br><span class="line">    b: <span class="literal">undefined</span>,</span><br><span class="line">    c: <span class="literal">null</span>,</span><br><span class="line">    d: <span class="built_in">Symbol</span>(<span class="number">2</span>),</span><br><span class="line">    e: <span class="regexp">/^\d+$/</span>,</span><br><span class="line">    f: <span class="keyword">new</span> <span class="built_in">Date</span>,</span><br><span class="line">    g: <span class="literal">true</span>,</span><br><span class="line">    arr: [<span class="number">10</span>,<span class="number">20</span>,<span class="number">30</span>],</span><br><span class="line">    school:&#123;</span><br><span class="line">        name: <span class="string">'cherry'</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    fn: <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'fn'</span>);    </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepClone</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 先把特殊情况全部过滤掉 null undefined date reg</span></span><br><span class="line">    <span class="keyword">if</span> (obj == <span class="literal">null</span>) <span class="keyword">return</span> obj;  <span class="comment">// null 和 undefined 都不用处理</span></span><br><span class="line">    <span class="keyword">if</span> (obj <span class="keyword">instanceof</span> <span class="built_in">Date</span>) <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Date</span>(obj);</span><br><span class="line">    <span class="keyword">if</span> (obj <span class="keyword">instanceof</span> <span class="built_in">RegExp</span>) <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">RegExp</span>(obj);</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> obj !== <span class="string">'object'</span>) <span class="keyword">return</span> obj;  <span class="comment">// 普通常量直接返回</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 不直接创建空对象的目的：克隆的结果和之前保持相同的所属类，</span></span><br><span class="line">    <span class="comment">// 同时也兼容了数组的情况</span></span><br><span class="line">    <span class="keyword">let</span> newObj = <span class="keyword">new</span> obj.constructor;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">const</span> key <span class="keyword">in</span> obj) &#123;</span><br><span class="line">        <span class="keyword">if</span> (obj.hasOwnProperty(key)) &#123;  <span class="comment">// 不拷贝原型链上的属性</span></span><br><span class="line">            newObj[key] = deepClone(obj[key]);  <span class="comment">// 递归赋值</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> newObj;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> obj2 = deepClone(obj);</span><br><span class="line"><span class="built_in">console</span>.log(obj2);</span><br></pre></td></tr></table></figure>
@@ -630,7 +624,7 @@
 <p>代码写到这里，我们就实现了一种比较简单的深拷贝，面试的时候如果你能写出上面的实现方法，应该算是及格啦！但是，面对复杂的，多类型的对象，以上方法还是有诸多缺陷的。</p>
 <p>比如我们为 <code>obj</code> 中的 <code>school</code> 对象添加一个 <code>Symbol</code> 类型的属性：</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//==新增代码==</span></span><br><span class="line"><span class="keyword">let</span> s1 = <span class="built_in">Symbol</span>(<span class="string">'s1'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">    a: <span class="string">'100'</span>,</span><br><span class="line">    b: <span class="literal">undefined</span>,</span><br><span class="line">    c: <span class="literal">null</span>,</span><br><span class="line">    d: <span class="built_in">Symbol</span>(<span class="number">2</span>),</span><br><span class="line">    e: <span class="regexp">/^\d+$/</span>,</span><br><span class="line">    f: <span class="keyword">new</span> <span class="built_in">Date</span>,</span><br><span class="line">    g: <span class="literal">true</span>,</span><br><span class="line">    arr: [<span class="number">10</span>,<span class="number">20</span>,<span class="number">30</span>],</span><br><span class="line">    school:&#123;</span><br><span class="line">        name: <span class="string">'cherry'</span>,</span><br><span class="line">        <span class="comment">//==新增代码==</span></span><br><span class="line">        [s1]: <span class="string">'s1'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    fn: <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'fn'</span>);    </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> obj2 = deepClone(obj);</span><br><span class="line"><span class="built_in">console</span>.log(obj2);</span><br></pre></td></tr></table></figure>
-<p>执行代码后发现 <code>school</code> 中的 <code>Symbol(s1): &#39;s1&#39;</code>并没有拷贝成功。这是因为声明对象的 key 为 symbol 类型是不可枚举的，要解决这个问题，我们可以使用 Object 提供的 <code>getOwnPrepertySymbols()</code>方法来枚举对象中所有 key 是 symbol 类型的属性，这个属性的详细使用说明参见 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertySymbols" target="_blank" rel="external nofollow noopener noreferrer">MDN</a>，或者用 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Reflect/ownKeys" target="_blank" rel="external nofollow noopener noreferrer">Reflect.ownKeys()</a> 也可以实现。</p>
+<p>执行代码后发现 <code>school</code> 中的 <code>Symbol(s1): &#39;s1&#39;</code>并没有拷贝成功。这是因为声明对象的 key 为 symbol 类型是不可枚举的，要解决这个问题，我们可以使用 Object 提供的 <code>getOwnPrepertySymbols()</code>方法来枚举对象中所有 key 是 symbol 类型的属性，这个属性的详细使用说明参见 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertySymbols" rel="external nofollow noopener noreferrer" target="_blank">MDN</a>，或者用 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Reflect/ownKeys" rel="external nofollow noopener noreferrer" target="_blank">Reflect.ownKeys()</a> 也可以实现。</p>
 <p>还比如：如果在我们拷贝的对象被循环引用，deepClone就会一直执行下去导致爆栈，举个例子：</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">    a: <span class="string">'100'</span>,</span><br><span class="line">    b: <span class="literal">undefined</span>,</span><br><span class="line">    c: <span class="literal">null</span>,</span><br><span class="line">    d: <span class="built_in">Symbol</span>(<span class="number">2</span>),</span><br><span class="line">    e: <span class="regexp">/^\d+$/</span>,</span><br><span class="line">    f: <span class="keyword">new</span> <span class="built_in">Date</span>,</span><br><span class="line">    g: <span class="literal">true</span>,</span><br><span class="line">    arr: [<span class="number">10</span>,<span class="number">20</span>,<span class="number">30</span>],</span><br><span class="line">    school:&#123;</span><br><span class="line">        name: <span class="string">'cherry'</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    fn: <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'fn'</span>);    </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">obj.h = obj;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> obj2 = deepClone(obj);</span><br><span class="line"><span class="built_in">console</span>.log(obj2);</span><br></pre></td></tr></table></figure>
 <p>执行上述代码后，控制台抛出栈溢出错误：<code>Maximum call stack size exceeded</code>。其实解决循环引用的思路，就是在赋值之前判断当前值是否已经存在，避免循环引用，这里我们可以使用 es6 的 WeakMap 来生成一个 hash 表。</p>
@@ -885,7 +879,7 @@
 <li><p>使用 display:none</p>
 <p>一旦我们给元素设置 <code>display:none</code> 时（只有一次重排重绘），元素便不会再存在在渲染树中，相当于将其从页面上“拿掉”，我们之后的操作将不会触发重排和重绘，添加足够多的变更后，通过 <code>display</code>属性显示（另一次重排重绘）。通过这种方式即使大量变更也只触发两次重排。另外，<code>visibility : hidden</code> 的元素只对重绘有影响，不影响重排。</p>
 </li>
-<li><p>通过 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/DocumentFragment" target="_blank" rel="external nofollow noopener noreferrer">documentFragment</a> 创建一个 <code>dom</code> 碎片,在它上面批量操作 <code>dom</code>，操作完成之后，再添加到文档中，这样只会触发一次重排。</p>
+<li><p>通过 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/DocumentFragment" rel="external nofollow noopener noreferrer" target="_blank">documentFragment</a> 创建一个 <code>dom</code> 碎片,在它上面批量操作 <code>dom</code>，操作完成之后，再添加到文档中，这样只会触发一次重排。</p>
 </li>
 <li><p>复制节点，在副本上工作，然后替换它！</p>
 </li>
@@ -919,7 +913,7 @@
 <li>CSS3 就是在 GPU 发生的：Transform  Opacity。在 GPU 发生的属性比较高效。所以 CSS3 性能比较高。</li>
 </ul>
 <h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>非常感谢你看完了这篇很长的文章，也希望大家能重视重排的这些问题，在我们平时的开发中，也需要有意识的规避这些问题，才能让我们写出来的代码更规范！</p>
-<h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><p><a href="https://segmentfault.com/a/1190000017491520" target="_blank" rel="external nofollow noopener noreferrer">掌握浏览器重绘(repaint)重排(reflow))-前端进阶</a><br><a href="https://csstriggers.com" target="_blank" rel="external nofollow noopener noreferrer">csstriggers</a><br><a href="https://efe.baidu.com/blog/hardware-accelerated-css-the-nice-vs-the-naughty/" target="_blank" rel="external nofollow noopener noreferrer">CSS硬件加速的好与坏</a></p>
+<h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><p><a href="https://segmentfault.com/a/1190000017491520" rel="external nofollow noopener noreferrer" target="_blank">掌握浏览器重绘(repaint)重排(reflow))-前端进阶</a><br><a href="https://csstriggers.com" rel="external nofollow noopener noreferrer" target="_blank">csstriggers</a><br><a href="https://efe.baidu.com/blog/hardware-accelerated-css-the-nice-vs-the-naughty/" rel="external nofollow noopener noreferrer" target="_blank">CSS硬件加速的好与坏</a></p>
 ]]></content>
       <categories>
         <category>前端</category>
@@ -936,7 +930,7 @@
 <a id="more"></a>
 
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这是一个前端面试经常考的基础考点，很多初学者在这个问题上都容易踩坑，包括我也是经常性蒙圈。所以这次决定将他们梳理下来，加深自己的理解。如果有出错的地方，欢迎指正。</p>
-<h2 id="this-是什么"><a href="#this-是什么" class="headerlink" title="this 是什么"></a>this 是什么</h2><p>this 关键字是 Javascript ES5 中最复杂的机制之一。<a href="http://es6.ruanyifeng.com/#README" target="_blank" rel="external nofollow noopener noreferrer">ES6</a> 中新增的箭头函数，很大程度上避免了使用 this 所产生的错误。但是在 ES5 中，有时候我们会错误的判断了 this 的指向。其实关于 this 的指向，始终坚持一个原理：<strong>this 永远指向最后调用它的那个对象</strong>，记住了这句话，this 的指向你已经了解一半！</p>
+<h2 id="this-是什么"><a href="#this-是什么" class="headerlink" title="this 是什么"></a>this 是什么</h2><p>this 关键字是 Javascript ES5 中最复杂的机制之一。<a href="http://es6.ruanyifeng.com/#README" rel="external nofollow noopener noreferrer" target="_blank">ES6</a> 中新增的箭头函数，很大程度上避免了使用 this 所产生的错误。但是在 ES5 中，有时候我们会错误的判断了 this 的指向。其实关于 this 的指向，始终坚持一个原理：<strong>this 永远指向最后调用它的那个对象</strong>，记住了这句话，this 的指向你已经了解一半！</p>
 <p>想要了解 this 的指向，我们首先要了解 this 的四种绑定方式：<strong>隐式绑定、显示绑定、window 绑定、new 绑定</strong>。</p>
 <h2 id="this-的四种绑定方式"><a href="#this-的四种绑定方式" class="headerlink" title="this 的四种绑定方式"></a>this 的四种绑定方式</h2><h3 id="隐式绑定"><a href="#隐式绑定" class="headerlink" title="隐式绑定"></a>隐式绑定</h3><p>执行绑定的第一个也是最常见的规则为 <strong>隐式绑定</strong>，它 80% 的情况下会告诉你 this 指向的对象是什么。</p>
 <p>我们先来看一个简单的例子：</p>
@@ -1032,7 +1026,7 @@
 <h4 id="使用-bind"><a href="#使用-bind" class="headerlink" title="使用 bind()"></a>使用 bind()</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var user = &#123;</span><br><span class="line">  name: &quot;Cherry&quot;,</span><br><span class="line"></span><br><span class="line">  fn1: function() &#123;</span><br><span class="line">    console.log(this.name)</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  fn2: function() &#123;</span><br><span class="line">    setTimeout(function () &#123;</span><br><span class="line">      this.fn1()</span><br><span class="line">    &#125;.bind(user)(), 100);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">user.fn2()            // Cherry</span><br></pre></td></tr></table></figure>
 
 <h2 id="apply、call、bind-的区别"><a href="#apply、call、bind-的区别" class="headerlink" title="apply、call、bind 的区别"></a>apply、call、bind 的区别</h2><p>刚刚我们已经介绍了 apply、call、bind 都是可以改变 this 的指向的，但是这三个函数稍有不同。</p>
-<p>在 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/apply" target="_blank" rel="external nofollow noopener noreferrer">MDN</a> 中定义 apply 如下；</p>
+<p>在 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/apply" rel="external nofollow noopener noreferrer" target="_blank">MDN</a> 中定义 apply 如下；</p>
 <blockquote>
 <p>apply() 方法调用一个函数, 其具有一个指定的this值，以及作为一个数组（或类似数组的对象）提供的参数</p>
 </blockquote>
@@ -1052,7 +1046,7 @@
 <h3 id="bind-和-apply、call-区别"><a href="#bind-和-apply、call-区别" class="headerlink" title="bind 和 apply、call 区别"></a>bind 和 apply、call 区别</h3><p>我们先使用 bind 试一下刚刚的例子：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var user =&#123;</span><br><span class="line">  name: &quot;Cherry&quot;,</span><br><span class="line">  fn: function(a,b) &#123;</span><br><span class="line">    console.log(a + b)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var newUser = user.fn;</span><br><span class="line">nreUser.bind(user,1,2)</span><br></pre></td></tr></table></figure>
 
-<p>我们会发现并没有输出，这是为什么呢，我们来看一下 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/bind" target="_blank" rel="external nofollow noopener noreferrer">MDN</a> 上的文档说明：</p>
+<p>我们会发现并没有输出，这是为什么呢，我们来看一下 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/bind" rel="external nofollow noopener noreferrer" target="_blank">MDN</a> 上的文档说明：</p>
 <blockquote>
 <p>bind()方法创建一个新的函数, 当被调用时，将其this关键字设置为提供的值，在调用新函数时，在任何提供之前提供一个给定的参数序列。</p>
 </blockquote>
@@ -1104,22 +1098,22 @@
 <a id="more"></a>
 
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>不管你是程序猿（媛），产品经理，设计师，运维工程师…还是从事其他职业，应该都想拥有一个属于自己的个人博客网站吧。如果你是，那么请跟随目录，搭建属于你的个人博客吧!一起来技术分享，记录生活…</p>
-<h2 id="Hexo-是什么"><a href="#Hexo-是什么" class="headerlink" title="Hexo 是什么"></a>Hexo 是什么</h2><p><a href="https://hexo.io" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a> 是一个基于 <a href="https://nodejs.org/en" target="_blank" rel="external nofollow noopener noreferrer">Node.js</a>的快速，简单月功能强大的博客框架。可以使用简单的命令生成静态网页，并托管到 Github 上。<br>#TODO</p>
+<h2 id="Hexo-是什么"><a href="#Hexo-是什么" class="headerlink" title="Hexo 是什么"></a>Hexo 是什么</h2><p><a href="https://hexo.io" rel="external nofollow noopener noreferrer" target="_blank">Hexo</a> 是一个基于 <a href="https://nodejs.org/en" rel="external nofollow noopener noreferrer" target="_blank">Node.js</a>的快速，简单月功能强大的博客框架。可以使用简单的命令生成静态网页，并托管到 Github 上。<br>#TODO</p>
 <h2 id="来搭建属于你的个人博客吧～"><a href="#来搭建属于你的个人博客吧～" class="headerlink" title="来搭建属于你的个人博客吧～"></a>来搭建属于你的个人博客吧～</h2><h3 id="Gihub-创建个人仓库"><a href="#Gihub-创建个人仓库" class="headerlink" title="Gihub 创建个人仓库"></a>Gihub 创建个人仓库</h3><ul>
-<li><p>首先先登录到 <a href="https://github.com" target="_blank" rel="external nofollow noopener noreferrer">Github</a>。如果没有个人账号，先进行注册，注册完成后，点击登录进入 Github。</p>
+<li><p>首先先登录到 <a href="https://github.com" rel="external nofollow noopener noreferrer" target="_blank">Github</a>。如果没有个人账号，先进行注册，注册完成后，点击登录进入 Github。</p>
 </li>
 <li><p>点击绿色的 <strong>New</strong> 按钮新建一个仓库，将仓库名称命为： 用户名.github.io，例如：qiruohan.github.io，这个写法是固定的。<br><img src="https://cdn.jsdelivr.net/gh/qiruohan/qiruohan.github.io/uploads/i_1.jpg" alt="image"><br><img src="https://cdn.jsdelivr.net/gh/qiruohan/qiruohan.github.io/uploads/i_2.jpg" alt="image"></p>
 </li>
-<li><p>注意：仓库名称要和你的用户名保持一致，后缀.github.io 的作用是 Github 识别到.github.io 后缀就会为你自动开启<a href="https://pages.github.com/" target="_blank" rel="external nofollow noopener noreferrer">Github Page</a>，作为你个人博客的仓库。</p>
+<li><p>注意：仓库名称要和你的用户名保持一致，后缀.github.io 的作用是 Github 识别到.github.io 后缀就会为你自动开启<a href="https://pages.github.com/" rel="external nofollow noopener noreferrer" target="_blank">Github Page</a>，作为你个人博客的仓库。</p>
 </li>
 </ul>
 <p>然后项目就建成了，点击Settings，向下拉到最后有个GitHub Pages，点击Choose a theme可以选择一个主题。然后点击那个链接，就会出现自己的网页啦～</p>
-<h3 id="安装-Node-js"><a href="#安装-Node-js" class="headerlink" title="安装 Node.js"></a>安装 Node.js</h3><p>Node.js 是基于 <a href="https://v8.dev/" target="_blank" rel="external nofollow noopener noreferrer">Chrome V8 JavaScript 引擎</a> 构建的语言，是一项服务器端技术。<br>下载地址：<a href="https://nodejs.org/en/download/" target="_blank" rel="external nofollow noopener noreferrer">Node.js | Download</a>，下载当前操作系统的安装包，安装选项全部默认。注意下载的安装包中已经包含了环境变量以及 <a href="https://www.npmjs.com/" target="_blank" rel="external nofollow noopener noreferrer">npm</a>，所以安装完安装包后无需另外再下载 npm。</p>
+<h3 id="安装-Node-js"><a href="#安装-Node-js" class="headerlink" title="安装 Node.js"></a>安装 Node.js</h3><p>Node.js 是基于 <a href="https://v8.dev/" rel="external nofollow noopener noreferrer" target="_blank">Chrome V8 JavaScript 引擎</a> 构建的语言，是一项服务器端技术。<br>下载地址：<a href="https://nodejs.org/en/download/" rel="external nofollow noopener noreferrer" target="_blank">Node.js | Download</a>，下载当前操作系统的安装包，安装选项全部默认。注意下载的安装包中已经包含了环境变量以及 <a href="https://www.npmjs.com/" rel="external nofollow noopener noreferrer" target="_blank">npm</a>，所以安装完安装包后无需另外再下载 npm。</p>
 <p>检测 Node.js 是否安装成功，在命令行中输入：<strong>node -v</strong><br><img src="https://cdn.jsdelivr.net/gh/qiruohan/qiruohan.github.io/uploads/i_3.png" alt="image"></p>
 <p>检测 npm 是否安装成功，在命令行中输入：<strong>npm -v</strong><br><img src="https://cdn.jsdelivr.net/gh/qiruohan/qiruohan.github.io/uploads/i_4.png" alt="image"></p>
 <p>显示版本号，那么就说明 node.js 安装成功了。</p>
-<h3 id="安装-Git"><a href="#安装-Git" class="headerlink" title="安装 Git"></a>安装 Git</h3><p><a href="https://git-scm.com/" target="_blank" rel="external nofollow noopener noreferrer">Git</a> 是一个开源的分布式版本控制系统，旨在快速高效地处理从小型到大型项目的所有内容。具有便捷的创建本地分支，创建暂存区域，处理多个工作流等功能。简单来说，使用 Git 可以把本地文件同步到 Github 上，完成多人多空间的便捷式管理。</p>
-<p><strong>Windows 下</strong>安装下载地址：<a href="https://git-scm.com/download/" target="_blank" rel="external nofollow noopener noreferrer">Git | Downloads</a>，安装选项还是全部默认，安装完成后在命令行中输入 <strong>git –version</strong> 验证是否安装成功。<br><img src="https://cdn.jsdelivr.net/gh/qiruohan/qiruohan.github.io/uploads/i_5.png" alt="image"><br>显示版本号，那么就说明 git 安装成功了。安装成功后，将你的Git与GitHub帐号绑定，鼠标右击打开Git Bash，设置user.name和user.email配置信息。<br>之后移步到 mac 下安装流程的<strong>第三步：设置github的 username 和 email</strong>，做接来下的操作。</p>
+<h3 id="安装-Git"><a href="#安装-Git" class="headerlink" title="安装 Git"></a>安装 Git</h3><p><a href="https://git-scm.com/" rel="external nofollow noopener noreferrer" target="_blank">Git</a> 是一个开源的分布式版本控制系统，旨在快速高效地处理从小型到大型项目的所有内容。具有便捷的创建本地分支，创建暂存区域，处理多个工作流等功能。简单来说，使用 Git 可以把本地文件同步到 Github 上，完成多人多空间的便捷式管理。</p>
+<p><strong>Windows 下</strong>安装下载地址：<a href="https://git-scm.com/download/" rel="external nofollow noopener noreferrer" target="_blank">Git | Downloads</a>，安装选项还是全部默认，安装完成后在命令行中输入 <strong>git –version</strong> 验证是否安装成功。<br><img src="https://cdn.jsdelivr.net/gh/qiruohan/qiruohan.github.io/uploads/i_5.png" alt="image"><br>显示版本号，那么就说明 git 安装成功了。安装成功后，将你的Git与GitHub帐号绑定，鼠标右击打开Git Bash，设置user.name和user.email配置信息。<br>之后移步到 mac 下安装流程的<strong>第三步：设置github的 username 和 email</strong>，做接来下的操作。</p>
 <p><strong>Mac 下安装</strong>：</p>
 <ul>
 <li><p>如果未安 homebrew，需要先安装 homebrew</p>
@@ -1138,12 +1132,12 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;你的GitHub注册邮箱&quot;</span><br></pre></td></tr></table></figure>
 <p>然后直接三个回车即可，默认不需要设置密码<br>然后找到生成的.ssh的文件夹中的id_rsa.pub密钥，将内容全部复制</p>
 </li>
-<li><p>打开 <a href="https://github.com/settings/keys" target="_blank" rel="external nofollow noopener noreferrer">GitHub_Settings_keys</a> 页面，新建new SSH Key<br><img src="https://cdn.jsdelivr.net/gh/qiruohan/qiruohan.github.io/uploads/i_10.png" alt="image"></p>
+<li><p>打开 <a href="https://github.com/settings/keys" rel="external nofollow noopener noreferrer" target="_blank">GitHub_Settings_keys</a> 页面，新建new SSH Key<br><img src="https://cdn.jsdelivr.net/gh/qiruohan/qiruohan.github.io/uploads/i_10.png" alt="image"></p>
 </li>
 </ul>
 <p>Title为标题，任意填即可，将刚刚复制的id_rsa.pub内容粘贴进去，最后点击Add SSH key。</p>
 <ul>
-<li>在终端检测GitHub公钥设置是否成功，输入 ssh <a href="mailto:git@github.com" target="_blank" rel="external nofollow noopener noreferrer">git@github.com</a>。<br><img src="https://cdn.jsdelivr.net/gh/qiruohan/qiruohan.github.io/uploads/i_11.png" alt="image"></li>
+<li>在终端检测GitHub公钥设置是否成功，输入 ssh <a href="mailto:git@github.com" rel="external nofollow noopener noreferrer" target="_blank">git@github.com</a>。<br><img src="https://cdn.jsdelivr.net/gh/qiruohan/qiruohan.github.io/uploads/i_11.png" alt="image"></li>
 </ul>
 <p>如上则说明成功。</p>
 <p>注意：这里之所以设置GitHub密钥原因是，通过非对称加密的公钥与私钥来完成加密，公钥放置在GitHub上，私钥放置在自己的电脑里。GitHub要求每次推送代码都是合法用户，所以每次推送都需要输入账号密码验证推送用户是否是合法用户，为了省去每次输入密码的步骤，采用了ssh，当你推送的时候，git就会匹配你的私钥跟GitHub上面的公钥是否是配对的，若是匹配就认为你是合法用户，则允许推送。这样可以保证每次的推送都是正确合法的。</p>
@@ -1168,7 +1162,7 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean </span><br><span class="line">hexo g </span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
 <p>打开浏览器，在地址栏输入你的放置个人网站的仓库路径，即 xxxx.github.io, 比如我的：qiruohan.github.io， 你就会发现你的博客已经上线了，可以在网络上被访问了。</p>
 <h3 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h3><p>如果你不喜欢 Hexo 的默认主题，可以更换主题，hexo主题有很多，你可以从网上找到很多很好看的主题，每个主题也都有自己的安装教程，你可以试着看一看。</p>
-<p>我这里使用的主题是<a href="https://theme-next.iissnan.com/" target="_blank" rel="external nofollow noopener noreferrer">nexT</a>，所以我说一下我的安装配置吧～</p>
+<p>我这里使用的主题是<a href="https://theme-next.iissnan.com/" rel="external nofollow noopener noreferrer" target="_blank">nexT</a>，所以我说一下我的安装配置吧～</p>
 <ul>
 <li><p>安装 nexT 主题，通过 git 命令将 nexT 克隆下来， 在博客站点目录下（我的是blog），使用 git clone 命令：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/theme-next/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
@@ -1183,7 +1177,7 @@
 <p>修改theme: landscape为next，注意theme和next之间要有空格，否则无效。</p>
 <p>正确设置好后，我们更换的主题就生效啦～每个主题都可以有自己个性化的配置，可以打开主题的_config.yml配置文件（注意不是站点配置文件），可以按照你的想法做一些个性化的配置，之后再次部署网站，hexo clean、hexo g、hexo d，查看效果。选择其他主题，按照上述过程即可实现。</p>
 <h3 id="发布文章"><a href="#发布文章" class="headerlink" title="发布文章"></a>发布文章</h3><p>1.文章头设置</p>
-<h3 id="MarkDown-语法"><a href="#MarkDown-语法" class="headerlink" title="MarkDown 语法"></a>MarkDown 语法</h3><p>Markdown是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，具体语法参看：<a href="https://www.appinn.com/markdown/" target="_blank" rel="external nofollow noopener noreferrer">Markdown 语法说明(简体中文版)</a> 可以说十分钟就可以入门，非常简单发方便。当然，选择一个好的Markdown编辑器也是非常重要的，mac版推荐使用 MacDown 或者直接使用 VsCode 编写 Markdown 文件， 非常方便。</p>
+<h3 id="MarkDown-语法"><a href="#MarkDown-语法" class="headerlink" title="MarkDown 语法"></a>MarkDown 语法</h3><p>Markdown是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，具体语法参看：<a href="https://www.appinn.com/markdown/" rel="external nofollow noopener noreferrer" target="_blank">Markdown 语法说明(简体中文版)</a> 可以说十分钟就可以入门，非常简单发方便。当然，选择一个好的Markdown编辑器也是非常重要的，mac版推荐使用 MacDown 或者直接使用 VsCode 编写 Markdown 文件， 非常方便。</p>
 <h3 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h3><p>现在默认的域名还是xxx.github.io，而如果我们想使用个性化的域名，就需要绑定我们自己的域名，首先你需要购买一个域名，XX云都能买，国内主流的域名代理厂商也就阿里云和腾讯云。下面给大家演示阿里云的相关配置：</p>
 <ul>
 <li>登录阿里云，进入管理控制台的域名列表，找到你的个性化域名，进入解析</li>
