@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>（未完成）「面试必会」中高级前端必会的手写面试题(二)</title>
+    <url>/2020/08/10/api-3/</url>
+    <content><![CDATA[<img src="/uploads/375312727.jpg" width="800" height="100%">
+<a id="more"></a>
+
+<h3 id="一、使用ES5实现类的继承"><a href="#一、使用ES5实现类的继承" class="headerlink" title="一、使用ES5实现类的继承"></a>一、使用ES5实现类的继承</h3><h3 id="二、实现数组扁平化"><a href="#二、实现数组扁平化" class="headerlink" title="二、实现数组扁平化"></a>二、实现数组扁平化</h3><h3 id="三、实现数组去重"><a href="#三、实现数组去重" class="headerlink" title="三、实现数组去重"></a>三、实现数组去重</h3><h3 id="四、实现发布订阅模式"><a href="#四、实现发布订阅模式" class="headerlink" title="四、实现发布订阅模式"></a>四、实现发布订阅模式</h3><h3 id="五、实现观察者模式"><a href="#五、实现观察者模式" class="headerlink" title="五、实现观察者模式"></a>五、实现观察者模式</h3><h3 id="六、实现单例模式"><a href="#六、实现单例模式" class="headerlink" title="六、实现单例模式"></a>六、实现单例模式</h3><h3 id="七、实现Promise"><a href="#七、实现Promise" class="headerlink" title="七、实现Promise"></a>七、实现Promise</h3><h3 id="八、实现深拷贝"><a href="#八、实现深拷贝" class="headerlink" title="八、实现深拷贝"></a>八、实现深拷贝</h3><h3 id="九、手写二进制转Base64"><a href="#九、手写二进制转Base64" class="headerlink" title="九、手写二进制转Base64"></a>九、手写二进制转Base64</h3><h3 id="十、实现一个事件委托"><a href="#十、实现一个事件委托" class="headerlink" title="十、实现一个事件委托"></a>十、实现一个事件委托</h3><h3 id="十一、实现一个可以拖拽的DIV"><a href="#十一、实现一个可以拖拽的DIV" class="headerlink" title="十一、实现一个可以拖拽的DIV"></a>十一、实现一个可以拖拽的DIV</h3><h3 id="十二、实现一个批量请求函数-multiRequest-urls-maxNum"><a href="#十二、实现一个批量请求函数-multiRequest-urls-maxNum" class="headerlink" title="十二、实现一个批量请求函数 multiRequest(urls, maxNum)"></a>十二、实现一个批量请求函数 multiRequest(urls, maxNum)</h3><h3 id="十三、实现一个-sleep-函数"><a href="#十三、实现一个-sleep-函数" class="headerlink" title="十三、实现一个 sleep 函数"></a>十三、实现一个 sleep 函数</h3><h3 id="十四、模拟实现一个-localStorage"><a href="#十四、模拟实现一个-localStorage" class="headerlink" title="十四、模拟实现一个 localStorage"></a>十四、模拟实现一个 localStorage</h3><h3 id="十五、实现一个-normalize-函数，能将输入的特定的字符串转化为特定的结构化数据"><a href="#十五、实现一个-normalize-函数，能将输入的特定的字符串转化为特定的结构化数据" class="headerlink" title="十五、实现一个 normalize 函数，能将输入的特定的字符串转化为特定的结构化数据"></a>十五、实现一个 normalize 函数，能将输入的特定的字符串转化为特定的结构化数据</h3>]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>「面试必会」中高级前端必会的手写面试题(一)</title>
     <url>/2020/08/04/api-2/</url>
     <content><![CDATA[<img src="https://cdn.jsdelivr.net/gh/qiruohan/qiruohan.github.io/uploads/375538043.jpg" width="800" height="100%">
@@ -337,6 +351,12 @@
 
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>计划输出：<br>中高级前端工程师必会的手写API（二）</p>
 ]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
   </entry>
   <entry>
     <title>(未完成)面试题目汇总</title>
@@ -527,7 +547,121 @@
 <p>下面例子中的 closure 就是一个闭包：</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">1</span>,b = <span class="number">2</span>;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">closure</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a+b;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> closure;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>1-2. </p>
+<h2 id="6-手写-call-apply"><a href="#6-手写-call-apply" class="headerlink" title="6. 手写 call/apply()"></a>6. 手写 call/apply()</h2><ul>
+<li>特点：</li>
+</ul>
+<ol>
+<li>可以改变当前函数 this 的指向</li>
+<li>让当前函数执行</li>
+</ol>
+<ul>
+<li>用法：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">2</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 让 f1 的 this 指向 f2，并且让 f1 执行</span></span><br><span class="line">f1.call(f2);  <span class="comment">// 1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果多个 call，会让 call 方法执行，并把 call 中的 this 指向改变成 fn2</span></span><br><span class="line">f1.call.call.call(f2);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>实现：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.call = <span class="function"><span class="keyword">function</span> (<span class="params">context</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 如果 context 存在，使用 context，如果 context 不存在，使用 window；如果 context 是普通类型，转成对象。</span></span><br><span class="line">  context = context ? <span class="built_in">Object</span>(context) : <span class="built_in">window</span>;</span><br><span class="line">  context.fn = <span class="keyword">this</span>;    <span class="comment">// this指向调用call的对象,即我们要改变this指向的函数</span></span><br><span class="line">  <span class="keyword">let</span> args = [];</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; <span class="built_in">arguments</span>.length; i++) &#123;</span><br><span class="line">    args.push(<span class="string">'arguments['</span>+i+<span class="string">']'</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">let</span> result = <span class="built_in">eval</span>(<span class="string">'context.fn('</span>+args+<span class="string">')'</span>);   <span class="comment">// 字符串拼接参数让 fn 执行 </span></span><br><span class="line">  <span class="keyword">delete</span> context.fn;     <span class="comment">// 删除我们声明的fn属性</span></span><br><span class="line">  <span class="keyword">return</span> result;    <span class="comment">// 返回函数执行结果</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">Function</span>.prototype.apply = <span class="function"><span class="keyword">function</span> (<span class="params">context, args</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 如果 context 存在，使用 context，如果 context 不存在，使用 window；如果 context 是普通类型，转成对象。</span></span><br><span class="line">  context = context ? <span class="built_in">Object</span>(context) : <span class="built_in">window</span>;</span><br><span class="line">  context.fn = <span class="keyword">this</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span>(!args)&#123;</span><br><span class="line">    <span class="keyword">return</span> context.fn();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">let</span> r = <span class="built_in">eval</span>(<span class="string">'context.fn('</span>+args+<span class="string">')'</span>);</span><br><span class="line">  <span class="keyword">delete</span> context.fn;</span><br><span class="line">  <span class="keyword">return</span> r;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="7-手写-bind"><a href="#7-手写-bind" class="headerlink" title="7. 手写 bind()"></a>7. 手写 bind()</h2><ul>
+<li>特点：</li>
+</ul>
+<ol>
+<li>bind 方法可以绑定 this 指向</li>
+<li>bind 方法返回一个绑定后的函数</li>
+<li>如果绑定的函数被 new，当前函数的 this 就是当前的实例</li>
+<li>new 出来的实例要保证原函数的原型对象上的属性不能丢失</li>
+</ol>
+<ul>
+<li>用法：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 用法一:</span></span><br><span class="line"><span class="keyword">let</span> person = &#123;</span><br><span class="line">  name: <span class="string">"Cherry"</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">name, age</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.name+ <span class="string">'养了一只'</span>+ name + <span class="string">'今年'</span> + age + <span class="string">'了'</span>); <span class="comment">// Cherry养了一只猫今年2了</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> bindFn = fn.bind(person, <span class="string">'猫'</span>);</span><br><span class="line"></span><br><span class="line">bindFn(<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 用法二：</span></span><br><span class="line"><span class="keyword">let</span> person = &#123;</span><br><span class="line">  name: <span class="string">"Cherry"</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">name, age</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.say = <span class="string">'说话'</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>);  <span class="comment">// fn &#123;say: "说话"&#125;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> bindFn = fn.bind(person, <span class="string">'猫'</span>);</span><br><span class="line"><span class="keyword">let</span> instance = <span class="keyword">new</span> bindFn(<span class="number">9</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 用法三：</span></span><br><span class="line"><span class="keyword">let</span> person = &#123;</span><br><span class="line">  name: <span class="string">"Cherry"</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">name, age</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.say = <span class="string">'说话'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fn.prototype.flag = <span class="string">'哺乳类'</span>;</span><br><span class="line"><span class="keyword">let</span> bindFn = fn.bind(person, <span class="string">'猫'</span>);</span><br><span class="line"><span class="keyword">let</span> instance = <span class="keyword">new</span> bindFn(<span class="number">9</span>);</span><br><span class="line"><span class="built_in">console</span>.log(instance.flag);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>实现：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Funcition.protoType.bind = <span class="function"><span class="keyword">function</span> (<span class="params">context</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// this表示调用bind的函数</span></span><br><span class="line">  <span class="keyword">let</span> that = <span class="keyword">this</span>;</span><br><span class="line">  <span class="keyword">let</span> bindArgs = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>, <span class="number">1</span>);  <span class="comment">//["猫"]</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">Fn</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">fBound</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> args = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>);  <span class="comment">//[9] </span></span><br><span class="line">    <span class="comment">//this instanceof fBound为true表示构造函数的情况。如new bindFn(9);</span></span><br><span class="line">    <span class="keyword">return</span> that.apply(<span class="keyword">this</span> <span class="keyword">instanceof</span> fBound ? <span class="keyword">this</span> : context, bindArgs.concat(args));</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 继承原型上的属性和方法</span></span><br><span class="line">  fn.prototype = <span class="keyword">this</span>.prototype;</span><br><span class="line">  fBound.prototype = <span class="keyword">new</span> Fn();</span><br><span class="line">  <span class="keyword">return</span> fBound;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="9-模拟实现-new"><a href="#9-模拟实现-new" class="headerlink" title="9. 模拟实现 new"></a>9. 模拟实现 new</h2><ul>
+<li>特点： </li>
+</ul>
+<ol>
+<li>创建一个全新的对象，这个对象的<strong>proto</strong>要指向构造函数的原型对象</li>
+<li>执行构造函数</li>
+<li>返回值为object类型则作为new方法的返回值返回，否则返回上述全新对象</li>
+</ol>
+<ul>
+<li>用法：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Animal</span>(<span class="params">type</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.type = type;   <span class="comment">// 实例上的属性</span></span><br><span class="line">  <span class="comment">// 如果当前构造函数返回的是一个引用类型，需要直接返回这个对象</span></span><br><span class="line">  <span class="keyword">return</span> &#123;<span class="attr">name</span>: <span class="string">'dog'</span>&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Animal.prototype.say = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'say'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> animal = <span class="keyword">new</span> Animal(<span class="string">'哺乳类'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(animal.type); <span class="comment">// 哺乳类</span></span><br><span class="line">animal.say(); <span class="comment">// say</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>实现：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// new是关键字,这里我们用函数mockNew来模拟</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mockNew</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// Constructor =&gt; animal，剩余的 arguments 就是其他的参数</span></span><br><span class="line">  <span class="keyword">let</span> Constructor = [].shift.call(<span class="built_in">arguments</span>);</span><br><span class="line">  <span class="keyword">let</span> obj = &#123;&#125;;  <span class="comment">//返回的结果</span></span><br><span class="line">  obj.__proto__ = Constructor.prototype;</span><br><span class="line">  Constructor.apply(obj, <span class="built_in">arguments</span>);</span><br><span class="line">  <span class="keyword">return</span> r <span class="keyword">instanceof</span> <span class="built_in">Object</span> ? r : obj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="9-数组扁平化"><a href="#9-数组扁平化" class="headerlink" title="9. 数组扁平化"></a>9. 数组扁平化</h2><p>对于<code>[1, [1,2], [1,2,3]]</code>这样多层嵌套的数组，我们如何将其扁平化为<code>[1, 1, 2, 1, 2, 3]</code>这样的一维数组呢：</p>
+<ol>
+<li>ES6的flat()</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, [<span class="number">1</span>,<span class="number">2</span>], [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]]</span><br><span class="line">arr.flat(<span class="literal">Infinity</span>)  <span class="comment">// [1, 1, 2, 1, 2, 3]</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>序列化后正则</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, [<span class="number">1</span>,<span class="number">2</span>], [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]]</span><br><span class="line"><span class="keyword">const</span> str = <span class="string">`[<span class="subst">$&#123;<span class="built_in">JSON</span>.stringify(arr).replace(<span class="regexp">/(\[|\])/g</span>, <span class="string">''</span>)&#125;</span>]`</span></span><br><span class="line"><span class="built_in">JSON</span>.parse(str)   <span class="comment">// [1, 1, 2, 1, 2, 3]</span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>递归</li>
+</ol>
+<p>对于树状结构的数据，最直接的处理方式就是递归</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, [<span class="number">1</span>,<span class="number">2</span>], [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]]</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">flat</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> result = []</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> item <span class="keyword">of</span> arr) &#123;</span><br><span class="line">    item <span class="keyword">instanceof</span> <span class="built_in">Array</span> ? result = result.concat(flat(item)) : result.push(item)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> result</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">flat(arr) <span class="comment">// [1, 1, 2, 1, 2, 3]</span></span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>reduce()递归</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, [<span class="number">1</span>,<span class="number">2</span>], [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]]</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">flat</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> arr.reduce(<span class="function">(<span class="params">prev, cur</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> prev.concat(cur <span class="keyword">instanceof</span> <span class="built_in">Array</span> ? flat(cur) : cur)</span><br><span class="line">  &#125;, [])</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">flat(arr)  <span class="comment">// [1, 1, 2, 1, 2, 3]</span></span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>迭代+展开运算符</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 每次while都会合并一层的元素，这里第一次合并结果为[1, 1, 2, 1, 2, 3, [4,4,4]]</span></span><br><span class="line"><span class="comment">// 然后arr.some判定数组中是否存在数组，因为存在[4,4,4]，继续进入第二次循环进行合并</span></span><br><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, [<span class="number">1</span>,<span class="number">2</span>], [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,[<span class="number">4</span>,<span class="number">4</span>,<span class="number">4</span>]]]</span><br><span class="line"><span class="keyword">while</span> (arr.some(<span class="built_in">Array</span>.isArray)) &#123;</span><br><span class="line">  arr = [].concat(...arr);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="10-ES5如何实现继承"><a href="#10-ES5如何实现继承" class="headerlink" title="10. ES5如何实现继承"></a>10. ES5如何实现继承</h2><p>说到继承，最容易想到的是ES6的<code>extends</code>，当然如果只回答这个肯定不合格，我们要从函数和原型链的角度上实现继承，下面我们一步步地、递进地实现一个合格的继承</p>
+<p>一、原型链继承</p>
+<p>原型链继承的原理很简单，直接让子类的原型对象指向父类实例，当子类实例找不到对应的属性和方法时，就会往它的原型对象，也就是父类实例上找，从而实现对父类的属性和方法的继承</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 父类</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = <span class="string">'Cherry'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 父类的原型方法</span></span><br><span class="line">Parent.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.name</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 子类</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 让子类的原型对象指向父类实例, 这样一来在Child实例中找不到的属性和方法就会到原型对象(父类实例)上寻找</span></span><br><span class="line">Child.prototype = <span class="keyword">new</span> Parent()</span><br><span class="line">Child.prototype.constructor = Child <span class="comment">// 根据原型链的规则,顺便绑定一下constructor, 这一步不影响继承, 只是在用到constructor时会需要</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 然后Child实例就能访问到父类及其原型上的name属性和getName()方法</span></span><br><span class="line"><span class="keyword">const</span> child = <span class="keyword">new</span> Child()</span><br><span class="line">child.name          <span class="comment">// 'Cherry'</span></span><br><span class="line">child.getName()     <span class="comment">// 'Cherry'</span></span><br></pre></td></tr></table></figure>
+
+<p>原型继承的缺点:</p>
+<ol>
+<li>由于所有Child实例原型都指向同一个Parent实例, 因此对某个Child实例的父类引用类型变量修改会影响所有的Child实例</li>
+<li>在创建子类实例时无法向父类构造传参, 即没有实现super()的功能</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 示例:</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = [<span class="string">'Cherry'</span>] </span><br><span class="line">&#125;</span><br><span class="line">Parent.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.name</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">Child.prototype = <span class="keyword">new</span> Parent()</span><br><span class="line">Child.prototype.constructor = Child </span><br><span class="line"></span><br><span class="line"><span class="comment">// 测试</span></span><br><span class="line"><span class="keyword">const</span> child1 = <span class="keyword">new</span> Child()</span><br><span class="line"><span class="keyword">const</span> child2 = <span class="keyword">new</span> Child()</span><br><span class="line">child1.name[<span class="number">0</span>] = <span class="string">'foo'</span></span><br><span class="line"><span class="built_in">console</span>.log(child1.name)          <span class="comment">// ['foo']</span></span><br><span class="line"><span class="built_in">console</span>.log(child2.name)          <span class="comment">// ['foo'] (预期是['Cherry'], 对child1.name的修改引起了所有child实例的变化)</span></span><br></pre></td></tr></table></figure>
+
+<p>二、构造函数继承</p>
+<p>构造函数继承，即在子类的构造函数中执行父类的构造函数，并为其绑定子类的this，让父类的构造函数把成员属性和方法都挂到子类的this上去，这样既能避免实例之间共享一个原型实例，又能向父类构造方法传参</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = [name]</span><br><span class="line">&#125;</span><br><span class="line">Parent.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.name</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    Parent.call(<span class="keyword">this</span>, <span class="string">'Cherry'</span>)   <span class="comment">// 执行父类构造方法并绑定子类的this, 使得父类中的属性能够赋到子类的this上</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//测试</span></span><br><span class="line"><span class="keyword">const</span> child1 = <span class="keyword">new</span> Child()</span><br><span class="line"><span class="keyword">const</span> child2 = <span class="keyword">new</span> Child()</span><br><span class="line">child1.name[<span class="number">0</span>] = <span class="string">'foo'</span></span><br><span class="line"><span class="built_in">console</span>.log(child1.name)          <span class="comment">// ['foo']</span></span><br><span class="line"><span class="built_in">console</span>.log(child2.name)          <span class="comment">// ['Cherry']</span></span><br><span class="line">child2.getName()                  <span class="comment">// 报错,找不到getName(), 构造函数继承的方式继承不到父类原型上的属性和方法</span></span><br></pre></td></tr></table></figure>
+
+<p>构造函数继承的缺点:</p>
+<ol>
+<li>继承不到父类原型上的属性和方法</li>
+</ol>
+<p>三、组合式继承</p>
+<p>既然原型链继承和构造函数继承各有互补的优缺点, 那么我们为什么不组合起来使用呢, 所以就有了综合二者的组合式继承</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = [name]</span><br><span class="line">&#125;</span><br><span class="line">Parent.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.name</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 构造函数继承</span></span><br><span class="line">    Parent.call(<span class="keyword">this</span>, <span class="string">'Cherry'</span>) </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//原型链继承</span></span><br><span class="line">Child.prototype = <span class="keyword">new</span> Parent()</span><br><span class="line">Child.prototype.constructor = Child</span><br><span class="line"></span><br><span class="line"><span class="comment">//测试</span></span><br><span class="line"><span class="keyword">const</span> child1 = <span class="keyword">new</span> Child()</span><br><span class="line"><span class="keyword">const</span> child2 = <span class="keyword">new</span> Child()</span><br><span class="line">child1.name[<span class="number">0</span>] = <span class="string">'foo'</span></span><br><span class="line"><span class="built_in">console</span>.log(child1.name)          <span class="comment">// ['foo']</span></span><br><span class="line"><span class="built_in">console</span>.log(child2.name)          <span class="comment">// ['Cherry']</span></span><br><span class="line">child2.getName()                  <span class="comment">// ['Cherry']</span></span><br></pre></td></tr></table></figure>
+
+<p>组合式继承的缺点:</p>
+<ol>
+<li>每次创建子类实例都执行了两次构造函数(Parent.call()和new Parent())，虽然这并不影响对父类的继承，但子类创建实例时，原型中会存在两份相同的属性和方法，这并不优雅</li>
+</ol>
+<p>四、寄生式组合继承：</p>
+<p>为了解决构造函数被执行两次的问题, 我们将指向父类实例改为指向父类原型, 减去一次构造函数的执行</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = [name]</span><br><span class="line">&#125;</span><br><span class="line">Parent.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.name</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 构造函数继承</span></span><br><span class="line">    Parent.call(<span class="keyword">this</span>, <span class="string">'Cherry'</span>) </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//原型链继承</span></span><br><span class="line"><span class="comment">// Child.prototype = new Parent()</span></span><br><span class="line">Child.prototype = Parent.prototype  <span class="comment">//将`指向父类实例`改为`指向父类原型`</span></span><br><span class="line">Child.prototype.constructor = Child</span><br><span class="line"></span><br><span class="line"><span class="comment">//测试</span></span><br><span class="line"><span class="keyword">const</span> child1 = <span class="keyword">new</span> Child()</span><br><span class="line"><span class="keyword">const</span> child2 = <span class="keyword">new</span> Child()</span><br><span class="line">child1.name[<span class="number">0</span>] = <span class="string">'foo'</span></span><br><span class="line"><span class="built_in">console</span>.log(child1.name)          <span class="comment">// ['foo']</span></span><br><span class="line"><span class="built_in">console</span>.log(child2.name)          <span class="comment">// ['Cherry']</span></span><br><span class="line">child2.getName()                  <span class="comment">// ['Cherry']</span></span><br></pre></td></tr></table></figure>
+
+<p>但这种方式存在一个问题，由于子类原型和父类原型指向同一个对象，我们对子类原型的操作会影响到父类原型，例如给Child.prototype增加一个getName()方法，那么会导致Parent.prototype也增加或被覆盖一个getName()方法，为了解决这个问题，我们给Parent.prototype做一个浅拷贝</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = [name]</span><br><span class="line">&#125;</span><br><span class="line">Parent.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.name</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 构造函数继承</span></span><br><span class="line">    Parent.call(<span class="keyword">this</span>, <span class="string">'Cherry'</span>) </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//原型链继承</span></span><br><span class="line"><span class="comment">// Child.prototype = new Parent()</span></span><br><span class="line">Child.prototype = <span class="built_in">Object</span>.create(Parent.prototype)  <span class="comment">//将`指向父类实例`改为`指向父类原型`</span></span><br><span class="line">Child.prototype.constructor = Child</span><br><span class="line"></span><br><span class="line"><span class="comment">//测试</span></span><br><span class="line"><span class="keyword">const</span> child = <span class="keyword">new</span> Child()</span><br><span class="line"><span class="keyword">const</span> parent = <span class="keyword">new</span> Parent()</span><br><span class="line">child.getName()                  <span class="comment">// ['Cherry']</span></span><br><span class="line">parent.getName()                 <span class="comment">// 报错, 找不到getName()</span></span><br></pre></td></tr></table></figure>
+<p>到这里我们就完成了ES5环境下的继承的实现，这种继承方式称为<code>寄生组合式继承</code>，是目前最成熟的继承方式，babel对ES6继承的转化也是使用了寄生组合式继承<br>我们回顾一下实现过程：<br>一开始最容易想到的是<code>原型链继承</code>，通过把子类实例的原型指向父类实例来继承父类的属性和方法，但原型链继承的缺陷在于<code>对子类实例继承的引用类型的修改会影响到所有的实例对象以及无法向父类的构造方法传参</code>。<br>因此我们引入了<code>构造函数继承</code>, 通过在子类构造函数中调用父类构造函数并传入子类this来获取父类的属性和方法，但构造函数继承也存在缺陷，构造函数继承<code>不能继承到父类原型链上的属性和方法</code>。<br>所以我们综合了两种继承的优点，提出了<code>组合式继承</code>，但组合式继承也引入了新的问题，它<code>每次创建子类实例都执行了两次父类构造方法</code>，我们通过将子类原型指向父类实例改为子类原型指向父类原型的浅拷贝来解决这一问题，也就是最终实现 —— <code>寄生组合式继承</code></p>
 <h1 id="React"><a href="#React" class="headerlink" title="React"></a>React</h1><h1 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h1><h1 id="Webpack"><a href="#Webpack" class="headerlink" title="Webpack"></a>Webpack</h1><h1 id="Node"><a href="#Node" class="headerlink" title="Node"></a>Node</h1><h1 id="NPM"><a href="#NPM" class="headerlink" title="NPM"></a>NPM</h1><h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h1><h1 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h1><h1 id="网络与网络安全"><a href="#网络与网络安全" class="headerlink" title="网络与网络安全"></a>网络与网络安全</h1><h2 id="1-说说浏览器的缓存策略"><a href="#1-说说浏览器的缓存策略" class="headerlink" title="1. 说说浏览器的缓存策略"></a>1. 说说浏览器的缓存策略</h2><h3 id="浏览器缓存位置和优先级"><a href="#浏览器缓存位置和优先级" class="headerlink" title="浏览器缓存位置和优先级"></a>浏览器缓存位置和优先级</h3><ol>
 <li>Service Worker</li>
 <li>Memory Cache（内存缓存）</li>
@@ -819,7 +953,7 @@
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://juejin.im/post/5e3b9ae26fb9a07ca714a5cc" rel="external nofollow noopener noreferrer" target="_blank">9k字 | Promise/async/Generator实现原理解析</a><br><a href="https://juejin.im/post/5b32f552f265da59991155f0" rel="external nofollow noopener noreferrer" target="_blank">Promise之你看得懂的Promise</a><br><a href="https://juejin.im/post/5c88e427f265da2d8d6a1c84" rel="external nofollow noopener noreferrer" target="_blank">Promise的源码实现（完美符合Promise/A+规范）</a></p>
 ]]></content>
       <categories>
-        <category>前端</category>
+        <category>Promise</category>
       </categories>
       <tags>
         <tag>Promise</tag>
@@ -996,7 +1130,7 @@
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>如果你还对深拷贝有兴趣或者想研究，可以阅读lodash 深拷贝相关代码，相信你会对深拷贝有进一步的理解～</p>
 ]]></content>
       <categories>
-        <category>前端</category>
+        <category>JavaScript</category>
       </categories>
       <tags>
         <tag>JavaScript</tag>
@@ -1277,7 +1411,7 @@
 <h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><p><a href="https://segmentfault.com/a/1190000017491520" rel="external nofollow noopener noreferrer" target="_blank">掌握浏览器重绘(repaint)重排(reflow))-前端进阶</a><br><a href="https://csstriggers.com" rel="external nofollow noopener noreferrer" target="_blank">csstriggers</a><br><a href="https://efe.baidu.com/blog/hardware-accelerated-css-the-nice-vs-the-naughty/" rel="external nofollow noopener noreferrer" target="_blank">CSS硬件加速的好与坏</a></p>
 ]]></content>
       <categories>
-        <category>前端</category>
+        <category>CSS</category>
       </categories>
       <tags>
         <tag>CSS</tag>
@@ -1446,7 +1580,7 @@
 <p>另外还要注意箭头函数的特殊性以及undefined和null会被忽略这一特性。还有这一句：this永远指向最后调用它的那个对象。</p>
 ]]></content>
       <categories>
-        <category>前端</category>
+        <category>JavaScript</category>
       </categories>
       <tags>
         <tag>JavaScript</tag>
@@ -1561,7 +1695,7 @@
 </ul>
 <h3 id="个性化配置"><a href="#个性化配置" class="headerlink" title="个性化配置"></a>个性化配置</h3><h3 id="寻找图床"><a href="#寻找图床" class="headerlink" title="寻找图床"></a>寻找图床</h3>]]></content>
       <categories>
-        <category>前端</category>
+        <category>Hexo</category>
       </categories>
       <tags>
         <tag>Hexo</tag>
