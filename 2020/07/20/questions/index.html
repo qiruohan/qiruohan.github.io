@@ -57,7 +57,17 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;qiruohan&#x2F;qiruohan.github.io&#x2F;uploads&#x2F;353632561.jpg">
 <meta property="og:image" content="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;qiruohan&#x2F;qiruohan.github.io&#x2F;uploads&#x2F;450.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;litgod.net&#x2F;uploads&#x2F;i5_1.png">
-<meta property="og:updated_time" content="2020-08-10T14:02:25.209Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;litgod.net&#x2F;uploads&#x2F;q_10.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;litgod.net&#x2F;uploads&#x2F;q_1.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;litgod.net&#x2F;uploads&#x2F;q_2.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;litgod.net&#x2F;uploads&#x2F;q_3.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;litgod.net&#x2F;uploads&#x2F;q_4.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;litgod.net&#x2F;uploads&#x2F;q_5.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;litgod.net&#x2F;uploads&#x2F;q_6.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;litgod.net&#x2F;uploads&#x2F;q_7.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;litgod.net&#x2F;uploads&#x2F;q_8.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;litgod.net&#x2F;uploads&#x2F;q_8.png">
+<meta property="og:updated_time" content="2020-09-07T16:06:58.865Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;qiruohan&#x2F;qiruohan.github.io&#x2F;uploads&#x2F;353632561.jpg">
 
@@ -294,14 +304,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>20k</span>
+              <span>34k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>18 分钟</span>
+              <span>31 分钟</span>
             </span>
 
         </div>
@@ -614,7 +624,308 @@
 <p>但这种方式存在一个问题，由于子类原型和父类原型指向同一个对象，我们对子类原型的操作会影响到父类原型，例如给Child.prototype增加一个getName()方法，那么会导致Parent.prototype也增加或被覆盖一个getName()方法，为了解决这个问题，我们给Parent.prototype做一个浅拷贝</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = [name]</span><br><span class="line">&#125;</span><br><span class="line">Parent.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.name</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 构造函数继承</span></span><br><span class="line">    Parent.call(<span class="keyword">this</span>, <span class="string">'Cherry'</span>) </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//原型链继承</span></span><br><span class="line"><span class="comment">// Child.prototype = new Parent()</span></span><br><span class="line">Child.prototype = <span class="built_in">Object</span>.create(Parent.prototype)  <span class="comment">//将`指向父类实例`改为`指向父类原型`</span></span><br><span class="line">Child.prototype.constructor = Child</span><br><span class="line"></span><br><span class="line"><span class="comment">//测试</span></span><br><span class="line"><span class="keyword">const</span> child = <span class="keyword">new</span> Child()</span><br><span class="line"><span class="keyword">const</span> parent = <span class="keyword">new</span> Parent()</span><br><span class="line">child.getName()                  <span class="comment">// ['Cherry']</span></span><br><span class="line">parent.getName()                 <span class="comment">// 报错, 找不到getName()</span></span><br></pre></td></tr></table></figure>
 <p>到这里我们就完成了ES5环境下的继承的实现，这种继承方式称为<code>寄生组合式继承</code>，是目前最成熟的继承方式，babel对ES6继承的转化也是使用了寄生组合式继承<br>我们回顾一下实现过程：<br>一开始最容易想到的是<code>原型链继承</code>，通过把子类实例的原型指向父类实例来继承父类的属性和方法，但原型链继承的缺陷在于<code>对子类实例继承的引用类型的修改会影响到所有的实例对象以及无法向父类的构造方法传参</code>。<br>因此我们引入了<code>构造函数继承</code>, 通过在子类构造函数中调用父类构造函数并传入子类this来获取父类的属性和方法，但构造函数继承也存在缺陷，构造函数继承<code>不能继承到父类原型链上的属性和方法</code>。<br>所以我们综合了两种继承的优点，提出了<code>组合式继承</code>，但组合式继承也引入了新的问题，它<code>每次创建子类实例都执行了两次父类构造方法</code>，我们通过将子类原型指向父类实例改为子类原型指向父类原型的浅拷贝来解决这一问题，也就是最终实现 —— <code>寄生组合式继承</code></p>
-<h1 id="React"><a href="#React" class="headerlink" title="React"></a>React</h1><h1 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h1><h1 id="Webpack"><a href="#Webpack" class="headerlink" title="Webpack"></a>Webpack</h1><h1 id="Node"><a href="#Node" class="headerlink" title="Node"></a>Node</h1><h1 id="NPM"><a href="#NPM" class="headerlink" title="NPM"></a>NPM</h1><h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h1><h1 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h1><h1 id="网络与网络安全"><a href="#网络与网络安全" class="headerlink" title="网络与网络安全"></a>网络与网络安全</h1><h2 id="1-说说浏览器的缓存策略"><a href="#1-说说浏览器的缓存策略" class="headerlink" title="1. 说说浏览器的缓存策略"></a>1. 说说浏览器的缓存策略</h2><h3 id="浏览器缓存位置和优先级"><a href="#浏览器缓存位置和优先级" class="headerlink" title="浏览器缓存位置和优先级"></a>浏览器缓存位置和优先级</h3><ol>
+<h2 id="11-V8是如何执行一段JS代码的"><a href="#11-V8是如何执行一段JS代码的" class="headerlink" title="11. V8是如何执行一段JS代码的"></a>11. V8是如何执行一段JS代码的</h2><p>V8是混合了编译执行和解释执行两种手段来执行一段 JavaScript 代码的，我们把这种混合使用编译器和解释器的技术称为 JIT（Just In Time）技术。因为这两种方法都各有各的优缺点：解释执行的启动速度快，但是执行时的速度慢，而编译执行的启动速度慢，但是执行时的速度快。所以 V8 采用了这种权衡的策略，在启动过程中使用解释执行，但是如果某段代码的执行频率超过一个值，那么 V8 就会采用编译执行将编译器优化编译成效率更高的机器代码。</p>
+<p>V8 执行一段 JavaScript 代码主要经历了以下几个重要流程：</p>
+<ul>
+<li><strong>初始化基础环境</strong>：堆空间、栈空间、全局执行上下文、全局作用域、事件循环系统、内置函数等。</li>
+</ul>
+<p>基础环境准备好之后，接下来就可以向 V8 提交要执行的 JavaScript 代码了</p>
+<ul>
+<li><p><strong>预解析</strong>：检查语法错误但不生成AST</p>
+</li>
+<li><p><strong>生成AST和作用域</strong>：经过词法/语法分析，生成抽象语法树</p>
+</li>
+<li><p><strong>生成字节码</strong>：基线编译器(Ignition)将AST转换成字节码</p>
+</li>
+<li><p><strong>解释执行字节码</strong></p>
+</li>
+<li><p><strong>监听热点代码</strong>：优化编译器(Turbofan)将字节码转换成优化过的机器码，此外在逐行执行字节码的过程中，如果一段代码经常被执行，那么V8会将这段代码直接转换成机器码保存起来，下一次执行就不必经过字节码，优化了执行速度</p>
+</li>
+<li><p><strong>反优化生成的二进制机器代码</strong>：一旦在执行过程中，对象的结构被动态修改了，那么优化后的代码就变成了无效代码，这时候优化编译器就需要执行反优化操作，经过反优化的代码，下次执行时就会回退到解释器解释执行。</p>
+</li>
+</ul>
+<p>如图所示：</p>
+<p><img src="/uploads/q_10.jpg" alt="image"></p>
+<h2 id="12-V8是如何进行垃圾回收的"><a href="#12-V8是如何进行垃圾回收的" class="headerlink" title="12. V8是如何进行垃圾回收的"></a>12. V8是如何进行垃圾回收的</h2><p>JS引擎中对变量的存储主要有两种位置，栈内存和堆内存，栈内存存储基本类型数据以及引用类型数据的内存地址，堆内存储存引用类型的数据。</p>
+<blockquote>
+<p>栈内存的回收：</p>
+</blockquote>
+<p>栈内存调用栈上下文切换后就被回收，比较简单</p>
+<blockquote>
+<p>堆内存的回收：</p>
+</blockquote>
+<p>V8 依据<strong>代际假说</strong>，将堆内存划分为新生代和老生代两个区域，新生代中存放的是生存时间短的对象，老生代中存放生存时间久的对象。为了提升垃圾回收的效率，V8 设置了两个垃圾回收器，主垃圾回收器和副垃圾回收器。主垃圾回收器负责收集老生代中的垃圾数据，副垃圾回收器负责收集新生代中的垃圾数据。</p>
+<ul>
+<li><p>副垃圾回收器 -Minor GC (Scavenger)，采用了<strong>Scavenge 算法</strong>。所谓 Scavenge 算法，是把新生代空间对半划分为两个区域，一半是<strong>对象区域</strong>，一半是<strong>空闲区域</strong>。新加入的对象都会存放到对象区域，当对象区域快被写满时，就需要执行一次垃圾清理操作。在垃圾回收过程中，首先要对对象区域中的垃圾做标记，将非存活对象回收，将存活对象顺序复制到空闲区域中，复制完成后，将对象区域与空闲区域角色调换，等待下一次回收。<strong>为了执行效率，一般新生区的空间会被设置得比较小。</strong></p>
+</li>
+<li><p>主垃圾回收器 -Major GC，主要负责老生代的垃圾回收</p>
+<ul>
+<li><p>晋升：如果新生代的变量经过多次回收依然存在，那么就会被放入老生代内存中</p>
+</li>
+<li><p>标记清除：老生代内存会先遍历所有对象并打上标记，然后对正在使用或被强引用的对象取消标记，回收被标记的对象。这就是<strong>标记 - 清除算法</strong></p>
+</li>
+<li><p>整理内存碎片：多次执行标记 - 清除算法后，会产生大量不连续的内存碎片，这就需要<strong>标记 - 整理（Mark-Compact）算法</strong>把对象挪到内存的一端</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="13-介绍一下引用计数和标记清除"><a href="#13-介绍一下引用计数和标记清除" class="headerlink" title="13. 介绍一下引用计数和标记清除"></a>13. 介绍一下引用计数和标记清除</h2><ul>
+<li><p><strong>引用计数</strong>：给一个变量赋值引用类型，则该对象的引用次数+1，如果这个变量变成了其他值，那么该对象的引用次数-1，垃圾回收器会回收引用次数为0的对象。但是当对象循环引用时，会导致引用次数永远无法归零，造成内存无法释放。</p>
+</li>
+<li><p><strong>标记清除</strong>：垃圾收集器先给内存中所有对象加上标记，然后从根节点开始遍历，去掉被引用的对象和运行环境中对象的标记，剩下的被标记的对象就是无法访问的等待回收的对象。</p>
+</li>
+</ul>
+<h2 id="14-JS相较于C-等语言为什么慢，V8做了哪些优化"><a href="#14-JS相较于C-等语言为什么慢，V8做了哪些优化" class="headerlink" title="14. JS相较于C++等语言为什么慢，V8做了哪些优化"></a>14. JS相较于C++等语言为什么慢，V8做了哪些优化</h2><ul>
+<li><p>JS的问题：</p>
+<ul>
+<li><p><strong>动态类型</strong>：导致每次存取属性/寻求方法时候，都需要先检查类型；此外动态类型也很难在编译阶段进行优化</p>
+</li>
+<li><p><strong>属性存取</strong>：C++/Java等语言中方法、属性是存储在数组中的，仅需数组位移就可以获取，而JS存储在对象中，每次获取都要进行哈希查询</p>
+</li>
+</ul>
+</li>
+<li><p>V8的优化：</p>
+<ul>
+<li><p><strong>优化JIT(即时编译</strong>)：相较于C++/Java这类编译型语言，JS一边解释一边执行，效率低。V8对这个过程进行了优化：如果一段代码被执行多次，那么V8会把这段代码转化为字节码缓存下来，下次运行时直接使用字节码。</p>
+</li>
+<li><p><strong>隐藏类</strong>：对于C++这类语言来说，仅需几个指令就能通过偏移量获取变量信息，而JS需要进行字符串匹配，效率低，V8借用了类和偏移位置的思想，将对象划分成不同的组，即隐藏类</p>
+</li>
+<li><p><strong>内嵌缓存(IC)</strong>：即缓存对象查询的结果。常规查询过程是：获取隐藏类地址 -&gt; 根据属性名查找偏移值 -&gt; 计算该属性地址，内嵌缓存就是对这一过程结果的缓存</p>
+</li>
+<li><p><strong>自动垃圾回收机制</strong>：上文已介绍</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="15-如何判断-JavaScript-中内存泄漏的"><a href="#15-如何判断-JavaScript-中内存泄漏的" class="headerlink" title="15. 如何判断 JavaScript 中内存泄漏的"></a>15. 如何判断 JavaScript 中内存泄漏的</h2><ul>
+<li><p>内存泄漏 (Memory leak)：原因是不再需要 (没有作用) 的内存数据依然被其他对象引用着，会导致页面的性能越来越差。要避免内存泄漏，我们需要避免引用那些已经没有用途的数据。</p>
+</li>
+<li><p>内存膨胀 (Memory bloat)：由于程序员对内存管理不科学导致的，比如只需要 50M 内存就可以搞定的程序却花费了 500M 内存，会导致页面的性能会一直很差。要解决内存膨胀，需要我们对项目有着透彻的理解，并熟悉各种能减少内存占用的技术方案。</p>
+</li>
+<li><p>频繁垃圾回收：频繁使用大的临时变量，新生代空间很快被装满，从而频繁触发垃圾回收机制导致页面出现延迟或者经常暂停。要解决这个问题，我们可以考虑将这些临时变量设置为全局变量。</p>
+</li>
+</ul>
+<h1 id="React"><a href="#React" class="headerlink" title="React"></a>React</h1><h1 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h1><h1 id="Webpack"><a href="#Webpack" class="headerlink" title="Webpack"></a>Webpack</h1><h1 id="Node"><a href="#Node" class="headerlink" title="Node"></a>Node</h1><h1 id="NPM"><a href="#NPM" class="headerlink" title="NPM"></a>NPM</h1><h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h1><h2 id="1-冒泡排序"><a href="#1-冒泡排序" class="headerlink" title="1. 冒泡排序"></a>1. 冒泡排序</h2><ul>
+<li><p>思路：拿当前项和后一项比较，符合条件的两者交换位置。最多比较<code>arr.length-1</code>轮。<strong>时间复杂度</strong>：O(n^2)</p>
+</li>
+<li><p>实现：</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">swap</span>(<span class="params">arr, i, j</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> temp = arr[i];</span><br><span class="line">  arr[i] = arr[j];</span><br><span class="line">  arr[j] = temp;</span><br><span class="line">  <span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">Array</span>.prototype.bubble = <span class="function"><span class="keyword">function</span> <span class="title">bubble</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 外层循环 i 控制比较的轮数</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="keyword">this</span>.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">    <span class="comment">// 里层循环 j 控制每一轮比较的次数</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; <span class="keyword">this</span>.length - <span class="number">1</span> - i; j++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">this</span>[j] &gt; <span class="keyword">this</span>[j + <span class="number">1</span>]) &#123;</span><br><span class="line">        <span class="comment">// 当前项大于后一项，交换位置</span></span><br><span class="line">        swap(<span class="keyword">this</span>, j, j+<span class="number">1</span>);</span><br><span class="line">      &#125;   </span><br><span class="line">    &#125;  </span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>;  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> array = [<span class="number">12</span>, <span class="number">8</span>, <span class="number">24</span>, <span class="number">16</span>, <span class="number">1</span>];</span><br><span class="line">array.bubble();</span><br><span class="line"><span class="built_in">console</span>.log(array);</span><br></pre></td></tr></table></figure>
+
+<p><strong>如何优化一个冒泡排序：</strong></p>
+<p>冒泡排序总会执行(N-1)+(N-2)+(N-3)+…+2+1轮，但如果运行到当中某一轮时排序已经完成，或者输入时就是一个有序数组，那么后面的比较就会是多余的，为了比较这种情况，我们可以增加一个flag，判断数组是否在排序途中已经有序，也就是<strong>判断是否有元素交换</strong>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">swap</span>(<span class="params">arr, i, j</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> temp = arr[i];</span><br><span class="line">  arr[i] = arr[j];</span><br><span class="line">  arr[j] = temp;</span><br><span class="line">  <span class="keyword">return</span> arr;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">Array</span>.prototype.bubble = <span class="function"><span class="keyword">function</span> <span class="title">bubble</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="keyword">this</span>.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">    <span class="comment">// 优化：</span></span><br><span class="line">    <span class="keyword">let</span> flag = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; <span class="keyword">this</span>.length - <span class="number">1</span> - i; j++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">this</span>[j] &gt; <span class="keyword">this</span>[j + <span class="number">1</span>]) &#123;</span><br><span class="line">        swap(<span class="keyword">this</span>, j, j+<span class="number">1</span>);</span><br><span class="line">        <span class="comment">// 优化：</span></span><br><span class="line">        flag = <span class="literal">false</span>;</span><br><span class="line">      &#125; </span><br><span class="line">    &#125; </span><br><span class="line">    <span class="comment">// 优化：如果`某次循环`中没有交换过元素，那么意味着排序已经完成</span></span><br><span class="line">    <span class="keyword">if</span> (flag) <span class="keyword">break</span>; </span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>;  </span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> array = [<span class="number">12</span>, <span class="number">8</span>, <span class="number">24</span>, <span class="number">16</span>, <span class="number">1</span>];</span><br><span class="line">array.bubble();</span><br><span class="line"><span class="built_in">console</span>.log(array); <span class="comment">// [ 1, 8, 12, 16, 24 ]</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="2-选择排序"><a href="#2-选择排序" class="headerlink" title="2. 选择排序"></a>2. 选择排序</h2><ul>
+<li><p>思路：遍历自身后面的元素和自身比较，让比自身小的元素跟自己调换位置，最多比较<code>arr.length-1</code>轮。<strong>时间复杂度</strong>：O(n^2)</p>
+</li>
+<li><p>实现：</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">swap</span>(<span class="params">arr, i, j</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> temp = arr[i];</span><br><span class="line">  arr[i] = arr[j];</span><br><span class="line">  arr[j] = temp;</span><br><span class="line">  <span class="keyword">return</span> arr;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">Array</span>.prototype.select = <span class="function"><span class="keyword">function</span> <span class="title">select</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; <span class="keyword">this</span>.length - <span class="number">1</span>; j++) &#123;</span><br><span class="line">    <span class="keyword">let</span> min = j;</span><br><span class="line">    <span class="comment">// 找到比当前项还小的这一项索引</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = min + <span class="number">1</span>; i &lt; <span class="keyword">this</span>.length; i++)&#123;</span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">this</span>[i] &lt; <span class="keyword">this</span>[min]) &#123;</span><br><span class="line">        min = i;</span><br><span class="line">      &#125;  </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 让最小的项和当前首位交换位置</span></span><br><span class="line">    swap(<span class="keyword">this</span>, min, j);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> array = [<span class="number">12</span>, <span class="number">8</span>, <span class="number">24</span>, <span class="number">16</span>, <span class="number">1</span>];</span><br><span class="line">array.select();</span><br><span class="line"><span class="built_in">console</span>.log(array); <span class="comment">// [ 1, 8, 12, 16, 24 ]</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3-插入排序"><a href="#3-插入排序" class="headerlink" title="3. 插入排序"></a>3. 插入排序</h2><ul>
+<li><p>思路：将元素插入到已排序好的数组中，类似于玩扑克(抓一张牌，跟手里的牌依次比较，顺序将其插入到合适的位置)。<strong>时间复杂度</strong>：O(n^2)</p>
+</li>
+<li><p>实现：</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span>.prototype.insert = <span class="function"><span class="keyword">function</span> <span class="title">insert</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 1.准备一个新数组，用来存储抓到手里的牌，开始先抓一张牌进来</span></span><br><span class="line">  <span class="keyword">let</span> handle = [];</span><br><span class="line">  handle.push(<span class="keyword">this</span>[<span class="number">0</span>]);</span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">  <span class="comment">// 2.从第二项开始依次抓牌，一直到把台面上的牌抓光</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; <span class="keyword">this</span>.length; i++) &#123;</span><br><span class="line">    <span class="comment">// A是新抓的牌</span></span><br><span class="line">    <span class="keyword">let</span> A = <span class="keyword">this</span>[i];</span><br><span class="line">    <span class="comment">// 和handle手里的牌依次比较（从后向前比）</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = handle.length - <span class="number">1</span>; j &gt;= <span class="number">0</span>; j--) &#123;</span><br><span class="line">      <span class="comment">// 每一次要比较的手里的牌</span></span><br><span class="line">      <span class="keyword">let</span> B = handle[j];</span><br><span class="line">      <span class="comment">// 如果当前新牌A比要比较的牌B大了，把A放到B的后面</span></span><br><span class="line">      <span class="keyword">if</span> (A &gt; B) &#123;</span><br><span class="line">        handle.splice(j+<span class="number">1</span>, <span class="number">0</span>, A);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span> (j === <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="comment">// 已经比到第一项，我们把新牌放到手中最前面即可</span></span><br><span class="line">        handle.unshift(A);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> handle;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">array = [<span class="number">12</span>, <span class="number">8</span>, <span class="number">24</span>, <span class="number">16</span>, <span class="number">1</span>].insert();</span><br><span class="line"><span class="built_in">console</span>.log(array); <span class="comment">// [ 1, 8, 12, 16, 24 ]</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="4-希尔排序"><a href="#4-希尔排序" class="headerlink" title="4. 希尔排序"></a>4. 希尔排序</h2><ul>
+<li><p>思路：先算出一个间隔数（数组总长度/2），然后从第一项开始依次跟间隔数后的那一项进行比较。然后再让间隔数=上次间隔数/2，从第一次项开始依次跟新的间隔数后的那一项进行比较。<strong>时间复杂度</strong>：O(n*logn)</p>
+</li>
+<li><p>实现：</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">swap</span>(<span class="params">arr, i, j</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> temp = arr[i];</span><br><span class="line">  arr[i] = arr[j];</span><br><span class="line">  arr[j] = temp;</span><br><span class="line">  <span class="keyword">return</span> arr;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">Array</span>.prototype.shell = <span class="function"><span class="keyword">function</span> <span class="title">shell</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> gap = <span class="built_in">Math</span>.floor(<span class="keyword">this</span>.length / <span class="number">2</span>);</span><br><span class="line">  <span class="keyword">while</span> (gap &gt;= <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = gap; i &lt; <span class="keyword">this</span>.length; i++) &#123;</span><br><span class="line">      <span class="keyword">while</span> (i - gap &gt;= <span class="number">0</span> &amp;&amp; <span class="keyword">this</span>[i] &lt; <span class="keyword">this</span>[i - gap]) &#123;</span><br><span class="line">        swap(<span class="keyword">this</span>, i, i - gap);</span><br><span class="line">        i = i - gap;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    gap = <span class="built_in">Math</span>.floor(gap / <span class="number">2</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> array = [<span class="number">58</span>, <span class="number">23</span>, <span class="number">67</span>, <span class="number">36</span>, <span class="number">40</span>, <span class="number">46</span>, <span class="number">35</span>, <span class="number">28</span>, <span class="number">20</span>, <span class="number">10</span>];</span><br><span class="line">array.shell();</span><br><span class="line"><span class="built_in">console</span>.log(array); <span class="comment">// [ 10, 20, 23, 28, 35, 36, 40, 46, 58, 67 ]</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="5-快速排序"><a href="#5-快速排序" class="headerlink" title="5. 快速排序"></a>5. 快速排序</h2><ul>
+<li>思路：</li>
+</ul>
+<ol>
+<li>选取基准元素：数组的中间项，并将基准元素在数组中移除</li>
+<li>循环遍历数组，比基准元素小的元素放在左右，大的放右边</li>
+<li>在左右子数组中重复步骤一二，直到数组只剩下一个元素</li>
+<li>向上逐级合并数组，拼接左边+中间+右边成最后的结果</li>
+</ol>
+<ul>
+<li><p><strong>时间复杂度</strong>：O(n*logn)</p>
+</li>
+<li><p>实现：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">quick</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 4.结束递归（当数组中小于等于一项，则不用处理）</span></span><br><span class="line">  <span class="keyword">if</span>(arr.length &lt;= <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> arr;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//  1.找到数组的中间项，在原有的数组中把它移除</span></span><br><span class="line">  <span class="keyword">let</span> middleIndex = <span class="built_in">Math</span>.floor(arr.length / <span class="number">2</span>);</span><br><span class="line">  <span class="keyword">let</span> middleValue = arr.splice(middleIndex, <span class="number">1</span>)[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 2.准备左右两个数组，循环剩下数组中的每一项，比当前项小的放在左边数组中，比当前项大的放在右边数组中</span></span><br><span class="line">  <span class="keyword">let</span> arrLeft = [],arrRight = [];</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">    <span class="keyword">const</span> item = arr[i];</span><br><span class="line">    item &lt; middleValue ? arrLeft.push(item) : arrRight.push(item);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> quick(arrLeft).concat(middleValue,quick(arrRight));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(quick([<span class="number">12</span>, <span class="number">8</span>, <span class="number">15</span>, <span class="number">16</span>, <span class="number">1</span>, <span class="number">24</span>])); <span class="comment">// [ 1, 8, 12, 15, 16, 24 ]</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="6-堆排序"><a href="#6-堆排序" class="headerlink" title="6. 堆排序"></a>6. 堆排序</h2><ul>
+<li>思路：</li>
+</ul>
+<ol>
+<li>初始化大(小)根堆，此时根节点为最大(小)值，将根节点与最后一个节点(数组最后一个元素)交换</li>
+<li>除开最后一个节点，重新调整大(小)根堆，使根节点为最大(小)值</li>
+<li>重复步骤二，直到堆中元素剩一个，排序完成</li>
+</ol>
+<ul>
+<li>实现：<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">swap</span>(<span class="params">arr, i, j</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> temp = arr[i];</span><br><span class="line">  arr[i] = arr[j];</span><br><span class="line">  arr[j] = temp;</span><br><span class="line">  <span class="keyword">return</span> arr;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">heap</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 我们用数组来储存这个大根堆,数组就是堆本身</span></span><br><span class="line">  <span class="comment">// 初始化大顶堆，从第一个非叶子结点开始</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="built_in">Math</span>.floor(arr.length / <span class="number">2</span> - <span class="number">1</span>); i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">    heapify(arr, i, arr.length);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 排序，每一次 for 循环找出一个当前最大值，数组长度减一</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="built_in">Math</span>.floor(arr.length - <span class="number">1</span>); i &gt; <span class="number">0</span>; i--) &#123;</span><br><span class="line">    <span class="comment">// 根节点与最后一个节点交换</span></span><br><span class="line">    swap(arr, <span class="number">0</span>, i);</span><br><span class="line">    <span class="comment">// 从根节点开始调整，并且最后一个结点已经为当前最大值，不需要再参与比较，所以第三个参数为 i，即比较到最后一个结点前一个即可</span></span><br><span class="line">    heapify(arr, <span class="number">0</span>, i);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> arr;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将 i 结点以下的堆整理为大顶堆，注意这一步实现的基础实际上是：</span></span><br><span class="line"><span class="comment">// 假设结点 i 以下的子堆已经是一个大顶堆，heapify 函数实现的</span></span><br><span class="line"><span class="comment">// 功能是实际上是：找到 结点 i 在包括结点 i 的堆中的正确位置。</span></span><br><span class="line"><span class="comment">// 后面将写一个 for 循环，从第一个非叶子结点开始，对每一个非叶子结点</span></span><br><span class="line"><span class="comment">// 都执行 heapify 操作，所以就满足了结点 i 以下的子堆已经是一大顶堆</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">heapify</span>(<span class="params">array, i, length</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> temp = array[i]; <span class="comment">// 当前父节点</span></span><br><span class="line">  <span class="comment">// j &lt; length 的目的是对结点 i 以下的结点全部做顺序调整</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">2</span> * i + <span class="number">1</span>; j &lt; length; j = <span class="number">2</span> * j + <span class="number">1</span>) &#123;</span><br><span class="line">    temp = array[i]; <span class="comment">// 将 array[i] 取出，整个过程相当于找到 array[i] 应处于的位置</span></span><br><span class="line">    <span class="keyword">if</span> (j + <span class="number">1</span> &lt; length &amp;&amp; array[j] &lt; array[j + <span class="number">1</span>]) &#123;</span><br><span class="line">      j++; <span class="comment">// 找到两个孩子中较大的一个，再与父节点比较</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (temp &lt; array[j]) &#123;</span><br><span class="line">      swap(array, i, j); <span class="comment">// 如果父节点小于子节点:交换；否则跳出</span></span><br><span class="line">      i = j; <span class="comment">// 交换后，temp 的下标变为 j</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="7-归并排序"><a href="#7-归并排序" class="headerlink" title="7. 归并排序"></a>7. 归并排序</h2><ul>
+<li><p>思路：归并排序和快排的思路类似，都是递归分治，区别在于快排边分区边排序，而归并在分区完成后才会排序</p>
+</li>
+<li><p>实现：</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mergeSort</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(arr.length &lt;= <span class="number">1</span>) <span class="keyword">return</span> arr		<span class="comment">//数组元素被划分到剩1个时，递归终止</span></span><br><span class="line">  <span class="keyword">const</span> midIndex = arr.length/<span class="number">2</span> | <span class="number">0</span></span><br><span class="line">  <span class="keyword">const</span> leftArr = arr.slice(<span class="number">0</span>, midIndex)</span><br><span class="line">  <span class="keyword">const</span> rightArr = arr.slice(midIndex, arr.length)</span><br><span class="line">  <span class="keyword">return</span> merge(mergeSort(leftArr), mergeSort(rightArr))	<span class="comment">//先划分，后合并</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//合并</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">merge</span>(<span class="params">leftArr, rightArr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> result = []</span><br><span class="line">  <span class="keyword">while</span>(leftArr.length &amp;&amp; rightArr.length) &#123;</span><br><span class="line">    leftArr[<span class="number">0</span>] &lt;= rightArr[<span class="number">0</span>] ? result.push(leftArr.shift()) : result.push(rightArr.shift())</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">while</span>(leftArr.length) result.push(leftArr.shift())</span><br><span class="line">  <span class="keyword">while</span>(rightArr.length) result.push(rightArr.shift())</span><br><span class="line">  <span class="keyword">return</span> result</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>口诀: 插冒归基稳定，快选堆希不稳定</p>
+<table>
+<thead>
+<tr>
+<th>排序算法</th>
+<th align="center">平均时间复杂度</th>
+<th align="center">最坏时间复杂度</th>
+<th align="center">空间复杂度</th>
+<th align="right">是否稳定</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>冒泡排序</td>
+<td align="center">O(n^2)</td>
+<td align="center">O(n^2)</td>
+<td align="center">O(1)</td>
+<td align="right">是</td>
+</tr>
+<tr>
+<td>选择排序</td>
+<td align="center">O(n^2)</td>
+<td align="center">O(n^2)</td>
+<td align="center">O(1)</td>
+<td align="right">不是</td>
+</tr>
+<tr>
+<td>插入排序</td>
+<td align="center">O(n^2)</td>
+<td align="center">O(n^2)</td>
+<td align="center">O(1)</td>
+<td align="right">是</td>
+</tr>
+<tr>
+<td>快速排序</td>
+<td align="center">O(nlogn)</td>
+<td align="center">O(n^2)</td>
+<td align="center">O(logn)</td>
+<td align="right">不是</td>
+</tr>
+<tr>
+<td>希尔排序</td>
+<td align="center">O(nlogn)</td>
+<td align="center">O(n^s)</td>
+<td align="center">O(1)</td>
+<td align="right">不是</td>
+</tr>
+<tr>
+<td>堆排序</td>
+<td align="center">O(nlogn)</td>
+<td align="center">O(nlogn)</td>
+<td align="center">O(1)</td>
+<td align="right">不是</td>
+</tr>
+<tr>
+<td>归并排序</td>
+<td align="center">O(nlogn)</td>
+<td align="center">O(nlogn)</td>
+<td align="center">O(n)</td>
+<td align="right">是</td>
+</tr>
+</tbody></table>
+<p>稳定性： 同大小情况下是否可能会被交换位置, 虚拟dom的diff，不稳定性会导致重新渲染；</p>
+<h2 id="8-二叉树和二叉查找树"><a href="#8-二叉树和二叉查找树" class="headerlink" title="8.二叉树和二叉查找树"></a>8.二叉树和二叉查找树</h2><ul>
+<li><p>树：树是 n 个节点的有限集，有且仅有一个特定的称为根的节点。当 n&gt;1 时，其余节点可分为 m 个互不相交的有限集，每一个集合本身又是一个树，并称为根的子树。</p>
+</li>
+<li><p>二叉树：二叉树是树的一种特殊形式，每一个节点最多有两个孩子节点。</p>
+<ul>
+<li>满二叉树：一个二叉树的所有非叶子节点都存在左右孩子，并且所有叶子节点都在同一层级上。</li>
+</ul>
+<p><img src="/uploads/q_1.png" alt></p>
+</li>
+</ul>
+<ul>
+<li><p>完全二叉树：最后一个节点之前的节点都齐全即可</p>
+<p><img src="/uploads/q_2.png" alt></p>
+</li>
+</ul>
+<ul>
+<li><p>二叉树可以用哪些物理存储结构来表述？</p>
+<ul>
+<li><p>链表：</p>
+<ol>
+<li>存储数据的data变量</li>
+<li>指向左孩子的left指针</li>
+<li>指向左孩子的right指针</li>
+</ol>
+</li>
+</ul>
+<p><img src="/uploads/q_3.png" alt></p>
+<ul>
+<li>数组：</li>
+</ul>
+<p>使用数组存储时，会按照层级顺序把二叉树的节点放到数组中对应的位置上。 如果某一个节点的左孩子或右孩子空缺，则数组的相应位置也空出来。</p>
+<p>为什么这样设计呢？因为这样可以更方便地在数组中定位二叉树的孩子节点和父节点。</p>
+<p><img src="/uploads/q_4.png" alt></p>
+</li>
+<li><p>二叉树最主要的应用在<strong>查找操作</strong>和<strong>维持相对顺序</strong>两个方面。</p>
+</li>
+<li><p>二叉查找树：</p>
+<p>下图就是一个标准的二叉查找树。</p>
+<p><img src="/uploads/q_5.png" alt></p>
+<ul>
+<li><p>二叉查找树在二叉树的基础上增加了以下几个条件：</p>
+<ol>
+<li>如果左子树不为空，则左子树上所有节点的值均小于根节点的值</li>
+<li>如果右子树不为空，则右子树上所有节点的值均大于根节点的值</li>
+<li>左、右子树也都是二叉查找树</li>
+</ol>
+</li>
+<li><p>遍历二叉查找树</p>
+<ul>
+<li>深度优先遍历：<ul>
+<li><strong>前序遍历</strong>：输出顺序是根节点、左子树、右子树。<br><img src="/uploads/q_6.png" alt></li>
+<li><strong>中序遍历</strong>：输出顺序是左子树、根节点、右子树。<br><img src="/uploads/q_7.png" alt></li>
+<li><strong>后序遍历</strong>：输出顺序是左子树、右子树、根节点。<br><img src="/uploads/q_8.png" alt></li>
+</ul>
+</li>
+<li>广度优先遍历：<ul>
+<li><strong>层序遍历</strong>：树按照从根节点到叶子节点的层次关系，一层 一层横向遍历各个节点。<br><img src="/uploads/q_8.png" alt></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>实现二叉查找树</p>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(data) &#123;</span><br><span class="line">    <span class="keyword">this</span>.data = data;</span><br><span class="line">    <span class="keyword">this</span>.left = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">this</span>.right = <span class="literal">null</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BinarySearchTree</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>() &#123;</span><br><span class="line">    <span class="keyword">this</span>.root = <span class="literal">null</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 向树中插入一个节点，判断大小决定插入左侧还是右侧</span></span><br><span class="line">  insert(data) &#123;</span><br><span class="line">    <span class="keyword">let</span> newNode = <span class="keyword">new</span> TreeNode(data);</span><br><span class="line">    <span class="keyword">let</span> insertNode = <span class="function"><span class="keyword">function</span> (<span class="params">root, newNode</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (newNode.data &lt; root.data) &#123;</span><br><span class="line">        <span class="keyword">if</span> (root.left === <span class="literal">null</span>) &#123;</span><br><span class="line">          root.left = newNode</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          insertNode(root.left, newNode)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (root.right === <span class="literal">null</span>) &#123;</span><br><span class="line">          root.right = newNode</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          insertNode(root.right, newNode)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.root === <span class="literal">null</span>) &#123;</span><br><span class="line">      <span class="keyword">this</span>.root = newNode;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      insertNode(<span class="keyword">this</span>.root, newNode)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 在树中查找一个节点</span></span><br><span class="line">  find(data) &#123;</span><br><span class="line">    <span class="keyword">let</span> findNode = <span class="function"><span class="keyword">function</span> (<span class="params">node, key</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (node === <span class="literal">null</span>) <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">      <span class="keyword">if</span> (key &lt; node.data) &#123;</span><br><span class="line">        <span class="keyword">return</span> findNode(node.left, key)</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (key &gt; node.data) &#123;</span><br><span class="line">        <span class="keyword">return</span> findNode(node.right, key)</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> node</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> findNode(<span class="keyword">this</span>.root, data)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 最小节点</span></span><br><span class="line">  min(node = <span class="keyword">this</span>.root) &#123;</span><br><span class="line">    <span class="keyword">let</span> minNode = <span class="function"><span class="keyword">function</span> (<span class="params">node</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (node === <span class="literal">null</span>) <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">      <span class="keyword">while</span> (node &amp;&amp; node.left !== <span class="literal">null</span>) &#123;</span><br><span class="line">        node = node.left</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> node</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> minNode(node)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 最大节点</span></span><br><span class="line">  max(node = <span class="keyword">this</span>.root) &#123;</span><br><span class="line">    <span class="keyword">let</span> maxNode = <span class="function"><span class="keyword">function</span> (<span class="params">node</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (node === <span class="literal">null</span>) <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">      <span class="keyword">while</span> (node &amp;&amp; node.right !== <span class="literal">null</span>) &#123;</span><br><span class="line">        node = node.right</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> node</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> maxNode(node)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 前序遍历</span></span><br><span class="line">  preOrderTraveral(callback) &#123;</span><br><span class="line">    <span class="keyword">let</span> preOrderTraveralNode = <span class="function"><span class="keyword">function</span>(<span class="params">node, callback</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (node !== <span class="literal">null</span>) &#123;</span><br><span class="line">        callback(node.data)</span><br><span class="line">        preOrderTraveralNode(node.left, callback)</span><br><span class="line">        preOrderTraveralNode(node.right, callback)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    preOrderTraveralNode(<span class="keyword">this</span>.root, callback)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 中序遍历</span></span><br><span class="line">  inOrderTraveral(callback) &#123;</span><br><span class="line">    <span class="keyword">let</span> inOrderTraveralNode = <span class="function"><span class="keyword">function</span>(<span class="params">node, callback</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (node !== <span class="literal">null</span>) &#123;</span><br><span class="line">        inOrderTraveralNode(node.left, callback)</span><br><span class="line">        callback(node.data)</span><br><span class="line">        inOrderTraveralNode(node.right, callback)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    inOrderTraveralNode(<span class="keyword">this</span>.root, callback)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 后序遍历</span></span><br><span class="line">  postOrderTraveral(callback) &#123;</span><br><span class="line">    <span class="keyword">let</span> postOrderTraveralNode = <span class="function"><span class="keyword">function</span>(<span class="params">node, callback</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (node !== <span class="literal">null</span>) &#123;</span><br><span class="line">        postOrderTraveralNode(node.left, callback)</span><br><span class="line">        postOrderTraveralNode(node.right, callback)</span><br><span class="line">        callback(node.data)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    postOrderTraveralNode(<span class="keyword">this</span>.root, callback)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 从树中移除一个节点</span></span><br><span class="line">  remove(data) &#123;</span><br><span class="line">    <span class="keyword">let</span> removeNode = <span class="function"><span class="keyword">function</span>(<span class="params">node, key</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (node === <span class="literal">null</span>) <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">      <span class="keyword">if</span> (key &lt; node.data) &#123;</span><br><span class="line">        node.left = removeNode(node.left, key)</span><br><span class="line">        <span class="keyword">return</span> node</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (key &gt; node.data) &#123;</span><br><span class="line">        node.right = removeNode(node.right, key)</span><br><span class="line">        <span class="keyword">return</span> node</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// 情况1：没有孩子节点</span></span><br><span class="line">        <span class="keyword">if</span> (node.left === <span class="literal">null</span> &amp;&amp; node.right === <span class="literal">null</span>) &#123;</span><br><span class="line">          node = <span class="literal">null</span></span><br><span class="line">          <span class="keyword">return</span> node</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 情况2：只有一个孩子节点</span></span><br><span class="line">        <span class="keyword">if</span> (node.left === <span class="literal">null</span>) &#123;</span><br><span class="line">          node = node.right</span><br><span class="line">          <span class="keyword">return</span> node</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (node.right === <span class="literal">null</span>) &#123;</span><br><span class="line">          node = node.left</span><br><span class="line">          <span class="keyword">return</span> node</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 情况3：左孩子和右孩子都存在</span></span><br><span class="line">        <span class="keyword">let</span> temp = <span class="keyword">this</span>.min(node.left)</span><br><span class="line">        node.data = temp.data</span><br><span class="line">        node.right = removeNode(node.right, temp.data)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> node</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">this</span>.root = removeNode(<span class="keyword">this</span>.root, data)</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">output</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(data)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> btree = <span class="keyword">new</span> BinarySearchTree();</span><br><span class="line"></span><br><span class="line">btree.insert(<span class="number">3</span>)</span><br><span class="line">btree.insert(<span class="number">4</span>)</span><br><span class="line">btree.insert(<span class="number">2</span>)</span><br><span class="line">btree.insert(<span class="number">7</span>)</span><br><span class="line">btree.insert(<span class="number">9</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'前序遍历：'</span>)</span><br><span class="line">btree.preOrderTraveral(output) <span class="comment">// 3 2 4 7 9</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'中序遍历：'</span>)</span><br><span class="line">btree.inOrderTraveral(output) <span class="comment">// 2 3 4 7 9</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'后序遍历：'</span>)</span><br><span class="line">btree.postOrderTraveral(output) <span class="comment">// 2 9 7 4 3</span></span><br><span class="line"></span><br><span class="line">btree.remove(<span class="number">7</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>二叉堆：特殊的完全二叉树，分为最大堆和最小堆</p>
+<ul>
+<li>最大堆：任何一个父节点的值都大于两个子节点</li>
+<li>最小堆：任何一个父节点的值都小于两个子节点</li>
+</ul>
+</li>
+<li><p>优先队列：最大优先队列和最小优先队列</p>
+<ul>
+<li>在最大优先队列中，无论入队顺序如何，当前最大的元素都会优先出队</li>
+<li>在最小优先队列中，无论入队顺序如何，当前最小的元素都会优先出队</li>
+</ul>
+</li>
+</ul>
+<p>注：图片来源于《算法漫画》侵删</p>
+<h1 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h1><h1 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h1><h2 id="1-说说浏览器的缓存策略"><a href="#1-说说浏览器的缓存策略" class="headerlink" title="1. 说说浏览器的缓存策略"></a>1. 说说浏览器的缓存策略</h2><h3 id="浏览器缓存位置和优先级"><a href="#浏览器缓存位置和优先级" class="headerlink" title="浏览器缓存位置和优先级"></a>浏览器缓存位置和优先级</h3><ol>
 <li>Service Worker</li>
 <li>Memory Cache（内存缓存）</li>
 <li>Disk Cache（硬盘缓存）</li>
@@ -710,7 +1021,84 @@
 </ul>
 <h2 id="4-说说HTTP-3-0"><a href="#4-说说HTTP-3-0" class="headerlink" title="4. 说说HTTP/3.0"></a>4. 说说HTTP/3.0</h2><p>尽管HTTP/2解决了很多1.1的问题，但HTTP/2仍然存在一些缺陷，这些缺陷并不是来自于HTTP/2协议本身，而是来源于底层的TCP协议，我们知道TCP链接是可靠的连接，如果出现了丢包，那么整个连接都要等待重传，HTTP/1.1可以同时使用6个TCP连接，一个阻塞另外五个还能工作，但HTTP/2只有一个TCP连接，阻塞的问题便被放大了。</p>
 <p>由于TCP协议已经被广泛使用，我们很难直接修改TCP协议，基于此，HTTP/3选择了一个折衷的方法——UDP协议，HTTP/2在UDP的基础上实现多路复用、0-RTT、TLS加密、流量控制、丢包重传等功能。</p>
-<h2 id="5-常见HTTP状态码有哪些"><a href="#5-常见HTTP状态码有哪些" class="headerlink" title="5. 常见HTTP状态码有哪些"></a>5. 常见HTTP状态码有哪些</h2>
+<h2 id="5-常见HTTP状态码有哪些"><a href="#5-常见HTTP状态码有哪些" class="headerlink" title="5. 常见HTTP状态码有哪些"></a>5. 常见HTTP状态码有哪些</h2><h1 id="前端安全"><a href="#前端安全" class="headerlink" title="前端安全"></a>前端安全</h1><p>在 Web 安全领域中，XSS 和 CSRF 是最常见的攻击方式。章将会简单介绍 XSS 和 CSRF 的攻防问题。</p>
+<h2 id="1-什么是CSRF攻击"><a href="#1-什么是CSRF攻击" class="headerlink" title="1. 什么是CSRF攻击"></a>1. 什么是CSRF攻击</h2><blockquote>
+<p>CSRF即Cross-site request forgery(跨站请求伪造)，是一种挟制用户在当前已登录的Web应用程序上执行非本意的操作的攻击方法。</p>
+</blockquote>
+<p>假如黑客在自己的站点上放置了其他网站的外链，例如<code>&quot;www.weibo.com/api</code>，默认情况下，浏览器会带着<code>weibo.com</code>的cookie访问这个网址，如果用户已登录过该网站且网站没有对CSRF攻击进行防御，那么服务器就会认为是用户本人在调用此接口并执行相关操作，致使账号被劫持。</p>
+<h2 id="2-CSRF特点"><a href="#2-CSRF特点" class="headerlink" title="2. CSRF特点"></a>2. CSRF特点</h2><ul>
+<li><p>CSRF（通常）发生在第三方域名；</p>
+</li>
+<li><p>CSRF攻击者（通常）不能获取到Cookie等信息，只是使用；</p>
+</li>
+</ul>
+<h2 id="3-如何防御CSRF攻击"><a href="#3-如何防御CSRF攻击" class="headerlink" title="3. 如何防御CSRF攻击"></a>3. 如何防御CSRF攻击</h2><ul>
+<li><p>验证<code>Token</code>：浏览器请求服务器时，服务器返回一个token，然后放在页面中，页面提交请求的时候，带上这个Token。服务端把Token从Session中拿出，与请求中的Token进行比对验证。</p>
+</li>
+<li><p>验证<code>Referer</code>：通过验证请求头的Referer来验证来源站点，但请求头很容易伪造</p>
+</li>
+<li><p>设置<code>SameSite</code>：设置cookie的SameSite，可以让cookie不随跨域请求发出，但浏览器兼容不一</p>
+</li>
+<li><p>验证码：CSRF 攻击往往是在用户不知情的情况下构造了网络请求。而验证码会强制用户必须与应用进行交互，才能完成最终请求。因此验证码被认为是对抗 CSRF 攻击最简洁而有效的防御方法。但验证码并不是万能的，因为出于用户考虑，不能给网站所有的操作都加上验证码。所以验证码只能作为防御 CSRF 的一种辅助手段，而不能作为最主要的解决方案。</p>
+</li>
+</ul>
+<h2 id="4-什么是XSS攻击"><a href="#4-什么是XSS攻击" class="headerlink" title="4. 什么是XSS攻击"></a>4. 什么是XSS攻击</h2><blockquote>
+<p>XSS即Cross Site Scripting（跨站脚本攻击），指的是通过利用网页开发时留下的漏洞，注入恶意指令代码到网页，使用户加载并执行攻击者恶意制造的网页程序。常见的例如在评论区植入JS代码，用户进入评论页时代码被执行，进而窃取隐私数据比如cookie、session，或者重定向到不好的网站等。</p>
+</blockquote>
+<h2 id="5-XSS攻击有哪些类型"><a href="#5-XSS攻击有哪些类型" class="headerlink" title="5. XSS攻击有哪些类型"></a>5. XSS攻击有哪些类型</h2><ul>
+<li><p><strong>存储型</strong>：即攻击被存储在服务端，常见的是在评论区插入攻击脚本，如果脚本被储存到服务端，那么所有看见对应评论的用户都会受到攻击。</p>
+</li>
+<li><p><strong>反射型</strong>：攻击者将脚本混在URL里，服务端接收到URL将恶意代码当做参数取出并拼接在HTML里返回，浏览器解析此HTML后即执行恶意代码。例如在url上添加脚本类的参数：<code>https://www.baidu.com?jarttoTest=&lt;script&gt;alert(document.cookie)&lt;/script&gt;</code>。</p>
+</li>
+<li><p><strong>DOM型</strong>：将攻击脚本写在URL中，诱导用户点击该URL，如果URL被解析，那么攻击脚本就会被运行。和前两者的差别主要在于DOM型攻击不经过服务端</p>
+</li>
+</ul>
+<h2 id="6-如何防御XSS攻击"><a href="#6-如何防御XSS攻击" class="headerlink" title="6. 如何防御XSS攻击"></a>6. 如何防御XSS攻击</h2><ul>
+<li><p>输入检查：<strong>不要相信用户的任何输入</strong>，对输入内容中的<code>&lt;script&gt;&lt;iframe&gt;</code>等标签进行转义或者过滤。</p>
+</li>
+<li><p>输出检查：<strong>不要完全信任服务端</strong>，对服务端输出内容有规则的过滤后再输出到页面中。</p>
+</li>
+<li><p><strong>设置httpOnly</strong>：很多XSS攻击目标都是窃取用户cookie伪造身份认证，设置此属性可防止JS获取cookie。</p>
+</li>
+<li><p><strong>开启CSP</strong>：即开启白名单，可阻止白名单以外的资源加载和运行。</p>
+</li>
+<li><p>需要转义的字符有：</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>字符</th>
+<th align="right">转义后字符</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&amp;</td>
+<td align="right"><code>&amp;amp;</code></td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td align="right"><code>&amp;lt;</code></td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td align="right"><code>&amp;gt;</code></td>
+</tr>
+<tr>
+<td>“</td>
+<td align="right"><code>&amp;quot;</code></td>
+</tr>
+<tr>
+<td>‘</td>
+<td align="right"><code>&amp;#x27;</code></td>
+</tr>
+<tr>
+<td>/</td>
+<td align="right"><code>&amp;#x2F;</code></td>
+</tr>
+</tbody></table>
+<p>参考文章：<a href="https://github.com/dwqs/blog/issues/68" rel="external nofollow noopener noreferrer" target="_blank">https://github.com/dwqs/blog/issues/68</a></p>
+
     </div>
 
     
@@ -830,7 +1218,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS"><span class="nav-number">1.</span> <span class="nav-text">CSS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-说说CSS选择器以及这些选择器的优先级"><span class="nav-number">1.1.</span> <span class="nav-text">1.说说CSS选择器以及这些选择器的优先级</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-伪类和伪元素的区别"><span class="nav-number">1.2.</span> <span class="nav-text">2. 伪类和伪元素的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-你知道什么是BFC么？"><span class="nav-number">1.3.</span> <span class="nav-text">3. 你知道什么是BFC么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-如何实现居中"><span class="nav-number">1.4.</span> <span class="nav-text">4.如何实现居中</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-盒模型"><span class="nav-number">1.5.</span> <span class="nav-text">5.盒模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-绝对定位、固定定位和-z-index"><span class="nav-number">1.6.</span> <span class="nav-text">6.绝对定位、固定定位和 z-index</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-如何实现左侧宽度固定，右侧宽度自适应的布局"><span class="nav-number">1.7.</span> <span class="nav-text">7.如何实现左侧宽度固定，右侧宽度自适应的布局</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-层叠上下文"><span class="nav-number">1.8.</span> <span class="nav-text">8.层叠上下文</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">1.9.</span> <span class="nav-text">小结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Javascript"><span class="nav-number">2.</span> <span class="nav-text">Javascript</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-JS-的数据类型及存储方式的区别"><span class="nav-number">2.1.</span> <span class="nav-text">1. JS 的数据类型及存储方式的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-常用的判断-JS-数据类型的四种方法"><span class="nav-number">2.2.</span> <span class="nav-text">2.常用的判断 JS 数据类型的四种方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-作用域、作用域链、执行上下文（EC）、执行上下文栈（ECS）"><span class="nav-number">2.3.</span> <span class="nav-text">3. 作用域、作用域链、执行上下文（EC）、执行上下文栈（ECS）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#作用域"><span class="nav-number">2.3.1.</span> <span class="nav-text">作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#执行上下文（EC）"><span class="nav-number">2.3.2.</span> <span class="nav-text">执行上下文（EC）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#执行上下文栈（ECS）"><span class="nav-number">2.3.3.</span> <span class="nav-text">执行上下文栈（ECS）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#作用域链"><span class="nav-number">2.3.4.</span> <span class="nav-text">作用域链</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-原型与原型链"><span class="nav-number">2.4.</span> <span class="nav-text">4. 原型与原型链</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-谈谈你对闭包的理解"><span class="nav-number">2.5.</span> <span class="nav-text">5. 谈谈你对闭包的理解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-手写-call-apply"><span class="nav-number">2.6.</span> <span class="nav-text">6. 手写 call/apply()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-手写-bind"><span class="nav-number">2.7.</span> <span class="nav-text">7. 手写 bind()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-模拟实现-new"><span class="nav-number">2.8.</span> <span class="nav-text">9. 模拟实现 new</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-数组扁平化"><span class="nav-number">2.9.</span> <span class="nav-text">9. 数组扁平化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-ES5如何实现继承"><span class="nav-number">2.10.</span> <span class="nav-text">10. ES5如何实现继承</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#React"><span class="nav-number">3.</span> <span class="nav-text">React</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Vue"><span class="nav-number">4.</span> <span class="nav-text">Vue</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Webpack"><span class="nav-number">5.</span> <span class="nav-text">Webpack</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Node"><span class="nav-number">6.</span> <span class="nav-text">Node</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#NPM"><span class="nav-number">7.</span> <span class="nav-text">NPM</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#算法"><span class="nav-number">8.</span> <span class="nav-text">算法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#设计模式"><span class="nav-number">9.</span> <span class="nav-text">设计模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#网络与网络安全"><span class="nav-number">10.</span> <span class="nav-text">网络与网络安全</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-说说浏览器的缓存策略"><span class="nav-number">10.1.</span> <span class="nav-text">1. 说说浏览器的缓存策略</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览器缓存位置和优先级"><span class="nav-number">10.1.1.</span> <span class="nav-text">浏览器缓存位置和优先级</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不同缓存位置的差别"><span class="nav-number">10.1.2.</span> <span class="nav-text">不同缓存位置的差别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览器缓存策略"><span class="nav-number">10.1.3.</span> <span class="nav-text">浏览器缓存策略</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缓存场景"><span class="nav-number">10.1.4.</span> <span class="nav-text">缓存场景</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-HTTP-1-0和HTTP-1-1有什么区别"><span class="nav-number">10.2.</span> <span class="nav-text">2.  HTTP/1.0和HTTP/1.1有什么区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-介绍一下HTTP-2-0新特性"><span class="nav-number">10.3.</span> <span class="nav-text">3. 介绍一下HTTP/2.0新特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-说说HTTP-3-0"><span class="nav-number">10.4.</span> <span class="nav-text">4. 说说HTTP/3.0</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-常见HTTP状态码有哪些"><span class="nav-number">10.5.</span> <span class="nav-text">5. 常见HTTP状态码有哪些</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS"><span class="nav-number">1.</span> <span class="nav-text">CSS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-说说CSS选择器以及这些选择器的优先级"><span class="nav-number">1.1.</span> <span class="nav-text">1.说说CSS选择器以及这些选择器的优先级</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-伪类和伪元素的区别"><span class="nav-number">1.2.</span> <span class="nav-text">2. 伪类和伪元素的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-你知道什么是BFC么？"><span class="nav-number">1.3.</span> <span class="nav-text">3. 你知道什么是BFC么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-如何实现居中"><span class="nav-number">1.4.</span> <span class="nav-text">4.如何实现居中</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-盒模型"><span class="nav-number">1.5.</span> <span class="nav-text">5.盒模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-绝对定位、固定定位和-z-index"><span class="nav-number">1.6.</span> <span class="nav-text">6.绝对定位、固定定位和 z-index</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-如何实现左侧宽度固定，右侧宽度自适应的布局"><span class="nav-number">1.7.</span> <span class="nav-text">7.如何实现左侧宽度固定，右侧宽度自适应的布局</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-层叠上下文"><span class="nav-number">1.8.</span> <span class="nav-text">8.层叠上下文</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">1.9.</span> <span class="nav-text">小结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Javascript"><span class="nav-number">2.</span> <span class="nav-text">Javascript</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-JS-的数据类型及存储方式的区别"><span class="nav-number">2.1.</span> <span class="nav-text">1. JS 的数据类型及存储方式的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-常用的判断-JS-数据类型的四种方法"><span class="nav-number">2.2.</span> <span class="nav-text">2.常用的判断 JS 数据类型的四种方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-作用域、作用域链、执行上下文（EC）、执行上下文栈（ECS）"><span class="nav-number">2.3.</span> <span class="nav-text">3. 作用域、作用域链、执行上下文（EC）、执行上下文栈（ECS）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#作用域"><span class="nav-number">2.3.1.</span> <span class="nav-text">作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#执行上下文（EC）"><span class="nav-number">2.3.2.</span> <span class="nav-text">执行上下文（EC）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#执行上下文栈（ECS）"><span class="nav-number">2.3.3.</span> <span class="nav-text">执行上下文栈（ECS）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#作用域链"><span class="nav-number">2.3.4.</span> <span class="nav-text">作用域链</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-原型与原型链"><span class="nav-number">2.4.</span> <span class="nav-text">4. 原型与原型链</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-谈谈你对闭包的理解"><span class="nav-number">2.5.</span> <span class="nav-text">5. 谈谈你对闭包的理解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-手写-call-apply"><span class="nav-number">2.6.</span> <span class="nav-text">6. 手写 call/apply()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-手写-bind"><span class="nav-number">2.7.</span> <span class="nav-text">7. 手写 bind()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-模拟实现-new"><span class="nav-number">2.8.</span> <span class="nav-text">9. 模拟实现 new</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-数组扁平化"><span class="nav-number">2.9.</span> <span class="nav-text">9. 数组扁平化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-ES5如何实现继承"><span class="nav-number">2.10.</span> <span class="nav-text">10. ES5如何实现继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-V8是如何执行一段JS代码的"><span class="nav-number">2.11.</span> <span class="nav-text">11. V8是如何执行一段JS代码的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-V8是如何进行垃圾回收的"><span class="nav-number">2.12.</span> <span class="nav-text">12. V8是如何进行垃圾回收的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-介绍一下引用计数和标记清除"><span class="nav-number">2.13.</span> <span class="nav-text">13. 介绍一下引用计数和标记清除</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-JS相较于C-等语言为什么慢，V8做了哪些优化"><span class="nav-number">2.14.</span> <span class="nav-text">14. JS相较于C++等语言为什么慢，V8做了哪些优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15-如何判断-JavaScript-中内存泄漏的"><span class="nav-number">2.15.</span> <span class="nav-text">15. 如何判断 JavaScript 中内存泄漏的</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#React"><span class="nav-number">3.</span> <span class="nav-text">React</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Vue"><span class="nav-number">4.</span> <span class="nav-text">Vue</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Webpack"><span class="nav-number">5.</span> <span class="nav-text">Webpack</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Node"><span class="nav-number">6.</span> <span class="nav-text">Node</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#NPM"><span class="nav-number">7.</span> <span class="nav-text">NPM</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#算法"><span class="nav-number">8.</span> <span class="nav-text">算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-冒泡排序"><span class="nav-number">8.1.</span> <span class="nav-text">1. 冒泡排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-选择排序"><span class="nav-number">8.2.</span> <span class="nav-text">2. 选择排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-插入排序"><span class="nav-number">8.3.</span> <span class="nav-text">3. 插入排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-希尔排序"><span class="nav-number">8.4.</span> <span class="nav-text">4. 希尔排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-快速排序"><span class="nav-number">8.5.</span> <span class="nav-text">5. 快速排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-堆排序"><span class="nav-number">8.6.</span> <span class="nav-text">6. 堆排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-归并排序"><span class="nav-number">8.7.</span> <span class="nav-text">7. 归并排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">8.8.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-二叉树和二叉查找树"><span class="nav-number">8.9.</span> <span class="nav-text">8.二叉树和二叉查找树</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#设计模式"><span class="nav-number">9.</span> <span class="nav-text">设计模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#计算机网络"><span class="nav-number">10.</span> <span class="nav-text">计算机网络</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-说说浏览器的缓存策略"><span class="nav-number">10.1.</span> <span class="nav-text">1. 说说浏览器的缓存策略</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览器缓存位置和优先级"><span class="nav-number">10.1.1.</span> <span class="nav-text">浏览器缓存位置和优先级</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不同缓存位置的差别"><span class="nav-number">10.1.2.</span> <span class="nav-text">不同缓存位置的差别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览器缓存策略"><span class="nav-number">10.1.3.</span> <span class="nav-text">浏览器缓存策略</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缓存场景"><span class="nav-number">10.1.4.</span> <span class="nav-text">缓存场景</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-HTTP-1-0和HTTP-1-1有什么区别"><span class="nav-number">10.2.</span> <span class="nav-text">2.  HTTP/1.0和HTTP/1.1有什么区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-介绍一下HTTP-2-0新特性"><span class="nav-number">10.3.</span> <span class="nav-text">3. 介绍一下HTTP/2.0新特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-说说HTTP-3-0"><span class="nav-number">10.4.</span> <span class="nav-text">4. 说说HTTP/3.0</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-常见HTTP状态码有哪些"><span class="nav-number">10.5.</span> <span class="nav-text">5. 常见HTTP状态码有哪些</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#前端安全"><span class="nav-number">11.</span> <span class="nav-text">前端安全</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-什么是CSRF攻击"><span class="nav-number">11.1.</span> <span class="nav-text">1. 什么是CSRF攻击</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-CSRF特点"><span class="nav-number">11.2.</span> <span class="nav-text">2. CSRF特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-如何防御CSRF攻击"><span class="nav-number">11.3.</span> <span class="nav-text">3. 如何防御CSRF攻击</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-什么是XSS攻击"><span class="nav-number">11.4.</span> <span class="nav-text">4. 什么是XSS攻击</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-XSS攻击有哪些类型"><span class="nav-number">11.5.</span> <span class="nav-text">5. XSS攻击有哪些类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-如何防御XSS攻击"><span class="nav-number">11.6.</span> <span class="nav-text">6. 如何防御XSS攻击</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -903,13 +1291,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">81k</span>
+    <span title="站点总字数">115k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:13</span>
+    <span title="站点阅读时长">1:44</span>
 </div>
 
         

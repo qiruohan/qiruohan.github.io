@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://litgod.net').hostname,
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.7.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta property="og:type" content="article">
+<meta property="og:title" content="「面试必会」中高级前端必会的手写面试题(二)">
+<meta property="og:url" content="https:&#x2F;&#x2F;litgod.net&#x2F;2020&#x2F;08&#x2F;16&#x2F;api-4&#x2F;index.html">
+<meta property="og:site_name" content="Litgod&#39;s Blog">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;qiruohan&#x2F;qiruohan.github.io&#x2F;uploads&#x2F;375312727.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;litgod.net&#x2F;uploads&#x2F;api_1.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;litgod.net&#x2F;uploads&#x2F;api_2.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;litgod.net&#x2F;uploads&#x2F;api_3.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;litgod.net&#x2F;uploads&#x2F;api_4.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;litgod.net&#x2F;uploads&#x2F;api_5.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;litgod.net&#x2F;uploads&#x2F;api_6.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;litgod.net&#x2F;uploads&#x2F;t_1.png">
+<meta property="og:updated_time" content="2020-09-08T09:08:49.624Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;qiruohan&#x2F;qiruohan.github.io&#x2F;uploads&#x2F;375312727.jpg">
+
+<link rel="canonical" href="https://litgod.net/2020/08/16/api-4/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>「面试必会」中高级前端必会的手写面试题(二) | Litgod's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Litgod's Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Litgod's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">7</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">9</span></a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-leetcode">
+
+    <a href="/leetcode/" rel="section"><i class="fa fa-fw fa-code"></i>刷题</a>
+
+  </li>
+        <li class="menu-item menu-item-movies">
+
+    <a href="/movies/" rel="section"><i class="fa fa-fw fa-film"></i>观影</a>
+
+  </li>
+        <li class="menu-item menu-item-books">
+
+    <a href="/books/" rel="section"><i class="fa fa-fw fa-book"></i>阅读</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="搜索..." spellcheck="false" type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/qiruohan" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="external nofollow noopener noreferrer" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://litgod.net/2020/08/16/api-4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+      <meta itemprop="name" content="齐小神">
+      <meta itemprop="description" content="善良。独立。保持可爱。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Litgod's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          「面试必会」中高级前端必会的手写面试题(二)
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-08-16 20:42:13" itemprop="dateCreated datePublished" datetime="2020-08-16T20:42:13+08:00">2020-08-16</time>
+            </span>
+
+          
+            <span id="/2020/08/16/api-4/" class="post-meta-item leancloud_visitors" data-flag-title="「面试必会」中高级前端必会的手写面试题(二)" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/08/16/api-4/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/08/16/api-4/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>20k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>18 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <img src="https://cdn.jsdelivr.net/gh/qiruohan/qiruohan.github.io/uploads/375312727.jpg" width="800" height="100%">
+<a id="more"></a>
+
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在面试中，常常会问到一些“手写XXX”的面试题，如果我们只是停留在熟练使用这些 API，问到这种问题想必总是束手无策的。其实想要手写 API 的实现也并不难，更多的是需要我们训练自己通过使用方式来推倒实现的能力，千万不要死记硬背。最近我也在强化自己手写 API 的能力，并汇总了面试中高频的手写 API 面试题，希望对大家有所帮助～</p>
+<blockquote>
+<p>前文回顾： <a href="https://juejin.im/post/6859026583533912072" rel="external nofollow noopener noreferrer" target="_blank">「面试必会」中高级前端必会的手写面试题(一)</a></p>
+</blockquote>
+<h2 id="一、使用ES5实现类的继承"><a href="#一、使用ES5实现类的继承" class="headerlink" title="一、使用ES5实现类的继承"></a>一、使用ES5实现类的继承</h2><h3 id="1-构造函数继承"><a href="#1-构造函数继承" class="headerlink" title="1. 构造函数继承"></a>1. 构造函数继承</h3><ul>
+<li>思路：</li>
+</ul>
+<p>在子类的构造函数中执行父类的构造函数。并为其绑定子类的<code>this</code>，让父类的构造函数把成员的属性和方法都挂在<code>子类的this</code>这样能避免实例之间共享一个原型实例，又能向父类构造函数传参。</p>
+<ul>
+<li>实现：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 父类</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = <span class="string">'Cherry'</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 父类的原型方法</span></span><br><span class="line">Parent.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.name;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 子类</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  Parent.call(<span class="keyword">this</span>);</span><br><span class="line">  <span class="keyword">this</span>.type = <span class="string">'child'</span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">const</span> child = <span class="keyword">new</span> Child();</span><br><span class="line"><span class="built_in">console</span>.log(child); <span class="comment">// Child &#123; name: 'Cherry', type: 'child' &#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(child.getName()); <span class="comment">// 报错,找不到getName(), 构造函数继承的方式继承不到父类原型上的属性和方法</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/uploads/api_1.png" alt></p>
+<p>这么看使用构造函数继承的缺点已经很明显了：<strong>继承不到父类原型上的属性和方法</strong>，那么引出下面的方法。</p>
+<h3 id="2-原型链继承"><a href="#2-原型链继承" class="headerlink" title="2. 原型链继承"></a>2. 原型链继承</h3><ul>
+<li>思路：</li>
+</ul>
+<p>让子类的原型指向父类的实例，当子类实例找不到对用的属性和方法时，就会沿着原型链向上找，也就是去父类的实例上找，从而实现对父类属性和方法的继承。</p>
+<ul>
+<li>实现：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = <span class="string">'Cherry'</span>;</span><br><span class="line">  <span class="keyword">this</span>.play = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">&#125;</span><br><span class="line">Parent.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.name;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.type = <span class="string">'child'</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 子类的原型对象指向父类实例</span></span><br><span class="line">Child.prototype = <span class="keyword">new</span> Parent();</span><br><span class="line"><span class="comment">// 根据原型链的规则,顺便绑定一下constructor, 这一步不影响继承, 只是在用到constructor时会需要</span></span><br><span class="line">Child.prototype.constructor = Child;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> child = <span class="keyword">new</span> Child();</span><br><span class="line"><span class="built_in">console</span>.log(child);  <span class="comment">// Parent &#123; type: 'child' &#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(child.getName()); <span class="comment">// Cherry</span></span><br></pre></td></tr></table></figure>
+<p><img src="/uploads/api_2.png" alt></p>
+<p>看似没有问题，父类的方法和属性都能够访问，但实际上有一个潜在的问题：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> child1 = <span class="keyword">new</span> Child();</span><br><span class="line"><span class="keyword">const</span> child2 = <span class="keyword">new</span> Child();</span><br><span class="line">child1.play.push(<span class="number">4</span>);</span><br><span class="line"><span class="built_in">console</span>.log(child1.play, child2.play); <span class="comment">// [ 1, 2, 3, 4 ] [ 1, 2, 3, 4 ]</span></span><br></pre></td></tr></table></figure>
+<p><img src="/uploads/api_3.png" alt></p>
+<p>在上面这个例子中，虽然我只改变了<code>child1</code>的<code>play</code>属性，但是<code>child2</code>的<code>play</code>属性也跟着变了。原因是因为<strong>两个实例引用的是同一个原型对象。</strong></p>
+<p>由此我们可以发现，使用原型链继承有以下两个缺点：</p>
+<ol>
+<li>由于所有Child实例原型都指向同一个Parent实例, 因此对某个Child实例的父类<strong>引用类型</strong>变量修改会影响所有的Child实例</li>
+<li>在创建子类实例时无法向父类构造传参, 即没有实现<code>super()</code>的功能</li>
+</ol>
+<h3 id="3-组合式继承"><a href="#3-组合式继承" class="headerlink" title="3. 组合式继承"></a>3. 组合式继承</h3><p>既然原型链继承和构造函数继承各有互补的优缺点，那么我们为什么不组合起来使用呢，所以就有了综合二者的<strong>组合式继承</strong>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = <span class="string">'Cherry'</span>;</span><br><span class="line">  <span class="keyword">this</span>.play = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">&#125;</span><br><span class="line">Parent.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.name;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 构造函数继承</span></span><br><span class="line">  Parent.call(<span class="keyword">this</span>);</span><br><span class="line">  <span class="keyword">this</span>.type = <span class="string">'child'</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//原型链继承</span></span><br><span class="line">Child.prototype = <span class="keyword">new</span> Parent();</span><br><span class="line"><span class="comment">// 如果不指定 Child.prototype.constructor 为 Child，根据原型链规则会默认向上查找，最后会指向 Parent</span></span><br><span class="line">Child.prototype.constructor = Child;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> child1 = <span class="keyword">new</span> Child();</span><br><span class="line"><span class="keyword">const</span> child2 = <span class="keyword">new</span> Child();</span><br><span class="line"><span class="built_in">console</span>.log(child1); <span class="comment">// Child &#123; name: 'Cherry', play: [ 1, 2, 3 ], type: 'child' &#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(child1.getName()); <span class="comment">// Cherry</span></span><br><span class="line">child1.play.push(<span class="number">4</span>);</span><br><span class="line"><span class="built_in">console</span>.log(child1.play, child2.play); <span class="comment">// [ 1, 2, 3, 4 ] [ 1, 2, 3 ]</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/uploads/api_4.png" alt></p>
+<p>我们通过控制台的输出结果可以看到，之前的问题都得到了解决。但是这里又增加了一个新问题，那就是Parent的构造函数会多执行了一次<code>Child.prototype = new Parent();</code>虽然这并不影响父类的继承，但子类创建实例时，原型中会存在两份相同的属性和方法，这并不优雅。那么如何解决这个问题？</p>
+<h3 id="4-寄生式组合继承"><a href="#4-寄生式组合继承" class="headerlink" title="4. 寄生式组合继承"></a>4. 寄生式组合继承</h3><p>为了解决构造函数被执行两次的问题, 我们将<code>指向父类实例</code>改为<code>指向父类原型</code>, 减去一次构造函数的执行。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = <span class="string">'Cherry'</span>;</span><br><span class="line">  <span class="keyword">this</span>.play = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Parent.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.name</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  Parent.call(<span class="keyword">this</span>);</span><br><span class="line">  <span class="keyword">this</span>.type = <span class="string">'child'</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 将`指向父类实例`改为`指向父类原型`</span></span><br><span class="line">Child.prototype = Parent.prototype;</span><br><span class="line">Child.prototype.constructor = Child;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> child1 = <span class="keyword">new</span> Child();</span><br><span class="line"><span class="keyword">const</span> child2 = <span class="keyword">new</span> Child();</span><br><span class="line"><span class="built_in">console</span>.log(child1); <span class="comment">// Child &#123; name: 'Cherry', play: [ 1, 2, 3 ], type: 'child' &#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(child1.getName()); <span class="comment">// Cherry</span></span><br><span class="line">child1.play.push(<span class="number">4</span>);</span><br><span class="line"><span class="built_in">console</span>.log(child1.play, child2.play); <span class="comment">// [ 1, 2, 3, 4 ] [ 1, 2, 3 ]</span></span><br></pre></td></tr></table></figure>
+<p><img src="/uploads/api_5.png" alt></p>
+<p>但这种方式存在一个问题，由于子类原型和父类原型指向同一个对象，我们对子类原型的操作会影响到父类原型，例如给<code>Child.prototype</code>增加一个<code>getName()</code>方法，那么会使<code>Parent.prototype</code>上也增加或被覆盖一个<code>getName()</code>方法，为了解决这个问题，我们会给<code>Parent.prototype</code>做一个浅拷贝。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = <span class="string">'Cherry'</span>;</span><br><span class="line">  <span class="keyword">this</span>.play = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Parent.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.name</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  Parent.call(<span class="keyword">this</span>);</span><br><span class="line">  <span class="keyword">this</span>.type = <span class="string">'child'</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 给Parent.prototype做一个浅拷贝</span></span><br><span class="line">Child.prototype = <span class="built_in">Object</span>.create(Parent.prototype);</span><br><span class="line">Child.prototype.constructor = Child;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> child1 = <span class="keyword">new</span> Child();</span><br><span class="line"><span class="keyword">const</span> child2 = <span class="keyword">new</span> Child();</span><br><span class="line"><span class="built_in">console</span>.log(child1); <span class="comment">// Child &#123; name: 'Cherry', play: [ 1, 2, 3 ], type: 'child' &#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(child1.getName()); <span class="comment">// Cherry</span></span><br><span class="line">child1.play.push(<span class="number">4</span>);</span><br><span class="line"><span class="built_in">console</span>.log(child1.play, child2.play); <span class="comment">// [ 1, 2, 3, 4 ] [ 1, 2, 3 ]</span></span><br></pre></td></tr></table></figure>
+<p><img src="/uploads/api_6.png" alt></p>
+<p>到这里我们就完成了ES5环境下的继承的实现，这种继承方式称为<code>寄生组合式继承</code>，是目前最成熟的继承方式，babel对ES6继承的转化也是使用了寄生组合式继承。</p>
+<h2 id="二、实现数组扁平化"><a href="#二、实现数组扁平化" class="headerlink" title="二、实现数组扁平化"></a>二、实现数组扁平化</h2><ul>
+<li>概念：</li>
+</ul>
+<p>将一个多维数组变为一维数组：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>, [<span class="number">2</span>, <span class="number">3</span>, [<span class="number">4</span>, <span class="number">5</span>]]]  ------&gt;    [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-ES6的flat"><a href="#1-ES6的flat" class="headerlink" title="1. ES6的flat()"></a>1. ES6的flat()</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, [<span class="number">2</span>, <span class="number">3</span>, [<span class="number">4</span>, <span class="number">5</span>]]];</span><br><span class="line">arr.flat(<span class="literal">Infinity</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-序列化后正则"><a href="#2-序列化后正则" class="headerlink" title="2. 序列化后正则"></a>2. 序列化后正则</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, [<span class="number">2</span>, <span class="number">3</span>, [<span class="number">4</span>, <span class="number">5</span>]]];</span><br><span class="line"><span class="keyword">let</span> str = <span class="built_in">JSON</span>.stringify(arr).replace(<span class="regexp">/(\[|\])/g</span>, <span class="string">''</span>);</span><br><span class="line">str = <span class="string">'['</span> + str + <span class="string">']'</span>;</span><br><span class="line"><span class="built_in">JSON</span>.parse(str);   <span class="comment">// [1, 2, 3, 4, 5]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-递归处理"><a href="#3-递归处理" class="headerlink" title="3. 递归处理"></a>3. 递归处理</h3><p>对于树状结构的数据，最直接的处理方式就是递归</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, [<span class="number">2</span>, <span class="number">3</span>, [<span class="number">4</span>, <span class="number">5</span>]]];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">flat</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> result = [];</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> item <span class="keyword">of</span> arr) &#123;</span><br><span class="line">    item <span class="keyword">instanceof</span> <span class="built_in">Array</span> ? result = result.concat(flat(item)) : result.push(item)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">flat(arr);  <span class="comment">// [1, 2, 3, 4, 5]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-reduce"><a href="#4-reduce" class="headerlink" title="4. reduce"></a>4. reduce</h3><p>遍历数组每一项，若值为数组则递归遍历，否则直接累加。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, [<span class="number">2</span>, <span class="number">3</span>, [<span class="number">4</span>, <span class="number">5</span>]]];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">flat</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> arr.reduce(<span class="function">(<span class="params">prev, current</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> prev.concat(current <span class="keyword">instanceof</span> <span class="built_in">Array</span> ? flat(current) : current)</span><br><span class="line">  &#125;, [])</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">flat(arr);  <span class="comment">// [1, 2, 3, 4, 5]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="5-迭代-扩展运算符"><a href="#5-迭代-扩展运算符" class="headerlink" title="5. 迭代+扩展运算符"></a>5. 迭代+扩展运算符</h3><p>es6的扩展运算符能将二维数组变为一维</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 每次while都会合并一层的元素，然后arr.some判定数组中是否存在数组，如果存在，继续进入第二次循环进行合并</span></span><br><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, [<span class="number">1</span>,<span class="number">2</span>], [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,[<span class="number">4</span>,<span class="number">4</span>,<span class="number">4</span>]]]</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> (arr.some(<span class="built_in">Array</span>.isArray)) &#123;</span><br><span class="line">  arr = [].concat(...arr);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(arr); <span class="comment">// [ 1, 1, 2, 1, 2, 3, 4, 4, 4 ]</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="三、实现数组去重"><a href="#三、实现数组去重" class="headerlink" title="三、实现数组去重"></a>三、实现数组去重</h2><h3 id="1-使用-filter-方法"><a href="#1-使用-filter-方法" class="headerlink" title="1. 使用 filter 方法"></a>1. 使用 filter 方法</h3><p>filter 方法可以过滤掉不符合条件的元素，并返回一个新数组，任何不符合条件的数组都将不在过滤后的数组中。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="string">"banana"</span>, <span class="string">"apple"</span>, <span class="string">"orange"</span>, <span class="string">"lemon"</span>, <span class="string">"apple"</span>, <span class="string">"lemon"</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">removeDuplicates</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> data.filter(<span class="function">(<span class="params">value, index</span>) =&gt;</span> data.indexOf(value) === index);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(removeDuplicates(arr)); <span class="comment">// [ 'banana', 'apple', 'orange', 'lemon' ]</span></span><br></pre></td></tr></table></figure>
+
+<p>我们还可以通过简单的调整，使用filter方法从数据中检索出重复值</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="string">"banana"</span>, <span class="string">"apple"</span>, <span class="string">"orange"</span>, <span class="string">"lemon"</span>, <span class="string">"apple"</span>, <span class="string">"lemon"</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">removeDuplicates</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> data.filter(<span class="function">(<span class="params">value, index</span>) =&gt;</span> data.indexOf(value) !== index);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(removeDuplicates(arr)); <span class="comment">// [ 'apple', 'lemon' ]</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-使用-ES6-的-Set"><a href="#2-使用-ES6-的-Set" class="headerlink" title="2.使用 ES6 的 Set"></a>2.使用 ES6 的 Set</h3><p>Set 是 ES6 中的新对象类型，用于创建唯一key的集合。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="string">"banana"</span>, <span class="string">"apple"</span>, <span class="string">"orange"</span>, <span class="string">"lemon"</span>, <span class="string">"apple"</span>, <span class="string">"lemon"</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">removeDuplicates</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> [...new <span class="built_in">Set</span>(data)];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(removeDuplicates(arr)); <span class="comment">// [ 'banana', 'apple', 'orange', 'lemon' ]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-使用-forEach-方法"><a href="#3-使用-forEach-方法" class="headerlink" title="3. 使用 forEach 方法"></a>3. 使用 forEach 方法</h3><p>forEach 方法可以遍历数组中的元素，如果该元素不在数组中，就将该元素push到数组中。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="string">"banana"</span>, <span class="string">"apple"</span>, <span class="string">"orange"</span>, <span class="string">"lemon"</span>, <span class="string">"apple"</span>, <span class="string">"lemon"</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">removeDuplicates</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> unique = [];</span><br><span class="line">  data.forEach(<span class="function"><span class="params">element</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (!unique.includes(element)) &#123;</span><br><span class="line">      unique.push(element);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="keyword">return</span> unique;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(removeDuplicates(arr)); <span class="comment">// [ 'banana', 'apple', 'orange', 'lemon' ]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-使用-reduce-方法"><a href="#4-使用-reduce-方法" class="headerlink" title="4.使用 reduce 方法"></a>4.使用 reduce 方法</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="string">"banana"</span>, <span class="string">"apple"</span>, <span class="string">"orange"</span>, <span class="string">"lemon"</span>, <span class="string">"apple"</span>, <span class="string">"lemon"</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">removeDuplicates</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> unique = data.reduce(<span class="function"><span class="keyword">function</span> (<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (a.indexOf(b) &lt; <span class="number">0</span>) a.push(b);</span><br><span class="line">    <span class="keyword">return</span> a;</span><br><span class="line">  &#125;, []);</span><br><span class="line">  <span class="keyword">return</span> unique;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(removeDuplicates(arr)); <span class="comment">// [ 'banana', 'apple', 'orange', 'lemon' ]</span></span><br></pre></td></tr></table></figure>
+
+<p>或者：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="string">"banana"</span>, <span class="string">"apple"</span>, <span class="string">"orange"</span>, <span class="string">"lemon"</span>, <span class="string">"apple"</span>, <span class="string">"lemon"</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">removeDuplicates</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> data.reduce(<span class="function">(<span class="params">acc, curr</span>) =&gt;</span> acc.includes(curr) ? acc : [...acc, curr], []);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(removeDuplicates(arr)); <span class="comment">// [ 'banana', 'apple', 'orange', 'lemon' ]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="5-在数组原型上添加去重方法"><a href="#5-在数组原型上添加去重方法" class="headerlink" title="5.在数组原型上添加去重方法"></a>5.在数组原型上添加去重方法</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="string">"banana"</span>, <span class="string">"apple"</span>, <span class="string">"orange"</span>, <span class="string">"lemon"</span>, <span class="string">"apple"</span>, <span class="string">"lemon"</span>];</span><br><span class="line"></span><br><span class="line"><span class="built_in">Array</span>.prototype.unique = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> unique = [];</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="keyword">this</span>.length; i++) &#123;</span><br><span class="line">    <span class="keyword">const</span> current = <span class="keyword">this</span>[i];</span><br><span class="line">    <span class="keyword">if</span> (unique.indexOf(current) &lt; <span class="number">0</span>) unique.push(current);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> unique;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(arr.unique()); <span class="comment">// [ 'banana', 'apple', 'orange', 'lemon' ]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="6-Array-from-ES6-Set"><a href="#6-Array-from-ES6-Set" class="headerlink" title="6. Array.from + ES6 Set"></a>6. Array.from + ES6 Set</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="string">"banana"</span>, <span class="string">"apple"</span>, <span class="string">"orange"</span>, <span class="string">"lemon"</span>, <span class="string">"apple"</span>, <span class="string">"lemon"</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">removeDuplicates</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Array</span>.from(<span class="keyword">new</span> <span class="built_in">Set</span>(arr))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(removeDuplicates(arr)); <span class="comment">// [ 'banana', 'apple', 'orange', 'lemon' ]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="7-从对象数组中删除重复的对象"><a href="#7-从对象数组中删除重复的对象" class="headerlink" title="7.从对象数组中删除重复的对象"></a>7.从对象数组中删除重复的对象</h3><p>有时，我们需要通过属性的名称从对象数据中删除重复的对象，我们可以使用 Map 来实现：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> users = [</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">name</span>: <span class="string">'susan'</span>, <span class="attr">age</span>: <span class="number">25</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">name</span>: <span class="string">'cherry'</span>, <span class="attr">age</span>: <span class="number">28</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">3</span>, <span class="attr">name</span>: <span class="string">'cindy'</span>, <span class="attr">age</span>: <span class="number">27</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">name</span>: <span class="string">'cherry'</span>, <span class="attr">age</span>: <span class="number">28</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">name</span>: <span class="string">'susan'</span>, <span class="attr">age</span>: <span class="number">25</span> &#125;,</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">uniqueByKey</span>(<span class="params">data, key</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> [</span><br><span class="line">    ...new <span class="built_in">Map</span>(</span><br><span class="line">      data.map(<span class="function"><span class="params">x</span> =&gt;</span> [key(x), x])</span><br><span class="line">    ).values()</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(uniqueByKey(users, item =&gt; item.id));</span><br><span class="line"></span><br><span class="line"><span class="comment">// [ &#123; id: 1, name: 'susan', age: 25 &#125;,</span></span><br><span class="line"><span class="comment">//   &#123; id: 2, name: 'cherry', age: 28 &#125;,</span></span><br><span class="line"><span class="comment">//   &#123; id: 3, name: 'cindy', age: 27 &#125; ]</span></span><br></pre></td></tr></table></figure>
+
+<p>或者用reduce实现：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> users = [</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">name</span>: <span class="string">'susan'</span>, <span class="attr">age</span>: <span class="number">25</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">name</span>: <span class="string">'cherry'</span>, <span class="attr">age</span>: <span class="number">28</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">3</span>, <span class="attr">name</span>: <span class="string">'cindy'</span>, <span class="attr">age</span>: <span class="number">27</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">name</span>: <span class="string">'cherry'</span>, <span class="attr">age</span>: <span class="number">28</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">name</span>: <span class="string">'susan'</span>, <span class="attr">age</span>: <span class="number">25</span> &#125;,</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">uniqueByKey</span>(<span class="params">data, key</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> object = &#123;&#125;;</span><br><span class="line">  data = data.reduce(<span class="function">(<span class="params">prev, next</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// eslint-disable-next-line no-unused-expressions</span></span><br><span class="line">    object[next[key]]</span><br><span class="line">      ? <span class="string">''</span></span><br><span class="line">      : (object[next[key]] = <span class="literal">true</span> &amp;&amp; prev.push(next));</span><br><span class="line">    <span class="keyword">return</span> prev;</span><br><span class="line">  &#125;, []);</span><br><span class="line">  <span class="keyword">return</span> data;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(uniqueByKey(users, <span class="string">"id"</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">// [ &#123; id: 1, name: 'susan', age: 25 &#125;,</span></span><br><span class="line"><span class="comment">//   &#123; id: 2, name: 'cherry', age: 28 &#125;,</span></span><br><span class="line"><span class="comment">//   &#123; id: 3, name: 'cindy', age: 27 &#125; ]</span></span><br></pre></td></tr></table></figure>
+<h2 id="四、实现数组的取交集，并集，差集"><a href="#四、实现数组的取交集，并集，差集" class="headerlink" title="四、实现数组的取交集，并集，差集"></a>四、实现数组的取交集，并集，差集</h2><h3 id="1-取交集"><a href="#1-取交集" class="headerlink" title="1. 取交集"></a>1. 取交集</h3><p><strong>Array.prototype.includes</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">let</span> b = [<span class="number">2</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> intersection = a.filter(<span class="function"><span class="params">v</span> =&gt;</span> b.includes(v));</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(intersection); <span class="comment">// [ 2 ]</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Array.from</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">let</span> b = [<span class="number">2</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"><span class="keyword">let</span> aSet = <span class="keyword">new</span> <span class="built_in">Set</span>(a);</span><br><span class="line"><span class="keyword">let</span> bSet = <span class="keyword">new</span> <span class="built_in">Set</span>(b);</span><br><span class="line"><span class="keyword">let</span> intersection = <span class="built_in">Array</span>.from(<span class="keyword">new</span> <span class="built_in">Set</span>(a.filter(<span class="function"><span class="params">v</span> =&gt;</span> bSet.has(v))));</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(intersection); <span class="comment">// [ 2 ]</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Array.prototype.indexOf</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">let</span> b = [<span class="number">2</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"><span class="keyword">let</span> intersection = a.filter(<span class="function">(<span class="params">v</span>) =&gt;</span> b.indexOf(v) &gt; <span class="number">-1</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(intersection); <span class="comment">// [ 2 ]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-取并集"><a href="#2-取并集" class="headerlink" title="2. 取并集"></a>2. 取并集</h3><p><strong>Array.prototype.includes</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">let</span> b = [<span class="number">2</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> union = a.concat(b.filter(<span class="function"><span class="params">v</span> =&gt;</span> !a.includes(v)));</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(union); <span class="comment">// [ 1, 2, 3, 4, 5 ]</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Array.from</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">let</span> b = [<span class="number">2</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"><span class="keyword">let</span> aSet = <span class="keyword">new</span> <span class="built_in">Set</span>(a);</span><br><span class="line"><span class="keyword">let</span> bSet = <span class="keyword">new</span> <span class="built_in">Set</span>(b);</span><br><span class="line"><span class="keyword">let</span> union = <span class="built_in">Array</span>.from(<span class="keyword">new</span> <span class="built_in">Set</span>(a.concat(b)));</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(union); <span class="comment">// [ 1, 2, 3, 4, 5 ]</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Array.prototype.indexOf</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">let</span> b = [<span class="number">2</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"><span class="keyword">let</span> union = a.concat(b.filter(<span class="function">(<span class="params">v</span>) =&gt;</span> a.indexOf(v) === <span class="number">-1</span>));</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(union); <span class="comment">// [ 1, 2, 3, 4, 5 ]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-取差集"><a href="#3-取差集" class="headerlink" title="3. 取差集"></a>3. 取差集</h3><p><strong>Array.prototype.includes</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">let</span> b = [<span class="number">2</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> difference = a.concat(b).filter(<span class="function"><span class="params">v</span> =&gt;</span> !a.includes(v) || !b.includes(v));</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(difference); <span class="comment">// [ 1, 3, 4, 5 ]</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Array.from</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">let</span> b = [<span class="number">2</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"><span class="keyword">let</span> aSet = <span class="keyword">new</span> <span class="built_in">Set</span>(a);</span><br><span class="line"><span class="keyword">let</span> bSet = <span class="keyword">new</span> <span class="built_in">Set</span>(b);</span><br><span class="line"><span class="keyword">let</span> difference = <span class="built_in">Array</span>.from(<span class="keyword">new</span> <span class="built_in">Set</span>(a.concat(b).filter(<span class="function"><span class="params">v</span> =&gt;</span> !aSet.has(v) || !bSet.has(v))));</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(difference); <span class="comment">// [ 1, 3, 4, 5 ]</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Array.prototype.indexOf</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">let</span> b = [<span class="number">2</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"><span class="keyword">let</span> difference = a.filter(<span class="function">(<span class="params">v</span>) =&gt;</span> b.indexOf(v) === <span class="number">-1</span>).concat(b.filter(<span class="function">(<span class="params">v</span>) =&gt;</span> a.indexOf(v) === <span class="number">-1</span>));</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(difference); <span class="comment">// [ 1, 3, 4, 5 ]</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="五、实现发布订阅模式"><a href="#五、实现发布订阅模式" class="headerlink" title="五、实现发布订阅模式"></a>五、实现发布订阅模式</h2><blockquote>
+<p><strong>发布订阅模式</strong> 一共分为两个部分：<code>on</code>、<code>emit</code>。<strong>发布和订阅之间没有依赖关系，发布者告诉第三方（事件频道）发生了改变，第三方再通知订阅者发生了改变。</strong></p>
+</blockquote>
+<ul>
+<li><p>on：就是把一些函数维护到数组中</p>
+</li>
+<li><p>emit：让数组中的方法依次执行</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> fs = <span class="built_in">require</span>(<span class="string">"fs"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> event = &#123;</span><br><span class="line">  arr: [],</span><br><span class="line">  on(fn) &#123;</span><br><span class="line">    <span class="keyword">this</span>.arr.push(fn);</span><br><span class="line">  &#125;,</span><br><span class="line">  emit() &#123;</span><br><span class="line">    <span class="keyword">this</span>.arr.forEach(<span class="function"><span class="params">fn</span> =&gt;</span> fn());</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">event.on(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"读取了一个"</span>);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">event.on(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">Object</span>.keys(school).length === <span class="number">2</span>) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"读取完毕"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> school = &#123;&#125;;</span><br><span class="line">fs.readFile(<span class="string">'./name.txt'</span>, <span class="string">'utf8'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">err, data</span>) </span>&#123;</span><br><span class="line">  school.name = data;</span><br><span class="line">  event.emit();</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">fs.readFile(<span class="string">'./age.txt'</span>, <span class="string">'utf8'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">err, data</span>) </span>&#123;</span><br><span class="line">  school.age = data;</span><br><span class="line">  event.emit();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="六、实现观察者模式"><a href="#六、实现观察者模式" class="headerlink" title="六、实现观察者模式"></a>六、实现观察者模式</h2><blockquote>
+<p><strong>观察者模式</strong> 是基于发布订阅模式的，分为<code>观察者</code>和<code>被观察者</code>两部分，需要被观察者先收集观察者，当被观察者的状态改变时通知观察者。<strong>观察者和被观察者之间存在关系，被观察者数据发生变化时直接通知观察者改变。</strong></p>
+</blockquote>
+<p>比如：现在有一家之口，爸爸、妈妈和小宝宝，爸爸妈妈告诉小宝宝你有任何状态变化都要通知我们，当小宝宝饿了的时候，就会通知爸爸妈妈过来处理。这里的小宝宝就是被观察者<code>Subject</code>，爸爸妈妈就是观察者<code>Observer</code>，小宝宝维护了一个观察者队列，当自己有任何状态改变的时候都直接通知队列中的观察者。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Subject</span> </span>&#123;  <span class="comment">// 被观察者：小宝宝</span></span><br><span class="line">  <span class="keyword">constructor</span>(name)  &#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.state = <span class="string">"开心的"</span>;</span><br><span class="line">    <span class="keyword">this</span>.observer = [];</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  attach(o) &#123;</span><br><span class="line">    <span class="keyword">this</span>.observer.push(o);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  setState(newState) &#123;</span><br><span class="line">    <span class="keyword">this</span>.state = newState;</span><br><span class="line">    <span class="keyword">this</span>.observer.forEach(<span class="function"><span class="params">o</span> =&gt;</span> o.update(<span class="keyword">this</span>));</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Observer</span> </span>&#123; <span class="comment">// 观察者：爸爸 妈妈</span></span><br><span class="line">  <span class="keyword">constructor</span>(name) &#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  update(baby) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"当前"</span>+<span class="keyword">this</span>.name+<span class="string">"被通知了，当前小宝宝的状态是："</span>+baby.state);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 爸爸妈妈需要观察小宝宝的心理变化</span></span><br><span class="line"><span class="keyword">let</span> baby = <span class="keyword">new</span> Subject(<span class="string">"小宝宝"</span>);</span><br><span class="line"><span class="keyword">let</span> father = <span class="keyword">new</span> Observer(<span class="string">"爸爸"</span>);</span><br><span class="line"><span class="keyword">let</span> mother = <span class="keyword">new</span> Observer(<span class="string">"妈妈"</span>);</span><br><span class="line"></span><br><span class="line">baby.attach(father);</span><br><span class="line">baby.attach(mother);</span><br><span class="line">baby.setState(<span class="string">"我饿了"</span>);</span><br></pre></td></tr></table></figure>
+
+<p>所以，我用下图表示这两个模式最重要的区别：</p>
+<p><img src="/uploads/t_1.png" alt="image"></p>
+<h2 id="七、实现单例模式"><a href="#七、实现单例模式" class="headerlink" title="七、实现单例模式"></a>七、实现单例模式</h2><blockquote>
+<p>单例模式是创建型设计模式的一种。确保全局中有且仅有一个对象实例，并提供一个访问它的全局访问点，如线程池、全局缓存、window 对象等。</p>
+</blockquote>
+<h3 id="1-常规实现："><a href="#1-常规实现：" class="headerlink" title="1.常规实现："></a>1.常规实现：</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 单例构造函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">CreateSingleton</span> (<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.getName();</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取实例的名字</span></span><br><span class="line">CreateSingleton.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 单例对象</span></span><br><span class="line"><span class="keyword">var</span> Singleton = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> instance;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">name</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!instance) &#123;</span><br><span class="line">            instance = <span class="keyword">new</span> CreateSingleton(name);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建实例对象1</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> Singleton(<span class="string">'a'</span>);</span><br><span class="line"><span class="comment">// 创建实例对象2</span></span><br><span class="line"><span class="keyword">var</span> b = <span class="keyword">new</span> Singleton(<span class="string">'b'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a === b);</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-用闭包和Proxy属性拦截实现"><a href="#2-用闭包和Proxy属性拦截实现" class="headerlink" title="2. 用闭包和Proxy属性拦截实现"></a>2. 用闭包和Proxy属性拦截实现</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> singletonify = <span class="function">(<span class="params">className</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Proxy</span>(className.prototype.constructor, &#123;</span><br><span class="line">    instance: <span class="literal">null</span>,</span><br><span class="line">    construct: <span class="function">(<span class="params">target, argumentsList</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> (!<span class="keyword">this</span>.instance)</span><br><span class="line">        <span class="keyword">this</span>.instance = <span class="keyword">new</span> target(...argumentsList);</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.instance;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(msg) &#123;</span><br><span class="line">    <span class="keyword">this</span>.msg = msg;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  printMsg() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.msg);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">MySingletonClass = singletonify(MyClass);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> myObj = <span class="keyword">new</span> MySingletonClass(<span class="string">'first'</span>);</span><br><span class="line">myObj.printMsg();           <span class="comment">// 'first'</span></span><br><span class="line"><span class="keyword">const</span> myObj2 = <span class="keyword">new</span> MySingletonClass(<span class="string">'second'</span>);</span><br><span class="line">myObj2.printMsg();     <span class="comment">// 'first'</span></span><br></pre></td></tr></table></figure>
+<h2 id="八、实现Promise"><a href="#八、实现Promise" class="headerlink" title="八、实现Promise"></a>八、实现Promise</h2><p>重点难点，面试高频考点，具体请参考我的另一篇文章:</p>
+<p><a href="https://juejin.im/post/6850037281206566919" rel="external nofollow noopener noreferrer" target="_blank">面试官：“你能手写一个 Promise 吗”</a></p>
+<h2 id="九、实现深拷贝"><a href="#九、实现深拷贝" class="headerlink" title="九、实现深拷贝"></a>九、实现深拷贝</h2><p>也是面试高频考点，具体请参考我的另一篇文章:</p>
+<p><a href="https://juejin.im/post/6844904195758391310" rel="external nofollow noopener noreferrer" target="_blank">Javascript经典面试之深拷贝VS浅拷贝</a></p>
+<h2 id="十、手写字符串转二进制"><a href="#十、手写字符串转二进制" class="headerlink" title="十、手写字符串转二进制"></a>十、手写字符串转二进制</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">charToBinary</span>(<span class="params">text</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> code = <span class="string">""</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">of</span> text) &#123;</span><br><span class="line">    <span class="comment">// 字符编码</span></span><br><span class="line">    <span class="keyword">let</span> number = i.charCodeAt().toString(<span class="number">2</span>);</span><br><span class="line">    <span class="comment">// 1 bytes = 8bit，将 number 不足8位的0补上</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> a = <span class="number">0</span>; a &lt;= <span class="number">8</span> - number.length; a++) &#123;</span><br><span class="line">       number = <span class="number">0</span> + number;</span><br><span class="line">    &#125;</span><br><span class="line">    code += number;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> code;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="十一、手写二进制转Base64"><a href="#十一、手写二进制转Base64" class="headerlink" title="十一、手写二进制转Base64"></a>十一、手写二进制转Base64</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 将二进制数据每 6bit 位替换成一个 base64 字符</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">binaryTobase64</span>(<span class="params">code</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> base64Code = <span class="string">"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"</span>;</span><br><span class="line">  <span class="keyword">let</span> res = <span class="string">''</span>;</span><br><span class="line">  <span class="comment">// 1 bytes = 8bit，6bit 位替换成一个 base64 字符</span></span><br><span class="line">  <span class="comment">// 所以每 3 bytes 的数据，能成功替换成 4 个 base64 字符</span></span><br><span class="line">    </span><br><span class="line">  <span class="comment">// 对不足 24 bit (也就是 3 bytes) 的情况进行特殊处理</span></span><br><span class="line">  <span class="keyword">if</span> (code.length % <span class="number">24</span> === <span class="number">8</span>) &#123;</span><br><span class="line">    code += <span class="string">'0000'</span>;</span><br><span class="line">    res += <span class="string">'=='</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (code.length % <span class="number">24</span> === <span class="number">16</span>) &#123;</span><br><span class="line">    code += <span class="string">'00'</span>;</span><br><span class="line">    res += <span class="string">'='</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">let</span> encode = <span class="string">''</span>;</span><br><span class="line">  <span class="comment">// code 按 6bit 一组，转换为</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; code.length; i += <span class="number">6</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> item = code.slice(i, i + <span class="number">6</span>);</span><br><span class="line">    encode += base64Code[<span class="built_in">parseInt</span>(item, <span class="number">2</span>)];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> encode + res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="十二、手写字符转Base64"><a href="#十二、手写字符转Base64" class="headerlink" title="十二、手写字符转Base64"></a>十二、手写字符转Base64</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">base64encode</span>(<span class="params">text</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> base64Code = <span class="string">"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/="</span>;</span><br><span class="line">  <span class="keyword">let</span> res = <span class="string">''</span>;</span><br><span class="line">  <span class="keyword">let</span> i = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">while</span> (i &lt; text.length) &#123;</span><br><span class="line">    <span class="keyword">let</span> char1, char2, char3, enc1, enc2, enc3, enc4;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 三个字符一组，转二进制</span></span><br><span class="line">    char1 = text.charCodeAt(i++); </span><br><span class="line">    char2 = text.charCodeAt(i++);</span><br><span class="line">    char3 = text.charCodeAt(i++);</span><br><span class="line"></span><br><span class="line">    enc1 = char1 &gt;&gt; <span class="number">2</span>; <span class="comment">// 取第 1 字节的前 6 位</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 三个一组处理</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">isNaN</span>(char2)) &#123;</span><br><span class="line">      <span class="comment">// 只有 1 字节的时候</span></span><br><span class="line">      enc2 = ((char1 &amp; <span class="number">3</span>) &lt;&lt; <span class="number">4</span>) | (<span class="number">0</span> &gt;&gt; <span class="number">4</span>);</span><br><span class="line">      <span class="comment">// 第65个字符用来代替补位的 = 号</span></span><br><span class="line">      enc3 = enc4 = <span class="number">64</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">isNaN</span>(char3)) &#123;</span><br><span class="line">      <span class="comment">// 只有 2 字节的时候</span></span><br><span class="line">      enc2 = ((char1 &amp; <span class="number">3</span>) &lt;&lt; <span class="number">4</span>) | (char2 &gt;&gt; <span class="number">4</span>);</span><br><span class="line">      enc3 = ((char2 &amp; <span class="number">15</span>) &lt;&lt; <span class="number">2</span>) | (<span class="number">0</span> &gt;&gt; <span class="number">6</span>);</span><br><span class="line">      enc4 = <span class="number">64</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      enc2 = ((char1 &amp; <span class="number">3</span>) &lt;&lt; <span class="number">4</span>) | (char2 &gt;&gt; <span class="number">4</span>); <span class="comment">// 取第 1 个字节的后 2 位(3 = 11 &lt;&lt; 4 = 110000) + 第 2 个字节的前 4 位</span></span><br><span class="line">      enc3 = ((char2 &amp; <span class="number">15</span>) &lt;&lt; <span class="number">2</span>) | (char3 &gt;&gt; <span class="number">6</span>); <span class="comment">// 取第 2 个字节的后 4 位 (15 = 1111 &lt;&lt; 2 = 111100) + 第 3 个字节的前 2 位</span></span><br><span class="line">      enc4 = char3 &amp; <span class="number">63</span>; <span class="comment">// 取最后一个字节的最后 6 位 (63 = 111111)</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 转base64</span></span><br><span class="line">    res += base64Code.charAt(enc1) + base64Code.charAt(enc2) + base64Code.charAt(enc3) + base64Code.charAt(enc4)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>最优解：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> encodedData = <span class="built_in">window</span>.btoa(<span class="string">"this is a example"</span>);</span><br><span class="line"><span class="built_in">console</span>.log(encodedData); <span class="comment">// dGhpcyBpcyBhIGV4YW1wbGU=</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> decodeData = <span class="built_in">window</span>.atob(encodedData);</span><br><span class="line"><span class="built_in">console</span>.log(decodeData); <span class="comment">// this is a example</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="十三、实现一个可以拖拽的DIV"><a href="#十三、实现一个可以拖拽的DIV" class="headerlink" title="十三、实现一个可以拖拽的DIV"></a>十三、实现一个可以拖拽的DIV</h2><p>思路：</p>
+<ul>
+<li><p>有一个DIV层，设定position属性为absolute或fixed，通过更改其left，top来更改层的相对位置。</p>
+</li>
+<li><p>在DIV层上绑定mousedown事件，设置一个拖动开始的标志为true，拖动结束的标志为false，本例为isMouseDown。</p>
+</li>
+<li><p>拖动时的细节优化，如：</p>
+<ul>
+<li><p>鼠标于DIV的相对位置</p>
+</li>
+<li><p>拖动时防止文字被选中</p>
+</li>
+<li><p>限定DIV的移动范围，拖动到边界处的处理</p>
+</li>
+<li><p>当鼠标移出窗口时失去焦点的处理</p>
+</li>
+<li><p>当鼠标移动到iframe上的处理</p>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> injectedHTML = <span class="built_in">document</span>.createElement(<span class="string">"DIV"</span>);</span><br><span class="line">    injectedHTML.innerHTML = <span class="string">'&lt;dragBox id="dragBox" class="drag-box"&gt;\</span></span><br><span class="line"><span class="string">  &lt;dragBoxBar id="dragBoxBar" class="no-select"&gt;&lt;/dragBoxBar&gt;\</span></span><br><span class="line"><span class="string">  &lt;injectedBox id="injectedBox"&gt;CONTENT&lt;/injectedBox&gt;\</span></span><br><span class="line"><span class="string">  &lt;/dragBox&gt;'</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.body.appendChild(injectedHTML);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> isMouseDown,</span><br><span class="line">  initX,</span><br><span class="line">  initY,</span><br><span class="line">  height = injectedBox.offsetHeight,</span><br><span class="line">  width = injectedBox.offsetWidth,</span><br><span class="line">  dragBoxBar = <span class="built_in">document</span>.getElementById(<span class="string">'dragBoxBar'</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">dragBoxBar.addEventListener(<span class="string">'mousedown'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">  isMouseDown = <span class="literal">true</span>;</span><br><span class="line">  <span class="built_in">document</span>.body.classList.add(<span class="string">'no-select'</span>);</span><br><span class="line">  injectedBox.classList.add(<span class="string">'pointer-events'</span>);</span><br><span class="line">  initX = e.offsetX;</span><br><span class="line">  initY = e.offsetY;</span><br><span class="line">  dragBox.style.opacity = <span class="number">0.5</span>;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">dragBoxBar.addEventListener(<span class="string">'mouseup'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">  mouseupHandler();</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">'mousemove'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (isMouseDown) &#123;</span><br><span class="line">    <span class="keyword">let</span> cx = e.clientX - initX,</span><br><span class="line">        cy = e.clientY - initY;</span><br><span class="line">    <span class="keyword">if</span> (cx &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        cx = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (cy &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        cy = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">window</span>.innerWidth - e.clientX + initX &lt; width + <span class="number">16</span>) &#123;</span><br><span class="line">        cx = <span class="built_in">window</span>.innerWidth - width;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (e.clientY &gt; <span class="built_in">window</span>.innerHeight - height - dragBoxBar.offsetHeight + initY) &#123;</span><br><span class="line">        cy = <span class="built_in">window</span>.innerHeight - dragBoxBar.offsetHeight - height;</span><br><span class="line">    &#125;</span><br><span class="line">    dragBox.style.left = cx + <span class="string">'px'</span>;</span><br><span class="line">    dragBox.style.top = cy + <span class="string">'px'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">'mouseup'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (e.clientY &gt; <span class="built_in">window</span>.innerWidth || e.clientY &lt; <span class="number">0</span> || e.clientX &lt; <span class="number">0</span> || e.clientX &gt; <span class="built_in">window</span>.innerHeight) &#123;</span><br><span class="line">    mouseupHandler();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mouseupHandler</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  isMouseDown = <span class="literal">false</span>;</span><br><span class="line">  <span class="built_in">document</span>.body.classList.remove(<span class="string">'no-select'</span>);</span><br><span class="line">  injectedBox.classList.remove(<span class="string">'pointer-events'</span>);</span><br><span class="line">  dragBox.style.opacity = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">* &#123;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">border</span>: none</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">body</span>,</span><br><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.drag-box</span> &#123;</span><br><span class="line">  <span class="attribute">user-select</span>: none;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#f0f0f0</span>;</span><br><span class="line">  <span class="attribute">z-index</span>: <span class="number">2147483647</span>;</span><br><span class="line">  <span class="attribute">position</span>: fixed;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="selector-id">#dragBoxBar</span> &#123;</span><br><span class="line">  <span class="attribute">align-items</span>: center;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">justify-content</span>: space-between;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#ccc</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">40px</span>;</span><br><span class="line">  <span class="attribute">cursor</span>: move;</span><br><span class="line">  <span class="attribute">user-select</span>: none;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.no-select</span> &#123;</span><br><span class="line">  <span class="attribute">user-select</span>: none;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.pointer-events</span> &#123;</span><br><span class="line">  <span class="attribute">pointer-events</span>: none;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="selector-class">.no-border</span> &#123;</span><br><span class="line">  <span class="attribute">border</span>: none;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="selector-id">#injectedBox</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">160px</span>;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">align-items</span>: center;</span><br><span class="line">  <span class="attribute">justify-content</span>: center;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">2rem</span>;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#eee</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="十四、实现一个批量请求函数-multiRequest-urls-maxNum"><a href="#十四、实现一个批量请求函数-multiRequest-urls-maxNum" class="headerlink" title="十四、实现一个批量请求函数 multiRequest(urls, maxNum)"></a>十四、实现一个批量请求函数 multiRequest(urls, maxNum)</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">loadImg</span>(<span class="params">url</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> img = <span class="keyword">new</span> Image();</span><br><span class="line">    img.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(url, <span class="string">"加载完成"</span>);</span><br><span class="line">      resolve(img);</span><br><span class="line">    &#125;;</span><br><span class="line">    img.onerror = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      reject(<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'Error at:'</span> + url));</span><br><span class="line">    &#125;;</span><br><span class="line">    img.src = url;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">multiRequest</span>(<span class="params">urls, maxNum</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> firstMaxNum = urls.splice(<span class="number">0</span>, maxNum);</span><br><span class="line">  <span class="keyword">let</span> promises = firstMaxNum.map(<span class="function">(<span class="params">url, index</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> loadImg(url).then(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">      <span class="keyword">return</span> index</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="keyword">return</span> urls.reduce(<span class="function">(<span class="params">res, cur</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> res.then(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">Promise</span>.race(promises)</span><br><span class="line">    &#125;).then(<span class="function">(<span class="params">idx</span>)=&gt;</span>&#123;</span><br><span class="line">      promises[idx] = loadImg(cur).then(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> idx</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;, <span class="built_in">Promise</span>.resolve()).then(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Promise</span>.all(promises)</span><br><span class="line">  &#125;)  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">multiRequest(urls, <span class="number">4</span>).then(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'finish'</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="十五、实现一个-sleep-函数"><a href="#十五、实现一个-sleep-函数" class="headerlink" title="十五、实现一个 sleep 函数"></a>十五、实现一个 sleep 函数</h2><p>思路：比如 sleep(1000) 意味着等待1000毫秒，可从 Promise、Generator、Async/Await 等角度实现。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Promise</span></span><br><span class="line"><span class="keyword">const</span> sleep = <span class="function"><span class="params">time</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> setTimeout(resolve,time))</span><br><span class="line">&#125;</span><br><span class="line">sleep(<span class="number">1000</span>).then(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//Generator</span></span><br><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">sleepGenerator</span>(<span class="params">time</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">yield</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve,reject</span>)</span>&#123;</span><br><span class="line">    setTimeout(resolve,time);</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line">sleepGenerator(<span class="number">1000</span>).next().value.then(<span class="function"><span class="params">()</span>=&gt;</span>&#123;<span class="built_in">console</span>.log(<span class="number">1</span>)&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//async</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sleep</span>(<span class="params">time</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> setTimeout(resolve,time))</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">output</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> out = <span class="keyword">await</span> sleep(<span class="number">1000</span>);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">1</span>);</span><br><span class="line">  <span class="keyword">return</span> out;</span><br><span class="line">&#125;</span><br><span class="line">output();</span><br><span class="line"></span><br><span class="line"><span class="comment">//ES5</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sleep</span>(<span class="params">callback,time</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(<span class="keyword">typeof</span> callback === <span class="string">'function'</span>)</span><br><span class="line">    setTimeout(callback,time)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">output</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line">sleep(output,<span class="number">1000</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="十六、模拟实现一个-localStorage"><a href="#十六、模拟实现一个-localStorage" class="headerlink" title="十六、模拟实现一个 localStorage"></a>十六、模拟实现一个 localStorage</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span></span><br><span class="line"><span class="keyword">const</span> valuesMap = <span class="keyword">new</span> <span class="built_in">Map</span>()</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LocalStorage</span> </span>&#123;</span><br><span class="line">  getItem (key) &#123;</span><br><span class="line">    <span class="keyword">const</span> stringKey = <span class="built_in">String</span>(key)</span><br><span class="line">    <span class="keyword">if</span> (valuesMap.has(key)) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">String</span>(valuesMap.get(stringKey))</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">null</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  setItem (key, val) &#123;</span><br><span class="line">    valuesMap.set(<span class="built_in">String</span>(key), <span class="built_in">String</span>(val))</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  removeItem (key) &#123;</span><br><span class="line">    valuesMap.delete(key)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  clear () &#123;</span><br><span class="line">    valuesMap.clear()</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  key (i) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">arguments</span>.length === <span class="number">0</span>) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">"Failed to execute 'key' on 'Storage': 1 argument required, but only 0 present."</span>) <span class="comment">// this is a TypeError implemented on Chrome, Firefox throws Not enough arguments to Storage.key.</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> arr = <span class="built_in">Array</span>.from(valuesMap.keys())</span><br><span class="line">    <span class="keyword">return</span> arr[i]</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">get</span> length () &#123;</span><br><span class="line">    <span class="keyword">return</span> valuesMap.size</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> instance = <span class="keyword">new</span> LocalStorage()</span><br><span class="line"></span><br><span class="line">global.localStorage = <span class="keyword">new</span> <span class="built_in">Proxy</span>(instance, &#123;</span><br><span class="line">  <span class="keyword">set</span>: function (obj, prop, value) &#123;</span><br><span class="line">    <span class="keyword">if</span> (LocalStorage.prototype.hasOwnProperty(prop)) &#123;</span><br><span class="line">      instance[prop] = value</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      instance.setItem(prop, value)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="keyword">get</span>: function (target, name) &#123;</span><br><span class="line">    <span class="keyword">if</span> (LocalStorage.prototype.hasOwnProperty(name)) &#123;</span><br><span class="line">      <span class="keyword">return</span> instance[name]</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (valuesMap.has(name)) &#123;</span><br><span class="line">      <span class="keyword">return</span> instance.getItem(name)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://juejin.im/post/6844904116552990727" rel="external nofollow noopener noreferrer" target="_blank">2万字 | 前端基础拾遗90问</a><br><a href="https://blog.csdn.net/twoByte/article/details/73269653" rel="external nofollow noopener noreferrer" target="_blank">可拖动DIV层的实现方法</a><br><a href="https://github.com/Advanced-Frontend/Daily-Interview-Question" rel="external nofollow noopener noreferrer" target="_blank">高级前端面试题汇总</a><br><a href="https://levelup.gitconnected.com/7-ways-to-remove-duplicates-from-array-in-javascript-cea4144caf31" rel="external nofollow noopener noreferrer" target="_blank">7 ways to remove duplicates from an array in JavaScript</a><br><a href="https://www.30secondsofcode.org/blog/s/javascript-singleton-proxy" rel="external nofollow noopener noreferrer" target="_blank">How can I implement a singleton in JavaScript</a></p>
+
+    </div>
+
+    
+    
+    
+      
+
+        <div class="reward-container">
+  <div>请我吃糖吧。</div>
+  <button disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/uploads/wechatpay.png" alt="齐小神 微信支付">
+        <p>微信支付</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>齐小神
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://litgod.net/2020/08/16/api-4/" title="「面试必会」中高级前端必会的手写面试题(二)">https://litgod.net/2020/08/16/api-4/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/08/04/api-2/" rel="prev" title="「面试必会」中高级前端必会的手写面试题(一)">
+      <i class="fa fa-chevron-left"></i> 「面试必会」中高级前端必会的手写面试题(一)
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一、使用ES5实现类的继承"><span class="nav-number">2.</span> <span class="nav-text">一、使用ES5实现类的继承</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-构造函数继承"><span class="nav-number">2.1.</span> <span class="nav-text">1. 构造函数继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-原型链继承"><span class="nav-number">2.2.</span> <span class="nav-text">2. 原型链继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-组合式继承"><span class="nav-number">2.3.</span> <span class="nav-text">3. 组合式继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-寄生式组合继承"><span class="nav-number">2.4.</span> <span class="nav-text">4. 寄生式组合继承</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、实现数组扁平化"><span class="nav-number">3.</span> <span class="nav-text">二、实现数组扁平化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-ES6的flat"><span class="nav-number">3.1.</span> <span class="nav-text">1. ES6的flat()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-序列化后正则"><span class="nav-number">3.2.</span> <span class="nav-text">2. 序列化后正则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-递归处理"><span class="nav-number">3.3.</span> <span class="nav-text">3. 递归处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-reduce"><span class="nav-number">3.4.</span> <span class="nav-text">4. reduce</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-迭代-扩展运算符"><span class="nav-number">3.5.</span> <span class="nav-text">5. 迭代+扩展运算符</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、实现数组去重"><span class="nav-number">4.</span> <span class="nav-text">三、实现数组去重</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-使用-filter-方法"><span class="nav-number">4.1.</span> <span class="nav-text">1. 使用 filter 方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-使用-ES6-的-Set"><span class="nav-number">4.2.</span> <span class="nav-text">2.使用 ES6 的 Set</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-使用-forEach-方法"><span class="nav-number">4.3.</span> <span class="nav-text">3. 使用 forEach 方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-使用-reduce-方法"><span class="nav-number">4.4.</span> <span class="nav-text">4.使用 reduce 方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-在数组原型上添加去重方法"><span class="nav-number">4.5.</span> <span class="nav-text">5.在数组原型上添加去重方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-Array-from-ES6-Set"><span class="nav-number">4.6.</span> <span class="nav-text">6. Array.from + ES6 Set</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-从对象数组中删除重复的对象"><span class="nav-number">4.7.</span> <span class="nav-text">7.从对象数组中删除重复的对象</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、实现数组的取交集，并集，差集"><span class="nav-number">5.</span> <span class="nav-text">四、实现数组的取交集，并集，差集</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-取交集"><span class="nav-number">5.1.</span> <span class="nav-text">1. 取交集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-取并集"><span class="nav-number">5.2.</span> <span class="nav-text">2. 取并集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-取差集"><span class="nav-number">5.3.</span> <span class="nav-text">3. 取差集</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、实现发布订阅模式"><span class="nav-number">6.</span> <span class="nav-text">五、实现发布订阅模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六、实现观察者模式"><span class="nav-number">7.</span> <span class="nav-text">六、实现观察者模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#七、实现单例模式"><span class="nav-number">8.</span> <span class="nav-text">七、实现单例模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-常规实现："><span class="nav-number">8.1.</span> <span class="nav-text">1.常规实现：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-用闭包和Proxy属性拦截实现"><span class="nav-number">8.2.</span> <span class="nav-text">2. 用闭包和Proxy属性拦截实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#八、实现Promise"><span class="nav-number">9.</span> <span class="nav-text">八、实现Promise</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#九、实现深拷贝"><span class="nav-number">10.</span> <span class="nav-text">九、实现深拷贝</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十、手写字符串转二进制"><span class="nav-number">11.</span> <span class="nav-text">十、手写字符串转二进制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十一、手写二进制转Base64"><span class="nav-number">12.</span> <span class="nav-text">十一、手写二进制转Base64</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十二、手写字符转Base64"><span class="nav-number">13.</span> <span class="nav-text">十二、手写字符转Base64</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十三、实现一个可以拖拽的DIV"><span class="nav-number">14.</span> <span class="nav-text">十三、实现一个可以拖拽的DIV</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十四、实现一个批量请求函数-multiRequest-urls-maxNum"><span class="nav-number">15.</span> <span class="nav-text">十四、实现一个批量请求函数 multiRequest(urls, maxNum)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十五、实现一个-sleep-函数"><span class="nav-number">16.</span> <span class="nav-text">十五、实现一个 sleep 函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十六、模拟实现一个-localStorage"><span class="nav-number">17.</span> <span class="nav-text">十六、模拟实现一个 localStorage</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">18.</span> <span class="nav-text">参考</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="齐小神" src="/uploads/avatar.jpg">
+  <p class="site-author-name" itemprop="name">齐小神</p>
+  <div class="site-description" itemprop="description">善良。独立。保持可爱。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/qiruohan" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;qiruohan" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:591149889@qq.com" title="E-Mail → mailto:591149889@qq.com" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/1965169095" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;1965169095" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-weibo"></i></a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">齐小神</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">115k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">1:44</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el: '#valine-comments',
+      verify: false,
+      notify: true,
+      appId: 'V3QcU7rhYPnm5No8bUTBWOLq-gzGzoHsz',
+      appKey: 'tiQnHugjf6zTpKvRtD0NMxeB',
+      placeholder: "Y(^_^)Y 老铁，不想说两句吗？",
+      avatar: 'retro',
+      meta: guest,
+      pageSize: '10' || 10,
+      visitor: true,
+      lang: 'zh-cn' || 'zh-cn',
+      path: location.pathname,
+      recordIP: false,
+      serverURLs: '',
+      avatarCdn: 'https://www.gravatar.com/avatar/',
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
