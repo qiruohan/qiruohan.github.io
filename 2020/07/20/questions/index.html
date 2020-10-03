@@ -56,7 +56,12 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;qiruohan&#x2F;qiruohan.github.io&#x2F;uploads&#x2F;353632561.jpg">
 <meta property="og:image" content="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;qiruohan&#x2F;qiruohan.github.io&#x2F;uploads&#x2F;450.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;litgod.net&#x2F;uploads&#x2F;q_16.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;litgod.net&#x2F;uploads&#x2F;i5_1.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;litgod.net&#x2F;uploads&#x2F;q_17.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;litgod.net&#x2F;uploads&#x2F;q_18.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;litgod.net&#x2F;uploads&#x2F;q_19.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;litgod.net&#x2F;uploads&#x2F;q_20.jpg">
 <meta property="og:image" content="https:&#x2F;&#x2F;litgod.net&#x2F;uploads&#x2F;q_10.jpg">
 <meta property="og:image" content="https:&#x2F;&#x2F;litgod.net&#x2F;uploads&#x2F;q_1.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;litgod.net&#x2F;uploads&#x2F;q_2.png">
@@ -67,7 +72,12 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;litgod.net&#x2F;uploads&#x2F;q_7.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;litgod.net&#x2F;uploads&#x2F;q_8.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;litgod.net&#x2F;uploads&#x2F;q_8.png">
-<meta property="og:updated_time" content="2020-09-07T16:06:58.865Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;litgod.net&#x2F;uploads&#x2F;q_11.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;litgod.net&#x2F;uploads&#x2F;q_12.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;litgod.net&#x2F;uploads&#x2F;q_13.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;litgod.net&#x2F;uploads&#x2F;q_14.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;litgod.net&#x2F;uploads&#x2F;q_15.png">
+<meta property="og:updated_time" content="2020-09-29T08:45:52.650Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;qiruohan&#x2F;qiruohan.github.io&#x2F;uploads&#x2F;353632561.jpg">
 
@@ -304,14 +314,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>34k</span>
+              <span>44k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>31 分钟</span>
+              <span>40 分钟</span>
             </span>
 
         </div>
@@ -419,7 +429,99 @@
 </ul>
 <p><img src="https://cdn.jsdelivr.net/gh/qiruohan/qiruohan.github.io/uploads/450.png" alt="image"></p>
 <p>注：理论上是有上面 4 种盒子，但现在 w3c 与 mdn 规范中均只支持 content-box 与 border-box；</p>
+<h2 id="6-清除浮动的方法"><a href="#6-清除浮动的方法" class="headerlink" title="6. 清除浮动的方法"></a>6. 清除浮动的方法</h2><p>为什么要清除浮动：清除浮动是为了解决子元素浮动而导致父元素高度塌陷的问题</p>
+<p><img src="/uploads/q_16.png" alt="image"></p>
+<ol>
+<li>添加新元素</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"parent"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"child"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 添加一个空元素，利用css提供的clear:both清除浮动 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"clear: both"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>使用伪元素</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 对父元素添加伪元素 */</span></span><br><span class="line"><span class="selector-class">.parent</span><span class="selector-pseudo">::after</span>&#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">""</span>;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">clear</span>:both;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>触发父元素BFC</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 触发父元素BFC */</span></span><br><span class="line"><span class="selector-class">.parent</span> &#123;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">  <span class="comment">/* float: left; */</span></span><br><span class="line">  <span class="comment">/* position: absolute; */</span></span><br><span class="line">  <span class="comment">/* display: inline-block */</span></span><br><span class="line">  <span class="comment">/* 以上属性均可触发BFC */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h2 id="6-绝对定位、固定定位和-z-index"><a href="#6-绝对定位、固定定位和-z-index" class="headerlink" title="6.绝对定位、固定定位和 z-index"></a>6.绝对定位、固定定位和 z-index</h2><h2 id="7-如何实现左侧宽度固定，右侧宽度自适应的布局"><a href="#7-如何实现左侧宽度固定，右侧宽度自适应的布局" class="headerlink" title="7.如何实现左侧宽度固定，右侧宽度自适应的布局"></a>7.如何实现左侧宽度固定，右侧宽度自适应的布局</h2><h2 id="8-层叠上下文"><a href="#8-层叠上下文" class="headerlink" title="8.层叠上下文"></a>8.层叠上下文</h2><h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>通常，CSS 并不是重点的考察领域，但这其实是由于现在国内业界对 CSS 的专注不够导致的，真正精通并专注于 CSS 的团队和人才并不多。因此如果能在 CSS 领域有自己的见解和经验，反而会为相当的加分和脱颖而出。</p>
+<h1 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h1><h2 id="1-说说HTML5的新特性"><a href="#1-说说HTML5的新特性" class="headerlink" title="1. 说说HTML5的新特性"></a>1. 说说HTML5的新特性</h2><ul>
+<li><p>新的语义化标签：<code>aside/figure/section/header/footer/nav</code>等，多媒体标签：<code>video/audio</code>，使得样式和结构更加分离；</p>
+</li>
+<li><p>增强表单属性：增强了<code>input</code>的type属性；<code>meta</code>增加了charset以设置字符集，<code>script</code>增加了async以异步加载脚本；</p>
+</li>
+<li><p>新的本地存储：增加<code>localStorage</code>、<code>sessionStorage</code>和<code>indexedDB</code>，引入了<code>application cache</code>对web和应用进行缓存</p>
+</li>
+<li><p>新的API：增加<code>拖放API</code>、<code>地理定位</code>、<code>SVG</code>、<code>Canvas</code>、<code>Web Worker</code>、<code>WebSocket</code>、<code>WebGL</code>、<code>CSS</code>的3D功能</p>
+</li>
+</ul>
+<h2 id="2-doctype的作用"><a href="#2-doctype的作用" class="headerlink" title="2. doctype的作用"></a>2. doctype的作用</h2><p>这个声明的目的是防止浏览器在渲染文档时，切换到我们称为“怪异模式(兼容模式)”的渲染模式。</p>
+<ul>
+<li><p>怪异模式：浏览器使用自己的模式解析文档，不加doctype时默认为怪异模式</p>
+</li>
+<li><p>标准模式：浏览器以W3C的标准解析文档</p>
+</li>
+</ul>
+<h2 id="3-简要说一下几种前端储存之间的区别"><a href="#3-简要说一下几种前端储存之间的区别" class="headerlink" title="3. 简要说一下几种前端储存之间的区别"></a>3. 简要说一下几种前端储存之间的区别</h2><ul>
+<li><p><strong>cookie</strong>： HTML5之前本地储存的主要方式，大小只有4k，HTTP请求头会自动带上cookie，兼容性好</p>
+</li>
+<li><p><strong>localStorage</strong>：HTML5新特性，持久性存储，即使页面关闭也不会被清除，以键值对的方式存储，大小为5M</p>
+</li>
+<li><p><strong>sessionStorage</strong>：HTML5新特性，操作及大小同localStorage，和localStorage的区别在于sessionStorage在选项卡(页面)被关闭时即清除，且不同选项卡之间的sessionStorage不互通</p>
+</li>
+<li><p><strong>IndexedDB</strong>：NoSQL型数据库，类比MongoDB，使用键值对进行储存，异步操作数据库，支持事务，储存空间可以在250MB以上，但是IndexedDB受同源策略限制</p>
+</li>
+<li><p><strong>Web SQL</strong>：是在浏览器上模拟的关系型数据库，开发者可以通过SQL语句来操作Web SQL，是HTML5以外一套独立的规范，兼容性差</p>
+</li>
+</ul>
+<h2 id="4-href和src的区别"><a href="#4-href和src的区别" class="headerlink" title="4. href和src的区别"></a>4. href和src的区别</h2><p><code>href（hyperReference）</code>即超文本引用：当浏览器遇到href时，会并行的地下载资源，不会阻塞页面解析，例如我们使用<code>&lt;link&gt;</code>引入CSS，浏览器会并行地下载CSS而不阻塞页面解析. 因此我们在引入CSS时建议使用<code>&lt;link&gt;</code>而不是<code>@import</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link href=<span class="string">"style.css"</span> rel=<span class="string">"stylesheet"</span> /&gt;</span><br></pre></td></tr></table></figure>
+
+<p><code>src（resource）</code>即资源，当浏览器遇到src时，会暂停页面解析，直到该资源下载或执行完毕，这也是script标签之所以放底部的原因</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"script.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<h2 id="5-meta有哪些属性，作用是什么"><a href="#5-meta有哪些属性，作用是什么" class="headerlink" title="5. meta有哪些属性，作用是什么"></a>5. meta有哪些属性，作用是什么</h2><p>meta标签用于描述网页的<code>元信息</code>，如网站作者、描述、关键词，meta通过<code>name=xxx</code>和<code>content=xxx</code>的形式来定义信息，常用设置如下：</p>
+<h3 id="charset"><a href="#charset" class="headerlink" title="charset"></a>charset</h3><p>定义HTML文档的字符集</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta charset=<span class="string">"UTF-8"</span> &gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="http-equiv"><a href="#http-equiv" class="headerlink" title="http-equiv"></a>http-equiv</h3><p>可用于模拟http请求头，可设置过期时间、缓存、刷新</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">＜meta http-equiv=<span class="string">"expires"</span> content=<span class="string">"Wed, 20 Jun 2019 22:33:00 GMT"</span>＞</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>参数及其作用：</p>
+</blockquote>
+<ul>
+<li><p><strong>expires</strong>，指定过期时间</p>
+</li>
+<li><p><strong>progma</strong>，设置no-cache可以禁止缓存</p>
+</li>
+<li><p><strong>refresh</strong>，定时刷新</p>
+</li>
+<li><p><strong>set-cookie</strong>，可以设置cookie</p>
+</li>
+<li><p><strong>X-UA-Compatible</strong>，使用浏览器版本</p>
+</li>
+<li><p><strong>apple-mobile-web-app-status-bar-style</strong>，针对WebApp全屏模式，隐藏状态栏/设置状态栏颜色</p>
+</li>
+</ul>
+<h3 id="viewport"><a href="#viewport" class="headerlink" title="viewport"></a>viewport</h3><p>视口，用于控制页面宽高及缩放比例</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta </span><br><span class="line">    name=<span class="string">"viewport"</span> </span><br><span class="line">    content=<span class="string">"width=device-width, initial-scale=1, maximum-scale=1"</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>参数及其作用：</p>
+</blockquote>
+<ul>
+<li><p><strong>width/height</strong>，宽高，默认宽度980px</p>
+</li>
+<li><p><strong>initial-scale</strong>，初始缩放比例，1~10</p>
+</li>
+<li><p><strong>maximum-scale/minimum-scale</strong>，允许用户缩放的最大/小比例</p>
+</li>
+<li><p><strong>user-scalable</strong>，用户是否可以缩放 (yes/no)</p>
+</li>
+</ul>
 <h1 id="Javascript"><a href="#Javascript" class="headerlink" title="Javascript"></a>Javascript</h1><h2 id="1-JS-的数据类型及存储方式的区别"><a href="#1-JS-的数据类型及存储方式的区别" class="headerlink" title="1. JS 的数据类型及存储方式的区别"></a>1. JS 的数据类型及存储方式的区别</h2><p>在 ECMAScript 规范中，共定义了 8 种数据类型，分为<strong>基本数据类型</strong>和<strong>引用数据类型</strong>（引用数据类型又称复杂数据类型）两大类：</p>
 <blockquote>
 <p>基本数据类型：String、Number、Boolean、Null、Undefined、Symbol（ES6 新增）、BigInt（ES10 新增）<br>引用数据类型：Object（Function、Array、Date、RegExp、Math…都是Object类型的实例对象）</p>
@@ -491,7 +593,7 @@
 <p><img src="/uploads/i5_1.png" alt="image"></p>
 <p>特殊的情况：<strong>Function 可以充当对象，也可以充当函数</strong></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Function</span>.__proto__ === <span class="built_in">Function</span>.prototype);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.__proto__ === <span class="built_in">Function</span>.prototype);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.__proto__ === <span class="built_in">Function</span>.__proto__ );</span><br></pre></td></tr></table></figure>
-<h2 id="5-谈谈你对闭包的理解"><a href="#5-谈谈你对闭包的理解" class="headerlink" title="5. 谈谈你对闭包的理解"></a>5. 谈谈你对闭包的理解</h2><p>闭包属于一种特殊的作用域。它的定义可以理解为: 父函数被销毁 的情况下，返回出的子函数的<code>[[scope]]</code>中仍然保留着父级的单变量对象和作用域链，因此可以继续访问到父级的变量对象，这样的函数称为闭包。</p>
+<h2 id="5-谈谈你对闭包的理解"><a href="#5-谈谈你对闭包的理解" class="headerlink" title="5. 谈谈你对闭包的理解"></a>5. 谈谈你对闭包的理解</h2><p>闭包属于一种特殊的作用域。它的定义可以理解为: 父函数被销毁 的情况下，返回出的子函数的<code>[[scope]]</code>中仍然保留着父级的单变量对象和作用域链，因此可以继续访问到父级的变量对象，这样的函数称为闭包。一句话解释就是：<strong>函数定义的作用域和函数执行的作用域，不在同一个作用域下。</strong></p>
 <ul>
 <li><p>闭包会产生一个很经典的问题:<br>多个子函数的<code>[[scope]]</code>都是同时指向父级，是完全共享的。因此当父级的变量对象被修改时，所有子函数都受到影响。</p>
 </li>
@@ -624,7 +726,181 @@
 <p>但这种方式存在一个问题，由于子类原型和父类原型指向同一个对象，我们对子类原型的操作会影响到父类原型，例如给Child.prototype增加一个getName()方法，那么会导致Parent.prototype也增加或被覆盖一个getName()方法，为了解决这个问题，我们给Parent.prototype做一个浅拷贝</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = [name]</span><br><span class="line">&#125;</span><br><span class="line">Parent.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.name</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 构造函数继承</span></span><br><span class="line">    Parent.call(<span class="keyword">this</span>, <span class="string">'Cherry'</span>) </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//原型链继承</span></span><br><span class="line"><span class="comment">// Child.prototype = new Parent()</span></span><br><span class="line">Child.prototype = <span class="built_in">Object</span>.create(Parent.prototype)  <span class="comment">//将`指向父类实例`改为`指向父类原型`</span></span><br><span class="line">Child.prototype.constructor = Child</span><br><span class="line"></span><br><span class="line"><span class="comment">//测试</span></span><br><span class="line"><span class="keyword">const</span> child = <span class="keyword">new</span> Child()</span><br><span class="line"><span class="keyword">const</span> parent = <span class="keyword">new</span> Parent()</span><br><span class="line">child.getName()                  <span class="comment">// ['Cherry']</span></span><br><span class="line">parent.getName()                 <span class="comment">// 报错, 找不到getName()</span></span><br></pre></td></tr></table></figure>
 <p>到这里我们就完成了ES5环境下的继承的实现，这种继承方式称为<code>寄生组合式继承</code>，是目前最成熟的继承方式，babel对ES6继承的转化也是使用了寄生组合式继承<br>我们回顾一下实现过程：<br>一开始最容易想到的是<code>原型链继承</code>，通过把子类实例的原型指向父类实例来继承父类的属性和方法，但原型链继承的缺陷在于<code>对子类实例继承的引用类型的修改会影响到所有的实例对象以及无法向父类的构造方法传参</code>。<br>因此我们引入了<code>构造函数继承</code>, 通过在子类构造函数中调用父类构造函数并传入子类this来获取父类的属性和方法，但构造函数继承也存在缺陷，构造函数继承<code>不能继承到父类原型链上的属性和方法</code>。<br>所以我们综合了两种继承的优点，提出了<code>组合式继承</code>，但组合式继承也引入了新的问题，它<code>每次创建子类实例都执行了两次父类构造方法</code>，我们通过将子类原型指向父类实例改为子类原型指向父类原型的浅拷贝来解决这一问题，也就是最终实现 —— <code>寄生组合式继承</code></p>
-<h2 id="11-V8是如何执行一段JS代码的"><a href="#11-V8是如何执行一段JS代码的" class="headerlink" title="11. V8是如何执行一段JS代码的"></a>11. V8是如何执行一段JS代码的</h2><p>V8是混合了编译执行和解释执行两种手段来执行一段 JavaScript 代码的，我们把这种混合使用编译器和解释器的技术称为 JIT（Just In Time）技术。因为这两种方法都各有各的优缺点：解释执行的启动速度快，但是执行时的速度慢，而编译执行的启动速度慢，但是执行时的速度快。所以 V8 采用了这种权衡的策略，在启动过程中使用解释执行，但是如果某段代码的执行频率超过一个值，那么 V8 就会采用编译执行将编译器优化编译成效率更高的机器代码。</p>
+<h1 id="二进制"><a href="#二进制" class="headerlink" title="二进制"></a>二进制</h1><h2 id="1-ArrayBuffer-二进制数组缓冲区"><a href="#1-ArrayBuffer-二进制数组缓冲区" class="headerlink" title="1. ArrayBuffer(二进制数组缓冲区)"></a>1. ArrayBuffer(二进制数组缓冲区)</h2><p>ArrayBuffer是为了处理二进制数据流而出现的，但是JS没有办法直接处理（读写）它里面的内容，于是就需要 TypedArray 或 DataView 来操作，它们会将缓冲区中的数据表示为特定的格式，并通过这些格式来读写缓冲区的内容。</p>
+<p><strong>初始化对象</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">ArrayBuffer</span>(length);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>length: 要创建的ArrayBuffer的大小，以字节为单位。</p>
+</blockquote>
+<p>例如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建一个长度为8个字节的buffer</span></span><br><span class="line"><span class="keyword">const</span> buffer = <span class="keyword">new</span> <span class="built_in">ArrayBuffer</span>(<span class="number">8</span>);</span><br><span class="line"><span class="built_in">console</span>.log(buffer.byteLength);</span><br></pre></td></tr></table></figure>
+
+<p><img src="/uploads/q_17.jpg" alt="image"></p>
+<h2 id="2-TypedArray-类型化数组"><a href="#2-TypedArray-类型化数组" class="headerlink" title="2. TypedArray(类型化数组)"></a>2. TypedArray(类型化数组)</h2><p>TypedArray是一个描述<code>ArrayBuffer</code>的类数组视图(view)，但它本身不可以被实例化，甚至无法访问，你可以把它理解为接口(interface),它有很多的实现：</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th align="center">单个元素值的范围</th>
+<th align="center">大小(bytes)</th>
+<th align="right">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Int8Array</strong></td>
+<td align="center">-128 to 127</td>
+<td align="center">1</td>
+<td align="right">8 位二进制有符号整数</td>
+</tr>
+<tr>
+<td><strong>Uint8Array</strong></td>
+<td align="center">0 to 255</td>
+<td align="center">1</td>
+<td align="right">8 位无符号整数</td>
+</tr>
+<tr>
+<td>Uint8ClampedArray</td>
+<td align="center">0 to 255</td>
+<td align="center">1</td>
+<td align="right">8 位无符号整数（超出范围后为边界值）</td>
+</tr>
+<tr>
+<td><strong>Int16Array</strong></td>
+<td align="center">-32768 to 32767</td>
+<td align="center">2</td>
+<td align="right">16 位二进制有符号整数</td>
+</tr>
+<tr>
+<td><strong>Uint16Array</strong></td>
+<td align="center">0 to 65535</td>
+<td align="center">2</td>
+<td align="right">16 位无符号整数</td>
+</tr>
+<tr>
+<td>Int32Array</td>
+<td align="center">-2147483648 to 2147483647</td>
+<td align="center">4</td>
+<td align="right">32 位二进制有符号整数</td>
+</tr>
+<tr>
+<td>Uint32Array</td>
+<td align="center">0 to 4294967295</td>
+<td align="center">4</td>
+<td align="right">32 位无符号整数</td>
+</tr>
+<tr>
+<td>Float32Array</td>
+<td align="center">1.2×10-38 to 3.4×1038</td>
+<td align="center">4</td>
+<td align="right">32 位 IEEE 浮点数（7 位有效数字，如 1.1234567）</td>
+</tr>
+<tr>
+<td>Float64Array</td>
+<td align="center">5.0×10-324 to 1.8×10308</td>
+<td align="center">8</td>
+<td align="right">64 位 IEEE 浮点数（16 有效数字，如 1.123…15)</td>
+</tr>
+<tr>
+<td>BigInt64Array</td>
+<td align="center">-263 to 263-1</td>
+<td align="center">8</td>
+<td align="right">64 位二进制有符号整数</td>
+</tr>
+<tr>
+<td>BigUint64Array</td>
+<td align="center">0 to 264-1</td>
+<td align="center">8</td>
+<td align="right">64 位无符号整数</td>
+</tr>
+</tbody></table>
+<p><strong>初始化对象</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> TypedArray(); <span class="comment">// new in ES2017</span></span><br><span class="line"><span class="keyword">new</span> TypedArray(length);</span><br><span class="line"><span class="keyword">new</span> TypedArray(typedArray);</span><br><span class="line"><span class="keyword">new</span> TypedArray(object);</span><br><span class="line"><span class="keyword">new</span> TypedArray(buffer [, byteOffset [, length]]);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>length: 要创建的数组长度，所占的字节等于长度乘以数组属性 BYTES_PER_ELEMENT （该属性根据数组的类型而定，如Int8Array的元素占1个字节，Float32Array的占4个字节）</p>
+</blockquote>
+<blockquote>
+<p>typedArray: 把另一个typedArray对象的每一个元素转换为新typedArray对象的类型</p>
+</blockquote>
+<blockquote>
+<p>object: 把一个类数组的对象（array或iterator）转换为typedArray对象</p>
+</blockquote>
+<blockquote>
+<p>buffer: ArrayBuffer对象，如果ArrayBuffer对象的字节长度与本TypedArray的单个元素字节长队无法整除，则会报错<br>byteOffset: 指定ArrayBuffer对象中的暴露给typedArray的起始位置（以字节为单位）<br>length: 指定ArrayBuffer对象中的暴露给typedArray字节数</p>
+</blockquote>
+<p>例如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> buffer = <span class="keyword">new</span> <span class="built_in">ArrayBuffer</span>(<span class="number">8</span>);</span><br><span class="line"><span class="built_in">console</span>.log(buffer.byteLength);<span class="comment">//8</span></span><br><span class="line"><span class="keyword">const</span> int8Array = <span class="keyword">new</span> <span class="built_in">Int8Array</span>(buffer);</span><br><span class="line"><span class="built_in">console</span>.log(int8Array.length);<span class="comment">//8</span></span><br><span class="line"><span class="keyword">const</span> int16Array = <span class="keyword">new</span> <span class="built_in">Int16Array</span>(buffer);</span><br><span class="line"><span class="built_in">console</span>.log(int16Array.length);<span class="comment">//4</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/uploads/q_18.jpg" alt="image"></p>
+<p><strong>需要特别说明的是，不同的机器的存储顺序并不相同，而TypedArray是使用当前运行环境的存储顺序。</strong></p>
+<h2 id="3-DataView-数据视图"><a href="#3-DataView-数据视图" class="headerlink" title="3. DataView(数据视图)"></a>3. DataView(数据视图)</h2><p>DataView是一个比TypedArray更加灵活更接近底层的操作二进制数据的视图对象。</p>
+<p><strong>初始化对象</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">DataView</span>(buffer [, byteOffset [, byteLength]])</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>buffer: ArrayBuffer对象<br>byteOffset: 指定ArrayBuffer对象中的暴露给typedArray的起始位置（以字节为单位）<br>byteLength: 指定ArrayBuffer对象中的暴露给typedArray字节数</p>
+</blockquote>
+<p><strong>常用Read/Write方法</strong></p>
+<ul>
+<li>getInt8/setInt8</li>
+<li>getUint8/setUint8</li>
+<li>getInt16/setInt16</li>
+<li>getUint16/setUint16</li>
+<li>getInt32/setInt32</li>
+<li>getUint32/setUint32</li>
+<li>getFloat32/setFloat32</li>
+<li>getFloat64/setFloat64</li>
+</ul>
+<p>Read方法，都包含byteOffset参数，表示读取位置，以字节为单位；除了Int8和Uint8以外的方法还带有可选参数littleEndian，true代表使用小端序，false或不传参则使用大端序。</p>
+<p>Write方法，都包含byteOffset参数，表示写入位置，以字节为单位；value参数代表要设置的值；除了Int8和Uint8以外的方法还带有可选参数littleEndian，true代表使用小端序，false或不传参则使用大端序。</p>
+<p>例如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> buffer = <span class="keyword">new</span> <span class="built_in">ArrayBuffer</span>(<span class="number">8</span>);</span><br><span class="line"><span class="built_in">console</span>.log(buffer.byteLength);<span class="comment">//8个字节</span></span><br><span class="line"><span class="keyword">const</span> view1 = <span class="keyword">new</span> <span class="built_in">DataView</span>(buffer);</span><br><span class="line">view1.setInt8(<span class="number">0</span>, <span class="number">1</span>); </span><br><span class="line"><span class="built_in">console</span>.log(view1.getInt8(<span class="number">0</span>));<span class="comment">//1</span></span><br><span class="line"></span><br><span class="line">view1.setInt8(<span class="number">1</span>, <span class="number">2</span>); </span><br><span class="line"><span class="built_in">console</span>.log(view1.getInt8(<span class="number">1</span>));<span class="comment">//2</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(view1.getInt16(<span class="number">0</span>));<span class="comment">//258</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/uploads/q_19.jpg" alt="image"></p>
+<p><strong>关于端序Endian</strong></p>
+<p>是指连续字节码在内存中的存储顺序（所以1字节的变量不存在端序问题）。其中，</p>
+<p>大端序: 先存高位<br>小端序: 先存低位</p>
+<h2 id="4-Blob-大的二进制类型"><a href="#4-Blob-大的二进制类型" class="headerlink" title="4. Blob(大的二进制类型)"></a>4. Blob(大的二进制类型)</h2><p>Blob对象是二进制数据，但它是类似文件对象的二进制数据，因此可以像操作File对象一样操作Blob对象，实际上，File 接口基于Blob，继承了 blob 的功能并将其扩展使其支持用户系统上的文件。</p>
+<p><strong>初始化对象</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Blob(blobParts[, options])</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>blobParts：数组类型，数组中的每一项连接起来构成Blob对象的数据，数组中的每项元素可以是ArrayBuffer, ArrayBufferView, Blob, DOMString 。</p>
+</blockquote>
+<blockquote>
+<p>options：可选项，字典格式类型，可以指定如下两个属性：</p>
+<ul>
+<li>type，默认值为 “”，它代表了将会被放入到blob中的数组内容的MIME类型。</li>
+<li>endings，默认值为”transparent”，用于指定包含行结束符\n的字符串如何被写入。 它是以下两个值中的一个： “native”，表示行结束符会被更改为适合宿主操作系统文件系统的换行符； “transparent”，表示会保持blob中保存的结束符不变。</li>
+</ul>
+</blockquote>
+<p>例如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> data1 = <span class="string">"a"</span>;</span><br><span class="line"><span class="keyword">var</span> data2 = <span class="string">"b"</span>;</span><br><span class="line"><span class="keyword">var</span> data3 = <span class="string">"&lt;div style='color:red;'&gt;This is a blob&lt;/div&gt;"</span>;</span><br><span class="line"><span class="keyword">var</span> data4 = &#123; <span class="string">"name"</span>: <span class="string">"abc"</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> blob1 = <span class="keyword">new</span> Blob([data1]);</span><br><span class="line"><span class="keyword">var</span> blob2 = <span class="keyword">new</span> Blob([data1, data2]);</span><br><span class="line"><span class="keyword">var</span> blob3 = <span class="keyword">new</span> Blob([data3]);</span><br><span class="line"><span class="keyword">var</span> blob4 = <span class="keyword">new</span> Blob([<span class="built_in">JSON</span>.stringify(data4)]);</span><br><span class="line"><span class="keyword">var</span> blob5 = <span class="keyword">new</span> Blob([data4]);</span><br><span class="line"><span class="keyword">var</span> blob6 = <span class="keyword">new</span> Blob([data3, data4]);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(blob1);  <span class="comment">//输出：Blob &#123;size: 1, type: ""&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(blob2);  <span class="comment">//输出：Blob &#123;size: 2, type: ""&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(blob3);  <span class="comment">//输出：Blob &#123;size: 44, type: ""&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(blob4);  <span class="comment">//输出：Blob &#123;size: 14, type: ""&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(blob5);  <span class="comment">//输出：Blob &#123;size: 15, type: ""&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(blob6);  <span class="comment">//输出：Blob &#123;size: 59, type: ""&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="5-ObjectURL"><a href="#5-ObjectURL" class="headerlink" title="5. ObjectURL"></a>5. ObjectURL</h2><p>可以使用浏览器新的 API URL 对象通过方法<code>URL.createObjectURL</code>生成一个地址来表示 Blob 数据，这个 URL 的生命周期和创建它的窗口中的 document 绑定。这个新的URL 对象表示指定的 File 对象或 Blob 对象。<code>URL.revokeObjectURL</code>静态方法用来释放一个之前已经存在的、通过调用<code>URL.createObjectURL()</code>创建的 URL 对象</p>
+<p><strong>初始化对象</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">URL.createObjectURL(blob);</span><br></pre></td></tr></table></figure>
+
+<p><strong>释放对象</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.URL.revokeObjectURL(objectURL);</span><br></pre></td></tr></table></figure>
+
+<p>例如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> data = <span class="string">"a"</span>;</span><br><span class="line"><span class="keyword">var</span> blob = <span class="keyword">new</span> Blob([data]);</span><br><span class="line"><span class="keyword">let</span> objectURL = URL.createObjectURL(blob);</span><br><span class="line">...</span><br><span class="line">URL.revokeObjectURL(objectURL);</span><br></pre></td></tr></table></figure>
+
+<h2 id="6-DataURL"><a href="#6-DataURL" class="headerlink" title="6. DataURL"></a>6. DataURL</h2><p>Data URLs，即前缀为 data: 协议的URL，其允许内容创建者向文档中嵌入小文件。</p>
+<p><strong>初始化对象</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data:[&lt;mediatype&gt;][;base64],&lt;data&gt;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>mediatype 是个 MIME 类型的字符串，例如 “image/jpeg” 表示 JPEG 图像文件。如果被省略，则默认值为 text/plain;charset=US-ASCII</p>
+</blockquote>
+<p>例如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 简单的 text/plain 类型数据</span></span><br><span class="line">data:,Hello%<span class="number">2</span>C%<span class="number">20</span>World!</span><br><span class="line"></span><br><span class="line"><span class="comment">// 上一条示例的 base64 编码版本</span></span><br><span class="line">data:text/plain;base64,SGVsbG8sIFdvcmxkIQ%<span class="number">3</span>D%<span class="number">3</span>D</span><br><span class="line"></span><br><span class="line"><span class="comment">// 一个HTML文档源代码 &lt;h1&gt;Hello, World&lt;/h1&gt;</span></span><br><span class="line">data:text/html,%<span class="number">3</span>Ch1%<span class="number">3</span>EHello%<span class="number">2</span>C%<span class="number">20</span>World!%<span class="number">3</span>C%<span class="number">2</span>Fh1%<span class="number">3</span>E</span><br><span class="line"></span><br><span class="line"><span class="comment">// 一个会执行 JavaScript alert 的 HTML 文档。注意 script 标签必须封闭。</span></span><br><span class="line">data:text/html,&lt;script&gt;alert(<span class="string">'hi'</span>);<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p>二进制字节类型之间的相互转换：</p>
+<p><img src="/uploads/q_20.jpg" alt="image"></p>
+<h1 id="V8"><a href="#V8" class="headerlink" title="V8"></a>V8</h1><h2 id="1-V8是如何执行一段JS代码的"><a href="#1-V8是如何执行一段JS代码的" class="headerlink" title="1. V8是如何执行一段JS代码的"></a>1. V8是如何执行一段JS代码的</h2><p>V8是混合了编译执行和解释执行两种手段来执行一段 JavaScript 代码的，我们把这种混合使用编译器和解释器的技术称为 JIT（Just In Time）技术。因为这两种方法都各有各的优缺点：解释执行的启动速度快，但是执行时的速度慢，而编译执行的启动速度慢，但是执行时的速度快。所以 V8 采用了这种权衡的策略，在启动过程中使用解释执行，但是如果某段代码的执行频率超过一个值，那么 V8 就会采用编译执行将编译器优化编译成效率更高的机器代码。</p>
 <p>V8 执行一段 JavaScript 代码主要经历了以下几个重要流程：</p>
 <ul>
 <li><strong>初始化基础环境</strong>：堆空间、栈空间、全局执行上下文、全局作用域、事件循环系统、内置函数等。</li>
@@ -646,7 +922,7 @@
 </ul>
 <p>如图所示：</p>
 <p><img src="/uploads/q_10.jpg" alt="image"></p>
-<h2 id="12-V8是如何进行垃圾回收的"><a href="#12-V8是如何进行垃圾回收的" class="headerlink" title="12. V8是如何进行垃圾回收的"></a>12. V8是如何进行垃圾回收的</h2><p>JS引擎中对变量的存储主要有两种位置，栈内存和堆内存，栈内存存储基本类型数据以及引用类型数据的内存地址，堆内存储存引用类型的数据。</p>
+<h2 id="2-V8是如何进行垃圾回收的"><a href="#2-V8是如何进行垃圾回收的" class="headerlink" title="2. V8是如何进行垃圾回收的"></a>2. V8是如何进行垃圾回收的</h2><p>JS引擎中对变量的存储主要有两种位置，栈内存和堆内存，栈内存存储基本类型数据以及引用类型数据的内存地址，堆内存储存引用类型的数据。</p>
 <blockquote>
 <p>栈内存的回收：</p>
 </blockquote>
@@ -669,13 +945,13 @@
 </ul>
 </li>
 </ul>
-<h2 id="13-介绍一下引用计数和标记清除"><a href="#13-介绍一下引用计数和标记清除" class="headerlink" title="13. 介绍一下引用计数和标记清除"></a>13. 介绍一下引用计数和标记清除</h2><ul>
+<h2 id="3-介绍一下引用计数和标记清除"><a href="#3-介绍一下引用计数和标记清除" class="headerlink" title="3. 介绍一下引用计数和标记清除"></a>3. 介绍一下引用计数和标记清除</h2><ul>
 <li><p><strong>引用计数</strong>：给一个变量赋值引用类型，则该对象的引用次数+1，如果这个变量变成了其他值，那么该对象的引用次数-1，垃圾回收器会回收引用次数为0的对象。但是当对象循环引用时，会导致引用次数永远无法归零，造成内存无法释放。</p>
 </li>
 <li><p><strong>标记清除</strong>：垃圾收集器先给内存中所有对象加上标记，然后从根节点开始遍历，去掉被引用的对象和运行环境中对象的标记，剩下的被标记的对象就是无法访问的等待回收的对象。</p>
 </li>
 </ul>
-<h2 id="14-JS相较于C-等语言为什么慢，V8做了哪些优化"><a href="#14-JS相较于C-等语言为什么慢，V8做了哪些优化" class="headerlink" title="14. JS相较于C++等语言为什么慢，V8做了哪些优化"></a>14. JS相较于C++等语言为什么慢，V8做了哪些优化</h2><ul>
+<h2 id="4-JS相较于C-等语言为什么慢，V8做了哪些优化"><a href="#4-JS相较于C-等语言为什么慢，V8做了哪些优化" class="headerlink" title="4. JS相较于C++等语言为什么慢，V8做了哪些优化"></a>4. JS相较于C++等语言为什么慢，V8做了哪些优化</h2><ul>
 <li><p>JS的问题：</p>
 <ul>
 <li><p><strong>动态类型</strong>：导致每次存取属性/寻求方法时候，都需要先检查类型；此外动态类型也很难在编译阶段进行优化</p>
@@ -697,7 +973,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="15-如何判断-JavaScript-中内存泄漏的"><a href="#15-如何判断-JavaScript-中内存泄漏的" class="headerlink" title="15. 如何判断 JavaScript 中内存泄漏的"></a>15. 如何判断 JavaScript 中内存泄漏的</h2><ul>
+<h2 id="5-如何判断-JavaScript-中内存泄漏的"><a href="#5-如何判断-JavaScript-中内存泄漏的" class="headerlink" title="5. 如何判断 JavaScript 中内存泄漏的"></a>5. 如何判断 JavaScript 中内存泄漏的</h2><ul>
 <li><p>内存泄漏 (Memory leak)：原因是不再需要 (没有作用) 的内存数据依然被其他对象引用着，会导致页面的性能越来越差。要避免内存泄漏，我们需要避免引用那些已经没有用途的数据。</p>
 </li>
 <li><p>内存膨胀 (Memory bloat)：由于程序员对内存管理不科学导致的，比如只需要 50M 内存就可以搞定的程序却花费了 500M 内存，会导致页面的性能会一直很差。要解决内存膨胀，需要我们对项目有着透彻的理解，并熟悉各种能减少内存占用的技术方案。</p>
@@ -925,7 +1201,7 @@
 </li>
 </ul>
 <p>注：图片来源于《算法漫画》侵删</p>
-<h1 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h1><h1 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h1><h2 id="1-说说浏览器的缓存策略"><a href="#1-说说浏览器的缓存策略" class="headerlink" title="1. 说说浏览器的缓存策略"></a>1. 说说浏览器的缓存策略</h2><h3 id="浏览器缓存位置和优先级"><a href="#浏览器缓存位置和优先级" class="headerlink" title="浏览器缓存位置和优先级"></a>浏览器缓存位置和优先级</h3><ol>
+<h1 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h1><h1 id="浏览器-网络-HTTP"><a href="#浏览器-网络-HTTP" class="headerlink" title="浏览器/网络/HTTP"></a>浏览器/网络/HTTP</h1><h2 id="1-说说浏览器的缓存策略"><a href="#1-说说浏览器的缓存策略" class="headerlink" title="1. 说说浏览器的缓存策略"></a>1. 说说浏览器的缓存策略</h2><h3 id="浏览器缓存位置和优先级"><a href="#浏览器缓存位置和优先级" class="headerlink" title="浏览器缓存位置和优先级"></a>浏览器缓存位置和优先级</h3><ol>
 <li>Service Worker</li>
 <li>Memory Cache（内存缓存）</li>
 <li>Disk Cache（硬盘缓存）</li>
@@ -1021,7 +1297,263 @@
 </ul>
 <h2 id="4-说说HTTP-3-0"><a href="#4-说说HTTP-3-0" class="headerlink" title="4. 说说HTTP/3.0"></a>4. 说说HTTP/3.0</h2><p>尽管HTTP/2解决了很多1.1的问题，但HTTP/2仍然存在一些缺陷，这些缺陷并不是来自于HTTP/2协议本身，而是来源于底层的TCP协议，我们知道TCP链接是可靠的连接，如果出现了丢包，那么整个连接都要等待重传，HTTP/1.1可以同时使用6个TCP连接，一个阻塞另外五个还能工作，但HTTP/2只有一个TCP连接，阻塞的问题便被放大了。</p>
 <p>由于TCP协议已经被广泛使用，我们很难直接修改TCP协议，基于此，HTTP/3选择了一个折衷的方法——UDP协议，HTTP/2在UDP的基础上实现多路复用、0-RTT、TLS加密、流量控制、丢包重传等功能。</p>
-<h2 id="5-常见HTTP状态码有哪些"><a href="#5-常见HTTP状态码有哪些" class="headerlink" title="5. 常见HTTP状态码有哪些"></a>5. 常见HTTP状态码有哪些</h2><h1 id="前端安全"><a href="#前端安全" class="headerlink" title="前端安全"></a>前端安全</h1><p>在 Web 安全领域中，XSS 和 CSRF 是最常见的攻击方式。章将会简单介绍 XSS 和 CSRF 的攻防问题。</p>
+<h2 id="5-常见HTTP状态码有哪些"><a href="#5-常见HTTP状态码有哪些" class="headerlink" title="5. 常见HTTP状态码有哪些"></a>5. 常见HTTP状态码有哪些</h2><blockquote>
+<p>2XX 请求成功</p>
+</blockquote>
+<p><code>200 OK</code>：客户端发送给服务器的请求被正常处理并返回</p>
+<blockquote>
+<p>3XX 重定向</p>
+</blockquote>
+<p><code>301 Moved Permanently</code>：永久重定向，请求的网页已永久移动到新位置。 服务器返回此响应时，会自动将请求者转到新位置</p>
+<p><code>302 Moved Permanently</code>：临时重定向，请求的网页已临时移动到新位置。服务器目前从不同位置的网页响应请求，但请求者应继续使用原有位置来进行以后的请求</p>
+<p><code>304 Not Modified</code>：未修改，自从上次请求后，请求的网页未修改过。服务器返回此响应时，不会返回网页内容</p>
+<blockquote>
+<p>4XX 客户端错误</p>
+</blockquote>
+<p><code>400 Bad Request</code>：错误请求，服务器不理解请求的语法，常见于客户端传参错误</p>
+<p><code>401 Unauthorized</code>：未授权，表示发送的请求需要有通过 HTTP 认证的认证信息，常见于客户端未登录</p>
+<p><code>403 Forbidden</code>：禁止，服务器拒绝请求，常见于客户端权限不足</p>
+<p><code>404 Not Found</code>：未找到，服务器找不到对应资源</p>
+<blockquote>
+<p>5XX 服务端错误</p>
+</blockquote>
+<p><code>500 Inter Server Error</code>：服务器内部错误，服务器遇到错误，无法完成请求</p>
+<p><code>501 Not Implemented</code>：尚未实施，服务器不具备完成请求的功能</p>
+<p><code>502 Bad Gateway</code>：作为网关或者代理工作的服务器尝试执行请求时，从上游服务器接收到无效的响应。</p>
+<p><code>503 service unavailable</code>：服务不可用，服务器目前无法使用（处于超载或停机维护状态）。通常是暂时状态。</p>
+<h2 id="6-HTTP常见请求-响应头及其含义"><a href="#6-HTTP常见请求-响应头及其含义" class="headerlink" title="6.HTTP常见请求/响应头及其含义"></a>6.HTTP常见请求/响应头及其含义</h2><blockquote>
+<p>通用头（请求头和响应头都有的首部）</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th align="center">作用</th>
+<th align="right">值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Cache-Control</td>
+<td align="center">控制缓存</td>
+<td align="right">public：表示响应可以被任何对象缓存(包括客户端/代理服务器) <br> private(默认值)：响应只能被单个客户缓存,不能被代理服务器缓存  <br>  no-cache：缓存要经过服务器验证，在浏览器使用缓存前，会对比ETag，若没变则返回304，使用缓存 <br>  no-store：禁止任何缓存</td>
+</tr>
+<tr>
+<td>Connection</td>
+<td align="center">是否需要持久连接(HTTP 1.1默认持久连接)</td>
+<td align="right">keep-alive / close</td>
+</tr>
+<tr>
+<td>Transfer-Encoding</td>
+<td align="center">报文主体的传输编码格式</td>
+<td align="right">chunked(分块) / identity(未压缩和修改) / gzip(LZ77压缩) / compress(LZW压缩,弃用) / deflate(zlib结构压缩)</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>请求头</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th align="center">作用</th>
+<th align="right">语法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Accept</td>
+<td align="center">告知（服务器）客户端可以处理的内容类型</td>
+<td align="right">text/html、image/<em>、</em>/*</td>
+</tr>
+<tr>
+<td>If-Modified-Since</td>
+<td align="center">将<code>Last-Modified</code>的值发送给服务器，询问资源是否已经过期(被修改)，过期则返回新资源，否则返回304</td>
+<td align="right">示例：If-Modified-Since: Wed, 21 Oct 2015 07:28:00 GMT</td>
+</tr>
+<tr>
+<td>If-Unmodified-Since</td>
+<td align="center">将<code>Last-Modified</code>的值发送给服务器，询问文件是否被修改，若没有则返回200，否则返回412预处理错误，可用于断点续传。通俗点说<code>If-Unmodified-Since</code>是文件没有修改时下载，<code>If-Modified-Since</code>是文件修改时下载</td>
+<td align="right">示例：If-Unmodified-Since: Wed, 21 Oct 2015 07:28:00 GMT</td>
+</tr>
+<tr>
+<td>If-None-Match</td>
+<td align="center">将<code>ETag</code>的值发送给服务器，询问资源是否已经过期(被修改)，过期则返回新资源，否则返回304</td>
+<td align="right">示例：If-None-Match: “bfc13a6472992d82d”</td>
+</tr>
+<tr>
+<td>If-Match</td>
+<td align="center">将<code>ETag</code>的值发送给服务器，询问文件是否被修改，若没有则返回200，否则返回412预处理错误，可用于断点续传</td>
+<td align="right">示例：If-Match: “bfc129c88ca92d82d”</td>
+</tr>
+<tr>
+<td>Range</td>
+<td align="center">告知服务器返回文件的哪一部分, 用于断点续传</td>
+<td align="right">示例：Range: bytes=200-1000, 2000-6576, 19000-</td>
+</tr>
+<tr>
+<td>Host</td>
+<td align="center">指明了服务器的域名（对于虚拟主机来说），以及（可选的）服务器监听的TCP端口号</td>
+<td align="right">示例：Host:<a href="http://www.baidu.com" rel="external nofollow noopener noreferrer" target="_blank">www.baidu.com</a></td>
+</tr>
+<tr>
+<td>User-Agent</td>
+<td align="center">告诉HTTP服务器， 客户端使用的操作系统和浏览器的名称和版本</td>
+<td align="right"><code>User-Agent: Mozilla/&lt;version&gt; (&lt;system-information&gt;) &lt;platform&gt; (&lt;platform-details&gt;) &lt;extensions&gt;</code></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>响应头</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th align="center">作用</th>
+<th align="right">语法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Location</td>
+<td align="center">需要将页面重新定向至的地址。一般在响应码为3xx的响应中才会有意义</td>
+<td align="right"><code>Location: &lt;url&gt;</code></td>
+</tr>
+<tr>
+<td>ETag</td>
+<td align="center">资源的特定版本的标识符，如果内容没有改变，Web服务器不需要发送完整的响应</td>
+<td align="right"><code>ETag: &quot;&lt;etag_value&gt;&quot;</code></td>
+</tr>
+<tr>
+<td>Server</td>
+<td align="center">处理请求的源头服务器所用到的软件相关信息</td>
+<td align="right"><code>Server: &lt;product&gt;</code></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>实体头（针对请求报文和响应报文的实体部分使用首部）</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th align="center">作用</th>
+<th align="right">语法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Allow</td>
+<td align="center">资源可支持http请求的方法</td>
+<td align="right"><code>Allow: &lt;http-methods&gt;，示例：Allow: GET, POST, HEAD</code></td>
+</tr>
+<tr>
+<td>Last-Modified</td>
+<td align="center">资源最后的修改时间，用作一个验证器来判断接收到的或者存储的资源是否彼此一致，精度不如ETag</td>
+<td align="right">示例：Last-Modified: Wed, 21 Oct 2020 07:28:00 GMT</td>
+</tr>
+<tr>
+<td>Expires</td>
+<td align="center">响应过期时间</td>
+<td align="right"><code>Expires: &lt;http-date&gt;，示例：Expires: Wed, 21 Oct 2020 07:28:00 GMT</code></td>
+</tr>
+</tbody></table>
+<p>详细的介绍可以参阅<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers" rel="external nofollow noopener noreferrer" target="_blank">MDN</a>。</p>
+<h2 id="7-GET请求和POST请求有何区别"><a href="#7-GET请求和POST请求有何区别" class="headerlink" title="7.GET请求和POST请求有何区别"></a>7.GET请求和POST请求有何区别</h2><p><strong>使用上的区别</strong></p>
+<ul>
+<li><p>GET请求参数放在URL上，POST请求参数放在请求体里</p>
+</li>
+<li><p>GET请求参数长度有限制，POST请求参数长度可以非常大</p>
+</li>
+<li><p>POST请求相较于GET请求安全一点点，因为GET请求的参数在URL上，且有历史记录</p>
+</li>
+<li><p>GET请求能缓存，POST不能</p>
+</li>
+</ul>
+<p><strong>本质区别</strong></p>
+<p>其实HTTP协议并没有要求GET/POST请求参数必须放在URL上或请求体里，也没有规定GET请求的长度，目前对URL的长度限制，是各家浏览器设置的限制。GET和POST的根本区别在于：<strong>GET请求是幂等性的，而POST请求不是</strong></p>
+<blockquote>
+<p>幂等性，指的是对某一资源进行一次或多次请求都具有相同的副作用。例如搜索就是一个幂等的操作，而删除、新增则不是一个幂等操作。</p>
+</blockquote>
+<p>由于GET请求是幂等的，在网络不好的环境中，GET请求可能会重复尝试，造成重复操作数据的风险，因此，GET请求用于无副作用的操作(如搜索)，新增/删除等操作适合用POST</p>
+<h2 id="8-HTTP和HTTPS有何区别"><a href="#8-HTTP和HTTPS有何区别" class="headerlink" title="8.HTTP和HTTPS有何区别"></a>8.HTTP和HTTPS有何区别</h2><ul>
+<li><p>HTTPS使用443端口，而HTTP使用80</p>
+</li>
+<li><p>HTTPS需要申请证书</p>
+</li>
+<li><p>HTTP是超文本传输协议，是明文传输；HTTPS是经过SSL加密的协议，传输更安全</p>
+</li>
+<li><p>HTTPS比HTTP慢，因为HTTPS除了TCP握手的三个包，还要加上SSL握手的九个包</p>
+</li>
+</ul>
+<h2 id="9-HTTPS是如何进行加密的"><a href="#9-HTTPS是如何进行加密的" class="headerlink" title="9.HTTPS是如何进行加密的"></a>9.HTTPS是如何进行加密的</h2><blockquote>
+<p>对称加密</p>
+</blockquote>
+<p>客户端和服务器公用一个密匙用来对消息加解密，这种方式称为对称加密。客户端和服务器约定好一个加密的密匙。客户端在发消息前用该密匙对消息加密，发送给服务器后，服务器再用该密匙进行解密拿到消息。</p>
+<p><img src="/uploads/q_11.png" alt></p>
+<p>这种方式一定程度上保证了数据的安全性，但密钥一旦泄露(密钥在传输过程中被截获)，传输内容就会暴露，因此我们要寻找一种安全传递密钥的方法。</p>
+<blockquote>
+<p>非对称加密</p>
+</blockquote>
+<p>采用非对称加密时，客户端和服务端均拥有一个公钥和私钥，公钥加密的内容只有对应的私钥能解密。私钥自己留着，公钥发给对方。这样在发送消息前，先用对方的公钥对消息进行加密，收到后再用自己的私钥进行解密。这样攻击者只拿到传输过程中的公钥也无法破解传输的内容</p>
+<p><img src="/uploads/q_12.png" alt></p>
+<p>尽管非对称加密解决了由于密钥被获取而导致传输内容泄露的问题，但中间人仍然可以用篡改公钥的方式来获取或篡改传输内容，而且非对称加密的性能比对称加密的性能差了不少</p>
+<p><img src="/uploads/q_13.png" alt></p>
+<blockquote>
+<p>第三方认证</p>
+</blockquote>
+<p>上面这种方法的弱点在于，客户端不知道公钥是由服务端返回，还是中间人返回的，因此我们再引入一个第三方认证的环节：即第三方使用私钥加密我们自己的公钥，浏览器已经内置一些权威第三方认证机构的公钥，浏览器会使用第三方的公钥来解开第三方私钥加密过的我们自己的公钥，从而获取公钥，如果能成功解密，就说明获取到的自己的公钥是正确的</p>
+<p>但第三方认证也未能完全解决问题，第三方认证是面向所有人的，中间人也能申请证书，如果中间人使用自己的证书掉包原证书，客户端还是无法确认公钥的真伪</p>
+<p><img src="/uploads/q_14.png" alt></p>
+<blockquote>
+<p>数字签名</p>
+</blockquote>
+<p>为了让客户端能够验证公钥的来源，我们给公钥加上一个数字签名，这个数字签名是由企业、网站等各种信息和公钥经过单向hash而来，一旦构成数字签名的信息发生变化，hash值就会改变，这就构成了公钥来源的唯一标识</p>
+<p>具体来说，服务端本地生成一对密钥，然后拿着公钥以及企业、网站等各种信息到CA(第三方认证中心)去申请数字证书，CA会通过一种单向hash算法(比如MD5)，生成一串摘要，这串摘要就是这堆信息的唯一标识，然后CA还会使用自己的私钥对摘要进行加密，连同我们自己服务器的公钥一同发送给我我们。</p>
+<p>浏览器拿到数字签名后，会使用浏览器本地内置的CA公钥解开数字证书并验证，从而拿到正确的公钥。由于非对称加密性能低下，拿到公钥以后，客户端会随机生成一个对称密钥，使用这个公钥加密并发送给服务端，服务端用自己的私钥解开对称密钥，此后的加密连接就通过这个对称密钥进行对称加密。</p>
+<p>综上所述，HTTPS在验证阶段使用非对称加密+第三方认证+数字签名获取正确的公钥，获取到正确的公钥后以对称加密的方式通信</p>
+<h2 id="10-讲讲网络OSI七层模型，TCP-IP和HTTP分别位于哪一层"><a href="#10-讲讲网络OSI七层模型，TCP-IP和HTTP分别位于哪一层" class="headerlink" title="10.讲讲网络OSI七层模型，TCP/IP和HTTP分别位于哪一层"></a>10.讲讲网络OSI七层模型，TCP/IP和HTTP分别位于哪一层</h2><p><img src="/uploads/q_15.png" alt></p>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th align="center">概述</th>
+<th align="right">单位</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>物理层</td>
+<td align="center">网络连接介质，如网线、光缆，数据在其中以比特为单位传输</td>
+<td align="right">bit</td>
+</tr>
+<tr>
+<td>数据链路层</td>
+<td align="center">数据链路层将比特封装成数据帧并传递</td>
+<td align="right">帧</td>
+</tr>
+<tr>
+<td>网络层</td>
+<td align="center">定义IP地址，定义路由功能，建立主机到主机的通信</td>
+<td align="right">数据包</td>
+</tr>
+<tr>
+<td>传输层</td>
+<td align="center">负责将数据进行可靠或者不可靠传递，建立端口到端口的通信</td>
+<td align="right">数据段</td>
+</tr>
+<tr>
+<td>会话层</td>
+<td align="center">控制应用程序之间会话能力，区分不同的进程</td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>表示层</td>
+<td align="center">数据格式标识，基本压缩加密功能</td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>应用层</td>
+<td align="center">各种应用软件</td>
+<td align="right"></td>
+</tr>
+</tbody></table>
+<h1 id="前端安全"><a href="#前端安全" class="headerlink" title="前端安全"></a>前端安全</h1><p>在 Web 安全领域中，XSS 和 CSRF 是最常见的攻击方式。章将会简单介绍 XSS 和 CSRF 的攻防问题。</p>
 <h2 id="1-什么是CSRF攻击"><a href="#1-什么是CSRF攻击" class="headerlink" title="1. 什么是CSRF攻击"></a>1. 什么是CSRF攻击</h2><blockquote>
 <p>CSRF即Cross-site request forgery(跨站请求伪造)，是一种挟制用户在当前已登录的Web应用程序上执行非本意的操作的攻击方法。</p>
 </blockquote>
@@ -1218,7 +1750,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS"><span class="nav-number">1.</span> <span class="nav-text">CSS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-说说CSS选择器以及这些选择器的优先级"><span class="nav-number">1.1.</span> <span class="nav-text">1.说说CSS选择器以及这些选择器的优先级</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-伪类和伪元素的区别"><span class="nav-number">1.2.</span> <span class="nav-text">2. 伪类和伪元素的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-你知道什么是BFC么？"><span class="nav-number">1.3.</span> <span class="nav-text">3. 你知道什么是BFC么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-如何实现居中"><span class="nav-number">1.4.</span> <span class="nav-text">4.如何实现居中</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-盒模型"><span class="nav-number">1.5.</span> <span class="nav-text">5.盒模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-绝对定位、固定定位和-z-index"><span class="nav-number">1.6.</span> <span class="nav-text">6.绝对定位、固定定位和 z-index</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-如何实现左侧宽度固定，右侧宽度自适应的布局"><span class="nav-number">1.7.</span> <span class="nav-text">7.如何实现左侧宽度固定，右侧宽度自适应的布局</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-层叠上下文"><span class="nav-number">1.8.</span> <span class="nav-text">8.层叠上下文</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">1.9.</span> <span class="nav-text">小结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Javascript"><span class="nav-number">2.</span> <span class="nav-text">Javascript</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-JS-的数据类型及存储方式的区别"><span class="nav-number">2.1.</span> <span class="nav-text">1. JS 的数据类型及存储方式的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-常用的判断-JS-数据类型的四种方法"><span class="nav-number">2.2.</span> <span class="nav-text">2.常用的判断 JS 数据类型的四种方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-作用域、作用域链、执行上下文（EC）、执行上下文栈（ECS）"><span class="nav-number">2.3.</span> <span class="nav-text">3. 作用域、作用域链、执行上下文（EC）、执行上下文栈（ECS）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#作用域"><span class="nav-number">2.3.1.</span> <span class="nav-text">作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#执行上下文（EC）"><span class="nav-number">2.3.2.</span> <span class="nav-text">执行上下文（EC）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#执行上下文栈（ECS）"><span class="nav-number">2.3.3.</span> <span class="nav-text">执行上下文栈（ECS）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#作用域链"><span class="nav-number">2.3.4.</span> <span class="nav-text">作用域链</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-原型与原型链"><span class="nav-number">2.4.</span> <span class="nav-text">4. 原型与原型链</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-谈谈你对闭包的理解"><span class="nav-number">2.5.</span> <span class="nav-text">5. 谈谈你对闭包的理解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-手写-call-apply"><span class="nav-number">2.6.</span> <span class="nav-text">6. 手写 call/apply()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-手写-bind"><span class="nav-number">2.7.</span> <span class="nav-text">7. 手写 bind()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-模拟实现-new"><span class="nav-number">2.8.</span> <span class="nav-text">9. 模拟实现 new</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-数组扁平化"><span class="nav-number">2.9.</span> <span class="nav-text">9. 数组扁平化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-ES5如何实现继承"><span class="nav-number">2.10.</span> <span class="nav-text">10. ES5如何实现继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-V8是如何执行一段JS代码的"><span class="nav-number">2.11.</span> <span class="nav-text">11. V8是如何执行一段JS代码的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-V8是如何进行垃圾回收的"><span class="nav-number">2.12.</span> <span class="nav-text">12. V8是如何进行垃圾回收的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-介绍一下引用计数和标记清除"><span class="nav-number">2.13.</span> <span class="nav-text">13. 介绍一下引用计数和标记清除</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-JS相较于C-等语言为什么慢，V8做了哪些优化"><span class="nav-number">2.14.</span> <span class="nav-text">14. JS相较于C++等语言为什么慢，V8做了哪些优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15-如何判断-JavaScript-中内存泄漏的"><span class="nav-number">2.15.</span> <span class="nav-text">15. 如何判断 JavaScript 中内存泄漏的</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#React"><span class="nav-number">3.</span> <span class="nav-text">React</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Vue"><span class="nav-number">4.</span> <span class="nav-text">Vue</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Webpack"><span class="nav-number">5.</span> <span class="nav-text">Webpack</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Node"><span class="nav-number">6.</span> <span class="nav-text">Node</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#NPM"><span class="nav-number">7.</span> <span class="nav-text">NPM</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#算法"><span class="nav-number">8.</span> <span class="nav-text">算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-冒泡排序"><span class="nav-number">8.1.</span> <span class="nav-text">1. 冒泡排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-选择排序"><span class="nav-number">8.2.</span> <span class="nav-text">2. 选择排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-插入排序"><span class="nav-number">8.3.</span> <span class="nav-text">3. 插入排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-希尔排序"><span class="nav-number">8.4.</span> <span class="nav-text">4. 希尔排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-快速排序"><span class="nav-number">8.5.</span> <span class="nav-text">5. 快速排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-堆排序"><span class="nav-number">8.6.</span> <span class="nav-text">6. 堆排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-归并排序"><span class="nav-number">8.7.</span> <span class="nav-text">7. 归并排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">8.8.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-二叉树和二叉查找树"><span class="nav-number">8.9.</span> <span class="nav-text">8.二叉树和二叉查找树</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#设计模式"><span class="nav-number">9.</span> <span class="nav-text">设计模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#计算机网络"><span class="nav-number">10.</span> <span class="nav-text">计算机网络</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-说说浏览器的缓存策略"><span class="nav-number">10.1.</span> <span class="nav-text">1. 说说浏览器的缓存策略</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览器缓存位置和优先级"><span class="nav-number">10.1.1.</span> <span class="nav-text">浏览器缓存位置和优先级</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不同缓存位置的差别"><span class="nav-number">10.1.2.</span> <span class="nav-text">不同缓存位置的差别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览器缓存策略"><span class="nav-number">10.1.3.</span> <span class="nav-text">浏览器缓存策略</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缓存场景"><span class="nav-number">10.1.4.</span> <span class="nav-text">缓存场景</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-HTTP-1-0和HTTP-1-1有什么区别"><span class="nav-number">10.2.</span> <span class="nav-text">2.  HTTP/1.0和HTTP/1.1有什么区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-介绍一下HTTP-2-0新特性"><span class="nav-number">10.3.</span> <span class="nav-text">3. 介绍一下HTTP/2.0新特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-说说HTTP-3-0"><span class="nav-number">10.4.</span> <span class="nav-text">4. 说说HTTP/3.0</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-常见HTTP状态码有哪些"><span class="nav-number">10.5.</span> <span class="nav-text">5. 常见HTTP状态码有哪些</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#前端安全"><span class="nav-number">11.</span> <span class="nav-text">前端安全</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-什么是CSRF攻击"><span class="nav-number">11.1.</span> <span class="nav-text">1. 什么是CSRF攻击</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-CSRF特点"><span class="nav-number">11.2.</span> <span class="nav-text">2. CSRF特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-如何防御CSRF攻击"><span class="nav-number">11.3.</span> <span class="nav-text">3. 如何防御CSRF攻击</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-什么是XSS攻击"><span class="nav-number">11.4.</span> <span class="nav-text">4. 什么是XSS攻击</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-XSS攻击有哪些类型"><span class="nav-number">11.5.</span> <span class="nav-text">5. XSS攻击有哪些类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-如何防御XSS攻击"><span class="nav-number">11.6.</span> <span class="nav-text">6. 如何防御XSS攻击</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS"><span class="nav-number">1.</span> <span class="nav-text">CSS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-说说CSS选择器以及这些选择器的优先级"><span class="nav-number">1.1.</span> <span class="nav-text">1.说说CSS选择器以及这些选择器的优先级</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-伪类和伪元素的区别"><span class="nav-number">1.2.</span> <span class="nav-text">2. 伪类和伪元素的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-你知道什么是BFC么？"><span class="nav-number">1.3.</span> <span class="nav-text">3. 你知道什么是BFC么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-如何实现居中"><span class="nav-number">1.4.</span> <span class="nav-text">4.如何实现居中</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-盒模型"><span class="nav-number">1.5.</span> <span class="nav-text">5.盒模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-清除浮动的方法"><span class="nav-number">1.6.</span> <span class="nav-text">6. 清除浮动的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-绝对定位、固定定位和-z-index"><span class="nav-number">1.7.</span> <span class="nav-text">6.绝对定位、固定定位和 z-index</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-如何实现左侧宽度固定，右侧宽度自适应的布局"><span class="nav-number">1.8.</span> <span class="nav-text">7.如何实现左侧宽度固定，右侧宽度自适应的布局</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-层叠上下文"><span class="nav-number">1.9.</span> <span class="nav-text">8.层叠上下文</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">1.10.</span> <span class="nav-text">小结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTML"><span class="nav-number">2.</span> <span class="nav-text">HTML</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-说说HTML5的新特性"><span class="nav-number">2.1.</span> <span class="nav-text">1. 说说HTML5的新特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-doctype的作用"><span class="nav-number">2.2.</span> <span class="nav-text">2. doctype的作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-简要说一下几种前端储存之间的区别"><span class="nav-number">2.3.</span> <span class="nav-text">3. 简要说一下几种前端储存之间的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-href和src的区别"><span class="nav-number">2.4.</span> <span class="nav-text">4. href和src的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-meta有哪些属性，作用是什么"><span class="nav-number">2.5.</span> <span class="nav-text">5. meta有哪些属性，作用是什么</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#charset"><span class="nav-number">2.5.1.</span> <span class="nav-text">charset</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#http-equiv"><span class="nav-number">2.5.2.</span> <span class="nav-text">http-equiv</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#viewport"><span class="nav-number">2.5.3.</span> <span class="nav-text">viewport</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Javascript"><span class="nav-number">3.</span> <span class="nav-text">Javascript</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-JS-的数据类型及存储方式的区别"><span class="nav-number">3.1.</span> <span class="nav-text">1. JS 的数据类型及存储方式的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-常用的判断-JS-数据类型的四种方法"><span class="nav-number">3.2.</span> <span class="nav-text">2.常用的判断 JS 数据类型的四种方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-作用域、作用域链、执行上下文（EC）、执行上下文栈（ECS）"><span class="nav-number">3.3.</span> <span class="nav-text">3. 作用域、作用域链、执行上下文（EC）、执行上下文栈（ECS）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#作用域"><span class="nav-number">3.3.1.</span> <span class="nav-text">作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#执行上下文（EC）"><span class="nav-number">3.3.2.</span> <span class="nav-text">执行上下文（EC）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#执行上下文栈（ECS）"><span class="nav-number">3.3.3.</span> <span class="nav-text">执行上下文栈（ECS）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#作用域链"><span class="nav-number">3.3.4.</span> <span class="nav-text">作用域链</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-原型与原型链"><span class="nav-number">3.4.</span> <span class="nav-text">4. 原型与原型链</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-谈谈你对闭包的理解"><span class="nav-number">3.5.</span> <span class="nav-text">5. 谈谈你对闭包的理解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-手写-call-apply"><span class="nav-number">3.6.</span> <span class="nav-text">6. 手写 call/apply()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-手写-bind"><span class="nav-number">3.7.</span> <span class="nav-text">7. 手写 bind()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-模拟实现-new"><span class="nav-number">3.8.</span> <span class="nav-text">9. 模拟实现 new</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-数组扁平化"><span class="nav-number">3.9.</span> <span class="nav-text">9. 数组扁平化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-ES5如何实现继承"><span class="nav-number">3.10.</span> <span class="nav-text">10. ES5如何实现继承</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二进制"><span class="nav-number">4.</span> <span class="nav-text">二进制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-ArrayBuffer-二进制数组缓冲区"><span class="nav-number">4.1.</span> <span class="nav-text">1. ArrayBuffer(二进制数组缓冲区)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-TypedArray-类型化数组"><span class="nav-number">4.2.</span> <span class="nav-text">2. TypedArray(类型化数组)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-DataView-数据视图"><span class="nav-number">4.3.</span> <span class="nav-text">3. DataView(数据视图)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Blob-大的二进制类型"><span class="nav-number">4.4.</span> <span class="nav-text">4. Blob(大的二进制类型)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-ObjectURL"><span class="nav-number">4.5.</span> <span class="nav-text">5. ObjectURL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-DataURL"><span class="nav-number">4.6.</span> <span class="nav-text">6. DataURL</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#V8"><span class="nav-number">5.</span> <span class="nav-text">V8</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-V8是如何执行一段JS代码的"><span class="nav-number">5.1.</span> <span class="nav-text">1. V8是如何执行一段JS代码的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-V8是如何进行垃圾回收的"><span class="nav-number">5.2.</span> <span class="nav-text">2. V8是如何进行垃圾回收的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-介绍一下引用计数和标记清除"><span class="nav-number">5.3.</span> <span class="nav-text">3. 介绍一下引用计数和标记清除</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-JS相较于C-等语言为什么慢，V8做了哪些优化"><span class="nav-number">5.4.</span> <span class="nav-text">4. JS相较于C++等语言为什么慢，V8做了哪些优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-如何判断-JavaScript-中内存泄漏的"><span class="nav-number">5.5.</span> <span class="nav-text">5. 如何判断 JavaScript 中内存泄漏的</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#React"><span class="nav-number">6.</span> <span class="nav-text">React</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Vue"><span class="nav-number">7.</span> <span class="nav-text">Vue</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Webpack"><span class="nav-number">8.</span> <span class="nav-text">Webpack</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Node"><span class="nav-number">9.</span> <span class="nav-text">Node</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#NPM"><span class="nav-number">10.</span> <span class="nav-text">NPM</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#算法"><span class="nav-number">11.</span> <span class="nav-text">算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-冒泡排序"><span class="nav-number">11.1.</span> <span class="nav-text">1. 冒泡排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-选择排序"><span class="nav-number">11.2.</span> <span class="nav-text">2. 选择排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-插入排序"><span class="nav-number">11.3.</span> <span class="nav-text">3. 插入排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-希尔排序"><span class="nav-number">11.4.</span> <span class="nav-text">4. 希尔排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-快速排序"><span class="nav-number">11.5.</span> <span class="nav-text">5. 快速排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-堆排序"><span class="nav-number">11.6.</span> <span class="nav-text">6. 堆排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-归并排序"><span class="nav-number">11.7.</span> <span class="nav-text">7. 归并排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">11.8.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-二叉树和二叉查找树"><span class="nav-number">11.9.</span> <span class="nav-text">8.二叉树和二叉查找树</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#设计模式"><span class="nav-number">12.</span> <span class="nav-text">设计模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#浏览器-网络-HTTP"><span class="nav-number">13.</span> <span class="nav-text">浏览器/网络/HTTP</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-说说浏览器的缓存策略"><span class="nav-number">13.1.</span> <span class="nav-text">1. 说说浏览器的缓存策略</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览器缓存位置和优先级"><span class="nav-number">13.1.1.</span> <span class="nav-text">浏览器缓存位置和优先级</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不同缓存位置的差别"><span class="nav-number">13.1.2.</span> <span class="nav-text">不同缓存位置的差别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览器缓存策略"><span class="nav-number">13.1.3.</span> <span class="nav-text">浏览器缓存策略</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缓存场景"><span class="nav-number">13.1.4.</span> <span class="nav-text">缓存场景</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-HTTP-1-0和HTTP-1-1有什么区别"><span class="nav-number">13.2.</span> <span class="nav-text">2.  HTTP/1.0和HTTP/1.1有什么区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-介绍一下HTTP-2-0新特性"><span class="nav-number">13.3.</span> <span class="nav-text">3. 介绍一下HTTP/2.0新特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-说说HTTP-3-0"><span class="nav-number">13.4.</span> <span class="nav-text">4. 说说HTTP/3.0</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-常见HTTP状态码有哪些"><span class="nav-number">13.5.</span> <span class="nav-text">5. 常见HTTP状态码有哪些</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-HTTP常见请求-响应头及其含义"><span class="nav-number">13.6.</span> <span class="nav-text">6.HTTP常见请求/响应头及其含义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-GET请求和POST请求有何区别"><span class="nav-number">13.7.</span> <span class="nav-text">7.GET请求和POST请求有何区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-HTTP和HTTPS有何区别"><span class="nav-number">13.8.</span> <span class="nav-text">8.HTTP和HTTPS有何区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-HTTPS是如何进行加密的"><span class="nav-number">13.9.</span> <span class="nav-text">9.HTTPS是如何进行加密的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-讲讲网络OSI七层模型，TCP-IP和HTTP分别位于哪一层"><span class="nav-number">13.10.</span> <span class="nav-text">10.讲讲网络OSI七层模型，TCP/IP和HTTP分别位于哪一层</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#前端安全"><span class="nav-number">14.</span> <span class="nav-text">前端安全</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-什么是CSRF攻击"><span class="nav-number">14.1.</span> <span class="nav-text">1. 什么是CSRF攻击</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-CSRF特点"><span class="nav-number">14.2.</span> <span class="nav-text">2. CSRF特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-如何防御CSRF攻击"><span class="nav-number">14.3.</span> <span class="nav-text">3. 如何防御CSRF攻击</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-什么是XSS攻击"><span class="nav-number">14.4.</span> <span class="nav-text">4. 什么是XSS攻击</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-XSS攻击有哪些类型"><span class="nav-number">14.5.</span> <span class="nav-text">5. XSS攻击有哪些类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-如何防御XSS攻击"><span class="nav-number">14.6.</span> <span class="nav-text">6. 如何防御XSS攻击</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -1291,13 +1823,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">115k</span>
+    <span title="站点总字数">125k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:44</span>
+    <span title="站点阅读时长">1:54</span>
 </div>
 
         
